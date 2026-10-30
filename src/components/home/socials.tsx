@@ -11,6 +11,10 @@ const galleryImages = [
   "/img/IMG_5656-min.jpg",
   "/img/IMG_5657-min.jpg",
   "/img/IMG_5658-min.jpg",
+  "/img/IMG_5660-min.jpg",
+  "/img/IMG_5659-min.jpg",
+  "/img/IMG_5662-min.jpg",
+  "/img/IMG_5661-min.jpg",
 ];
 
 export function SocialsSection() {

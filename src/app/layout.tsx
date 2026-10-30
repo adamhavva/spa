@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./hiatus.css";
+import "./custom.css";
 import "./kama.css";
 import { site } from "@/data/content";
 

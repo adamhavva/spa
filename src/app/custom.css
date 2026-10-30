@@ -1,0 +1,452 @@
+
+
+/* Make text look crisper and more legible in all browsers */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+	}
+  
+/* RWD for Variables */
+
+/* Tablet */
+@media screen and (max-width: 991px) {
+	:root { 
+  	--utilities--padding-global: 2.5rem; 
+    --utilities--padding-global-negative: -2.5rem;
+    --utilities--section-padding-global: 4rem;
+    --utilities--gap-global: 1.5rem;
+    --button--label-size: 0.875rem;
+    --button--label-line-height: 1.05rem;
+    --header-l--size: 1.625rem;
+    --header-l--line-height: 2rem;
+    --typography--caption-s-size: 0.75rem;
+    --typography--caption-s-line-height: 1.2rem;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+	:root { 
+  	--utilities--padding-global: 1.5rem; 
+    --utilities--padding-global-negative: -1.5rem;
+    --utilities--section-padding-global: 3rem;
+    --utilities--gap-global: 1rem;
+   }
+}
+
+/* End of RWD for Variables */
+
+/*width*/
+	.articles-mask::-webkit-scrollbar, .slider-mask::-webkit-scrollbar {
+		display: none !important;
+		/*height:0.3rem;*/
+		}
+
+/*visible desktop scroll*/
+	.slider-mask.is-brands::-webkit-scrollbar {
+		display: flex !important;
+		height:0.3rem;
+		}
+	.slider-mask.is-brands::-webkit-scrollbar-track {
+		background: var(--base-color-neutral--light-gray-02);
+		margin-left: var(--utilities--padding-global);
+		margin-right: var(--utilities--padding-global);
+		}
+	.slider-mask.is-brands::-webkit-scrollbar-thumb {
+		background:var(--base-color-neutral--gray-01);
+		border-radius:70px;
+		}
+
+	.cart-items-list::-webkit-scrollbar {
+  display:none !important;
+  	width: 0.3rem;
+  }
+ /* .cart-items-list::-webkit-scrollbar-track {
+  	background: var(--base-color-neutral--light-gray-02);
+  }
+  .cart-items-list::-webkit-scrollbar-thumb {
+  	background:var(--base-color-neutral--gray-01);
+		border-radius:70px;	
+  }
+*/
+/* Focus state style for keyboard navigation for the focusable elements */
+*[tabindex]:focus-visible,
+  input[type="file"]:focus-visible {
+   outline: 0.125rem solid #4d65ff;
+   outline-offset: 0.125rem;
+		}
+
+/* Set color style to inherit */
+	.inherit-color * {
+		color: inherit;
+		}
+
+/* Get rid of top margin on first element in any rich text element */
+.w-richtext > :not(div):first-child, .w-richtext > div:first-child > :first-child {
+		margin-top: 0 !important;
+		}
+
+/* Get rid of bottom margin on last element in any rich text element */
+.w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
+		margin-bottom: 0 !important;
+		}
+
+
+/* Make sure containers never lose their center alignment */
+.container-medium,.container-small, .container-large {
+		margin-right: auto !important;
+		margin-left: auto !important;
+		}
+
+a,
+.w-input,
+.w-select,
+.w-tab-link,
+.w-nav-link,
+.w-dropdown-btn,
+.w-dropdown-toggle,
+.w-dropdown-link {
+  color: inherit;
+  text-decoration: inherit;
+  font-size: inherit;
+	}
+
+/* Apply "..." after 3 lines of text */
+.text-style-3lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	}
+
+/* Apply "..." after 2 lines of text */
+.text-style-2lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	}
+  
+.text-style-1line {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	}
+
+/* Adds inline flex display */
+.display-inlineflex {
+ 	 display: inline-flex;
+		}
+
+/* These classes are never overwritten */
+.hide {
+  	display: none !important;
+		}
+    
+@media screen and (min-width: 992px) {
+.padding-global.is-double {
+    padding-left: calc(var(--utilities--padding-global) * 2);
+    padding-right: calc(var(--utilities--padding-global) * 2);
+    }
+}
+    
+.w-input.e-mail-input {
+    border: none;
+    border-bottom: 1px solid #000;
+    }
+.product_list.product-page.w-dyn-items :nth-child(n+5) {
+ 		display: none;
+		}
+.product_list.is-home.w-dyn-items :nth-child(n+5) {
+		display: none;
+		}
+/*.slider_offers-slides.w-dyn-items :nth-child(n+4) {
+		display: none;
+		}*/
+ .product_list.is-shop.w-dyn-items :nth-child(n+9) {
+		display: none;
+		}
+
+
+@media screen and (max-width: 1727px) {
+	.hide-below-1920 {
+		display: none !important;
+    }
+	.text_wrapp-outer {
+		aspect-ratio: 2 / 1 ;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+	.location-page_header {
+  	flex-flow: column !important;
+  	}
+	.location_data {
+  	margin-left: 0rem;
+    }
+}
+
+
+@media screen and (max-width: 1279px) {
+	.show-until-1280, .extra-space {
+    display: none !important;
+    }
+	.max-width-70 {
+    width: 100% !important;
+    }
+	.margin-right-64 {
+    margin-right: 0px !important;
+    }
+	.tablet-title {
+    display: flex !important;
+  	}
+  .grid_signature-packages {
+  	grid-template-columns: 1fr 1fr;
+  	}
+}
+
+@media screen and (max-width: 991px) {
+	.padding.global {
+		padding-left: calc(var(--utilities--padding-global) / 2);
+    padding-right: calc(var(--utilities--padding-global) / 2);
+  	}
+	.hide {
+		display: none !important;
+		}
+	.no-padding {
+    padding-left: 0 !important;
+    padding-right: 0!important;
+  	}
+	.footer_content {
+    grid-column-gap: 2.5rem;
+  	}
+	.footer-links-grid {
+    grid-column-gap: 0.5rem;
+		}
+	.product_list.product-page.w-dyn-items :nth-child(n+4) {
+		display: none;
+    }
+	.product_list.is-home.w-dyn-items :nth-child(n+4) {
+		display: none;
+		}
+	.product_list.is-shop.w-dyn-items :nth-child(n+7) {
+		display: none;
+		}
+	.slider_slide.is-locations-grid.locations-home.w-dyn-items :nth-child(n+4) {
+ 		display:none;
+       }
+	.hide-smaller-992 {
+		display: none;
+ 			 }
+	.mobile-navi-bar {
+		color: var(--white);
+    background-color: rgba(255, 255, 255, 0);
+  	}
+ 	.only-mobile, .mobile {
+ 			 padding: 0px !important;
+ 			 margin-left: auto!important;
+ 			 border: none !important;
+  } 
+  .newsletter_component {
+ 			 flex-direction: column;
+  }
+.padding-global.is-double, .padding-global.is-double.padding-section-global {
+	padding-left: calc(var(--utilities--padding-global) * 4);
+	padding-right: calc(var(--utilities--padding-global) * 4);
+}
+	.tab-item_buttons > * {
+		flex: 1;
+}
+	.slider-mask.is-brands::-webkit-scrollbar {
+		display: none !important;
+}
+}
+
+@media screen and (min-width: 768px) {
+	.hide-above-767 {
+		display: none !important;
+}
+}
+
+@media screen and (max-width: 767px) {
+
+    .hide-mobile-landscape, .hide-mobile{
+      display: none !important;
+    }
+    .mobile-title {
+    width: 18.75rem;
+    }
+    .banner-wrapper {
+    flex-direction: column;
+    }
+    .show-until-767 {
+    display: none !important;
+    }
+  .slider_slide.is-locations-grid.locations-home.w-dyn-items :nth-child(n+4) {
+       	display: flex !important;
+       }
+        
+ .padding-global.is-double, .padding-global.is-double.padding-section-global {
+  padding-left: var(--utilities--padding-global) !important;
+  padding-right: var(--utilities--padding-global) !important;
+  }
+  .show-mobile {
+  display: flex !important;
+  }
+
+}
+
+@media screen and (max-width: 479px) {
+    .hide-mobile{
+    display: none !important;
+    } 
+}
+@media screen and (min-width: 391px) {
+	 .only-mobile {
+ 		display: none !important;
+		}
+}
+.margin-0 {
+  margin: 0rem !important;
+}
+  
+.padding-0 {
+  padding: 0rem !important;
+}
+
+.spacing-clean {
+padding: 0rem !important;
+margin: 0rem !important;
+}
+
+.padding-top {
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+.padding-right {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+.padding-bottom {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+  
+.padding-left {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+
+.padding-horizontal {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+  
+.padding-vertical {
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+button {
+	background-color: unset;
+  padding: unset;
+}
+
+input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+  border-radius: 0;
+}
+
+.slider_mask::-webkit-scrollbar {
+	display: none;
+}
+
+.slider_mask {
+	-ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+  border-radius: 0;
+}
+
+  .navigation_link::before,
+  .navigation_link::after {
+    content: '';
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .navigation_link::before {
+    content: '(';
+    left: -0.75em; /* Adjust based on your desired spacing */
+  }
+
+  .navigation_link::after {
+    content: ')';
+    right: -0.75em; /* Adjust based on your desired spacing */
+  }
+
+  .navigation_link:hover::before,
+  .navigation_link:hover::after,
+  .navigation_link.w--current::before,
+  .navigation_link.w--current::after {
+    opacity: 1;
+  }
+  
+.w-dropdown-toggle {
+	white-space: normal;
+}
+
+.w-tab-link {
+	background-color: unset;
+}
+
+.w-tab-link.w--current {
+	background-color: unset;
+}
+
+.w-dropdown {
+	margin-left: unset;
+  margin-right: unset;
+}
+
+[data-tag="list"] > div:first-child > [data-tag="dot"] {
+    display: none;
+}
+
+button.button:disabled {
+    background: var(--base-color-neutral--cool-gray-03);
+    border-color: var(--base-color-neutral--cool-gray-04) !important;
+    color: rgba(255, 255, 255, 0.5); /* White at 50% opacity */
+    cursor: not-allowed;
+    pointer-events: none; /* Prevent hover and other pointer events */
+}
+
+/* Ensure that hover states don't affect disabled buttons */
+button.button:disabled:hover {
+    background: var(--base-color-neutral--cool-gray-03);
+    border-color: var(--base-color-neutral--cool-gray-04);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+}
+
+.w-dyn-empty {
+	padding: 0;
+}
+

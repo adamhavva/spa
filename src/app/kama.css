@@ -159,13 +159,6 @@ video {
   text-align: left;
 }
 
-.footer-locations {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing--small);
-  padding: 0 0 5rem;
-}
-
 .text-style-1line {
   white-space: nowrap;
   overflow: hidden;
@@ -440,12 +433,6 @@ video {
 }
 
 /* ---- Responsive ------------------------------------------------------ */
-
-@media screen and (max-width: 991px) {
-  .footer-locations {
-    padding-bottom: var(--spacing--xlarge);
-  }
-}
 
 @media screen and (max-width: 767px) {
   .page-hero {

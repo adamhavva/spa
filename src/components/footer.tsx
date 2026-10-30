@@ -1,29 +1,34 @@
 import Link from "next/link";
-import { Logo } from "./logo";
 import { ArrowRight, Facebook, Instagram, TikTok, WhatsApp } from "./icons";
+import { NewsletterForm } from "./forms/newsletter-form";
 import { footerLinks, footerTagline, locations, newsletter, site } from "@/data/content";
 
 export function Footer() {
   return (
-    <footer className="section_footer">
+    <footer id="footer" className="section_footer">
       <div className="footer">
         <div className="container-large">
           <div className="newsletter_component">
             <div className="sizing-grow layout-align-center">
-              <h3 className="header-l">{newsletter.title}</h3>
+              <h3 className="header-l">
+                Become a KAMA Member for Rp 1.5jt a month
+              </h3>
             </div>
             <div className="button-group margin-left-auto-desktop">
-              <a
-                href={site.phoneHref}
+              <Link
+                href="/membership"
                 className="button is-tertiary is-icon w-inline-block"
               >
-                <div>WhatsApp Us</div>
+                <div>Learn More</div>
                 <div className="button_icon w-embed">
                   <ArrowRight />
                 </div>
-              </a>
-              <Link href="/contact" className="button is-secondary is-icon is-dark sizing-grow w-inline-block">
-                <div>Book Now</div>
+              </Link>
+              <Link
+                href="/membership"
+                className="button is-secondary is-icon is-dark sizing-grow w-inline-block"
+              >
+                <div>Join KAMA Now</div>
                 <div className="button_icon w-embed">
                   <ArrowRight />
                 </div>
@@ -65,13 +70,9 @@ export function Footer() {
                   </a>
                 </div>
               </div>
-              <h3 className="header-m text-style-italic">{footerTagline}</h3>
-            </div>
-
-            <div className="footer_header">
-              <Link href="/" aria-label="KAMA Spa home">
-                <Logo variant="dark" />
-              </Link>
+              <div className="footer_header">
+                <h3 className="header-m text-style-italic">{footerTagline}</h3>
+              </div>
             </div>
 
             <div className="footer_content">
@@ -81,6 +82,7 @@ export function Footer() {
                   <h4 className="header-m">{newsletter.title}</h4>
                   <div className="body-m opacity-50">{newsletter.body}</div>
                 </div>
+                <NewsletterForm />
               </div>
 
               <div className="footer-links-grid_wrapp">
@@ -99,33 +101,49 @@ export function Footer() {
                       </div>
                     </div>
                   ))}
+                  <div className="footer-links_wrapper">
+                    <div className="eyebrow-s text-style-allcaps text-weight-bold">
+                      Locations
+                    </div>
+                    <div className="layout-row gap-xxsmall">
+                      <Link href="/locations" className="footer_link caption-s">
+                        All Locations
+                      </Link>
+                      {locations.map((loc) => (
+                        <Link
+                          key={loc.slug}
+                          href={`/locations#${loc.slug}`}
+                          className="footer_link w-inline-block"
+                        >
+                          <div className="caption-s">
+                            {loc.name} | {loc.area}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
+      <div className="section_footer-bottom">
+        <div className="container-large">
           <div className="footer-bottom">
-            <div className="layout-row gap-medium">
-              <div className="caption-s">© 2026 KAMA Spa. All rights reserved.</div>
+            <div className="layout-column">
+              <div className="eyebrow-s text-style-allcaps">
+                © 2026 KAMA Spa. All rights reserved.
+              </div>
             </div>
-            <div className="layout-row gap-medium">
-              <Link href="/privacy-policy" className="caption-s text-style-link">
+            <div className="layout-column gap-medium margin-left-auto">
+              <Link href="/privacy-policy" className="caption-s">
                 Privacy Policy
               </Link>
-              <Link href="/terms-conditions" className="caption-s text-style-link">
-                Terms & Conditions
+              <Link href="/terms-conditions" className="caption-s">
+                Terms &amp; Conditions
               </Link>
-            </div>
-          </div>
-
-          <div className="footer-locations">
-            <div className="eyebrow-s text-style-allcaps">Locations</div>
-            <div className="layout-row gap-medium">
-              {locations.map((loc) => (
-                <Link key={loc.slug} href={`/locations#${loc.slug}`} className="caption-s">
-                  {loc.name} | {loc.area}
-                </Link>
-              ))}
             </div>
           </div>
         </div>

@@ -18,9 +18,7 @@ export function Hero() {
                 <br />
               </h6>
               <div className="spacer-large" />
-              <Link href="/menu" className="body-m">
-                Explore our treatments
-              </Link>
+              <a href="#home_whats_new" className="body-m" aria-label="See what's new" />
             </div>
 
             <div className="home_hero_membership">
@@ -46,16 +44,24 @@ export function Hero() {
             </div>
 
             <div className="home_hero_asset">
-              <div className="background-video w-background-video w-background-video-atom">
+              <div
+                className="background-video w-background-video w-background-video-atom"
+                data-poster-url="/img/hero-poster.jpg"
+                data-video-urls="/img/hero.mp4"
+                data-autoplay="true"
+                data-loop="true"
+                data-wf-ignore="true"
+              >
                 <video
                   autoPlay
                   loop
                   muted
                   playsInline
-                  poster="/img/hero-poster.jpg"
-                  style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                  data-wf-ignore="true"
+                  data-object-fit="cover"
+                  style={{ backgroundImage: "url(/img/hero-poster.jpg)" }}
                 >
-                  <source src="/img/hero.mp4" type="video/mp4" />
+                  <source src="/img/hero.mp4" type="video/mp4" data-wf-ignore="true" />
                 </video>
               </div>
               <div className="hero-overlay is-coral-circle" />
