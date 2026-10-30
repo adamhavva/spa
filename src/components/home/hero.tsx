@@ -7,42 +7,7 @@ export function Hero() {
     <header className="section_hero">
       <div className="padding-global no-padding">
         <div className="container-large">
-          <div className="home_hero_container">
-            <div className="text-center_wrapper">
-              <h5 className="header-xs">
-                <Link href="/menu">Massage • Spa • Corporate Wellness</Link>
-              </h5>
-              <div className="spacer-medium" />
-              <h6 className="header-xxl">
-                Relax. Refresh. (Repeat).
-                <br />
-              </h6>
-              <div className="spacer-large" />
-              <a href="#home_whats_new" className="body-m" aria-label="See what's new" />
-            </div>
-
-            <div className="home_hero_membership">
-              <div className="membership_text-wrap">
-                <div className="eyebrow-s text-style-allcaps">
-                  <Link href="/about">
-                    <strong>WELCOME TO KAMA SPA</strong>
-                  </Link>
-                </div>
-                <div className="caption-m">
-                  <Link href="/menu">
-                    Your premier destination for massage and wellness services in South
-                    Jakarta. Joyful rejuvenation awaits.
-                  </Link>
-                </div>
-              </div>
-              <Link href="/contact" className="button is-text w-inline-block">
-                <div>Book Now</div>
-                <div className="button_icon w-embed">
-                  <ArrowRight />
-                </div>
-              </Link>
-            </div>
-
+          <div className="hero-viewport">
             <div className="home_hero_asset">
               <img
                 src="/img/kama/01-incense.jpg"
@@ -52,6 +17,43 @@ export function Hero() {
               <div className="hero-overlay is-coral-circle" />
               <div className="hero-overlay is-blue-circle" />
               <div className="hero-overlay" />
+            </div>
+
+            <div className="home_hero_container">
+              <div className="text-center_wrapper">
+                <h5 className="header-xs">
+                  <Link href="/menu">Massage • Spa • Corporate Wellness</Link>
+                </h5>
+                <div className="spacer-medium" />
+                <h6 className="header-xxl">
+                  Relax. Refresh. (Repeat).
+                  <br />
+                </h6>
+                <div className="spacer-large" />
+                <a href="#home_whats_new" className="body-m" aria-label="See what's new" />
+              </div>
+
+              <div className="home_hero_membership">
+                <div className="membership_text-wrap">
+                  <div className="eyebrow-s text-style-allcaps">
+                    <Link href="/about">
+                      <strong>WELCOME TO KAMA SPA</strong>
+                    </Link>
+                  </div>
+                  <div className="caption-m">
+                    <Link href="/menu">
+                      Your premier destination for massage and wellness services in South
+                      Jakarta. Joyful rejuvenation awaits.
+                    </Link>
+                  </div>
+                </div>
+                <Link href="/contact" className="button is-text w-inline-block">
+                  <div>Book Now</div>
+                  <div className="button_icon w-embed">
+                    <ArrowRight />
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
