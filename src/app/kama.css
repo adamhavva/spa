@@ -7,25 +7,27 @@
 /* ---- Design tokens -------------------------------------------------- */
 
 /*
- * Palette extracted from references/Menu KAMA Spa 2026.pdf:
- *   cocoa  #805138  (deep brown background & headings)
- *   cream  #EFE8DE  (speckled paper background)
- *   clay   #D2C2B9  (soft accent / borders)
- *   ink    #884E32  (text on cream)
+ * Palette extracted from references/referensi warna.pdf (KAMA
+ * Corporate Wellness deck — the colour reference for the site):
+ *   espresso #603009  (deep brown background & headings)
+ *   caramel  #96745B  (warm mid brown / tan accents)
+ *   cream    #FDECDA  (peachy card cream)
+ *   paper    #EFE8DE  (speckled paper background)
  */
 
 :root {
-  --kama-cocoa: #805138;
-  --kama-cocoa-ink: #6e4327;
+  --kama-cocoa: #603009;
+  --kama-cocoa-ink: #4f2807;
   --kama-cream: #efe8de;
   --kama-cream-soft: #f6f1e9;
-  --kama-clay: #d2c2b9;
+  --kama-cream-card: #fdedda;
+  --kama-clay: #cdaf96;
 
   /* legacy aliases (kept for existing rules) */
-  --kama-navy: #6e4327;
-  --kama-navy-blackish: #3a2a1d;
-  --kama-coral: #805138;
-  --kama-blue: #a98f7b;
+  --kama-navy: #4f2807;
+  --kama-navy-blackish: #2a1604;
+  --kama-coral: #603009;
+  --kama-blue: #9a745b;
   --kama-blue-60: #cbb7a8;
   --kama-blue-80: #bda292;
   --kama-periwinkle-50: #f1eadd;
@@ -42,40 +44,40 @@
   --text-color--text-primary: var(--kama-cocoa);
   --text-color--text-secondary: var(--kama-cocoa-ink);
   --base-color-deep-navy--deep-navy-100: var(--kama-cocoa);
-  --base-color-deep-navy--deep-navy-90: #744b33;
-  --base-color-deep-navy--deep-navy-80: #67432c;
-  --base-color-deep-navy--deep-navy-70: #5a3b26;
-  --base-color-deep-navy--deep-navy-60: #4d3320;
-  --base-color-deep-navy--deep-navy-50: #412b1b;
-  --base-color-deep-navy--blackish: #2f1f12;
+  --base-color-deep-navy--deep-navy-90: #56300f;
+  --base-color-deep-navy--deep-navy-80: #4d2a0d;
+  --base-color-deep-navy--deep-navy-70: #44250b;
+  --base-color-deep-navy--deep-navy-60: #3b2009;
+  --base-color-deep-navy--deep-navy-50: #331b08;
+  --base-color-deep-navy--blackish: #2a1604;
 
   /* backgrounds */
   --background-color--background-primary: #f6f1e9;
   --background-color--background-secondary: #f6f1e9;
   --background-color--background-alternate: var(--kama-cream);
-  --background-color--background-tertiary: #2f1f12;
+  --background-color--background-tertiary: #2a1604;
   --background-color--button: var(--kama-cocoa);
 
   /* borders */
   --border-color--border-primary: var(--kama-cocoa);
-  --border-color--border-secondary: #a98f7b;
+  --border-color--border-secondary: #9a745b;
   --border-color--border-alternate: #faf6ef;
 
-  /* coral ramp → cocoa ramp (lighter as the number decreases) */
-  --base-color-corals--coral-100: #805138;
-  --base-color-corals--coral-90: #8f6049;
-  --base-color-corals--coral-80: #a1745e;
-  --base-color-corals--coral-70: #b28a75;
-  --base-color-corals--coral-60: #b78f7c;
-  --base-color-corals--coral-50: #c0a08e;
-  --base-color-corals--coral-40: #cdb6a6;
-  --base-color-corals--coral-30: #d9c8bc;
-  --base-color-corals--coral-20: #e3d8ce;
-  --base-color-corals--coral-10: #ece3da;
+  /* coral ramp → espresso ramp (lighter as the number decreases) */
+  --base-color-corals--coral-100: #603009;
+  --base-color-corals--coral-90: #74431c;
+  --base-color-corals--coral-80: #8a5f38;
+  --base-color-corals--coral-70: #96745b;
+  --base-color-corals--coral-60: #a5836b;
+  --base-color-corals--coral-50: #b6957f;
+  --base-color-corals--coral-40: #cbb49e;
+  --base-color-corals--coral-30: #dcccc0;
+  --base-color-corals--coral-20: #e6ded2;
+  --base-color-corals--coral-10: #efe8de;
 
   /* hiatus blue ramp → warm tan ramp */
-  --base-color-hiatus-blue--hiatus-blue-100: #9c7b5e;
-  --base-color-hiatus-blue--hiatus-blue-90: #a88b70;
+  --base-color-hiatus-blue--hiatus-blue-100: #8a5f38;
+  --base-color-hiatus-blue--hiatus-blue-90: #9a745b;
   --base-color-hiatus-blue--hiatus-blue-80: #b49a82;
   --base-color-hiatus-blue--hiatus-blue-70: #c0a994;
   --base-color-hiatus-blue--hiatus-blue-60: #ccb7a6;
@@ -115,7 +117,7 @@
     104deg,
     #e2d6c900,
     #f6f1e9cc 50%,
-    #80513899
+    #60300999
   );
 }
 @media screen and (max-width: 767px) {
@@ -573,4 +575,97 @@ video {
     padding-top: 9rem;
     padding-bottom: var(--spacing--huge);
   }
+}
+
+/* ---- Header layout: nav links left, logo + actions right -------------- */
+
+.navigation_container {
+  grid-template-columns: 1fr auto;
+}
+
+/* ---- Floating WhatsApp button ---------------------------------------- */
+
+.whatsapp-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 50;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 999px;
+  background-color: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px #60300933;
+  transition: transform 0.15s ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-2px);
+}
+
+.whatsapp-float svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+/* ---- Corporate page split layouts ------------------------------------ */
+
+.corporate-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing--xxxlarge);
+  align-items: center;
+}
+
+.corporate-split.split-3 {
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+}
+
+@media screen and (max-width: 991px) {
+  .corporate-split,
+  .corporate-split.split-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Menu book gallery ----------------------------------------------- */
+
+.menu-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing--large);
+}
+
+@media screen and (max-width: 991px) {
+  .menu-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .menu-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.menu-gallery_item {
+  display: block;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 24px #6030091f;
+  transition: transform 0.15s ease;
+}
+
+.menu-gallery_item:hover {
+  transform: translateY(-4px);
+}
+
+.menu-gallery_item img {
+  display: block;
+  width: 100%;
+  height: auto;
 }

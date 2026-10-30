@@ -24,6 +24,14 @@ const categoryLabels: Record<string, string> = {
   Bath: "Bath",
 };
 
+const menuBookPages = Array.from(
+  { length: 10 },
+  (_, i) => ({
+    n: i + 1,
+    src: `/img/kama/menu/menu-page-${String(i + 1).padStart(2, "0")}.jpg`,
+  }),
+);
+
 export default function MenuPage() {
   const massage = treatments.filter((t) => t.category === "Massage");
   const body = treatments.filter((t) => t.category === "Body");
@@ -170,6 +178,49 @@ export default function MenuPage() {
                   <ArrowRight />
                 </div>
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Menu book gallery */}
+        <section id="gallery" className="padding-section-global home-locations">
+          <div className="padding-global">
+            <div className="container-large">
+              <div className="section-header">
+                <div className="eyebrow-s text-style-allcaps">Menu Book</div>
+                <h2 className="header-l">Galeri Menu KAMA Spa 2026</h2>
+                <p className="body-m text-color-gray">
+                  Jelajahi menu lengkap kami sebagaimana tampil di menu book resmi — atau
+                  unduh PDF-nya untuk dibawa pulang.
+                </p>
+              </div>
+
+              <div className="menu-gallery">
+                {menuBookPages.map((page) => (
+                  <a
+                    key={page.src}
+                    href="/img/kama/menu/kama-menu-2026.pdf"
+                    target="_blank"
+                    rel="noopener"
+                    className="menu-gallery_item"
+                    aria-label={`Open menu book page ${page.n}`}
+                  >
+                    <img src={page.src} alt={`KAMA Spa menu book — page ${page.n}`} loading="lazy" />
+                  </a>
+                ))}
+              </div>
+
+              <div className="spacer-large" />
+              <a
+                href="/img/kama/menu/kama-menu-2026.pdf"
+                download
+                className="button is-secondary is-icon w-inline-block"
+              >
+                <div>Download Menu (PDF)</div>
+                <div className="button_icon w-embed">
+                  <ArrowRight />
+                </div>
+              </a>
             </div>
           </div>
         </section>

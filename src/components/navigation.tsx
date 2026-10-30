@@ -119,15 +119,14 @@ export function Navigation() {
                     </button>
                   </div>
 
-                  <Link
-                    href="/"
-                    aria-current="page"
-                    className="navigation_logo w-inline-block w--current"
-                  >
-                    <Logo className="code-embed-2" />
-                  </Link>
-
                   <div className="navigation_actions">
+                    <Link
+                      href="/"
+                      aria-current="page"
+                      className="navigation_logo w-inline-block w--current"
+                    >
+                      <Logo className="code-embed-2" />
+                    </Link>
                     <div className="navigation_actions_tools">
                       <Link
                         href="/menu"
@@ -148,9 +147,6 @@ export function Navigation() {
                         </div>
                       </a>
                     </div>
-                    <Link href="/contact" className="button is-small hide-mobile">
-                      <div>Book Now</div>
-                    </Link>
                   </div>
                 </div>
               </div>

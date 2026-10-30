@@ -11,7 +11,7 @@ export function Logo({
   className?: string;
   variant?: "dark" | "light";
 }) {
-  const fill = variant === "light" ? "#FFFFFF" : "#1C174A";
+  const fill = variant === "light" ? "#FFFFFF" : "#603009";
 
   return (
     <svg
