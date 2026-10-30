@@ -44,26 +44,11 @@ export function Hero() {
             </div>
 
             <div className="home_hero_asset">
-              <div
-                className="background-video w-background-video w-background-video-atom"
-                data-poster-url="/img/hero-poster.jpg"
-                data-video-urls="/img/hero.mp4"
-                data-autoplay="true"
-                data-loop="true"
-                data-wf-ignore="true"
-              >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  data-wf-ignore="true"
-                  data-object-fit="cover"
-                  style={{ backgroundImage: "url(/img/hero-poster.jpg)" }}
-                >
-                  <source src="/img/hero.mp4" type="video/mp4" data-wf-ignore="true" />
-                </video>
-              </div>
+              <img
+                src="/img/kama/01-incense.jpg"
+                alt=""
+                className="image-cover"
+              />
               <div className="hero-overlay is-coral-circle" />
               <div className="hero-overlay is-blue-circle" />
               <div className="hero-overlay" />
@@ -121,7 +106,7 @@ export function MembershipBanner() {
           <div className="promo-card_component is-home-wrap specials">
             <div className="promo-card_content is-asset is-home-wrap specials">
               <img
-                src="/img/banner-img.webp"
+                src="/img/kama/07-flower-bowl.jpg"
                 loading="lazy"
                 alt="KAMA Spa treatment room"
                 className="image-cover custom-ratio is-home-img"

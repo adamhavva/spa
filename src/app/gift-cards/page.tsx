@@ -137,7 +137,7 @@ export default function GiftCardsPage() {
                   <div className="sizing-grow">
                     <div className="page-hero_image image-container">
                       <img
-                        src="/img/the-heights-retail-p-800.jpg"
+                        src="/img/kama/01-incense.jpg"
                         alt="KAMA Spa gift card packaging"
                         className="image-cover"
                         loading="lazy"

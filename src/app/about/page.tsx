@@ -131,7 +131,7 @@ export default function AboutPage() {
           </div>
           <div className="image-container aspect-ratio-1-3">
             <img
-              src="/img/We_We_Are_Image.webp"
+              src="/img/kama/06-bride.jpg"
               alt="KAMA Spa interior"
               className="image-cover fit-top-45"
               loading="lazy"

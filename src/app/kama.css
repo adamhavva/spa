@@ -6,17 +6,151 @@
 
 /* ---- Design tokens -------------------------------------------------- */
 
+/*
+ * Palette extracted from references/Menu KAMA Spa 2026.pdf:
+ *   cocoa  #805138  (deep brown background & headings)
+ *   cream  #EFE8DE  (speckled paper background)
+ *   clay   #D2C2B9  (soft accent / borders)
+ *   ink    #884E32  (text on cream)
+ */
+
 :root {
-  --kama-navy: #1a174b;
-  --kama-navy-blackish: #19174b;
-  --kama-coral: #ee7868;
-  --kama-blue: #5e93db;
-  --kama-blue-60: #9ebee9;
-  --kama-blue-80: #7ea9e2;
-  --kama-periwinkle-50: #e4eaf6;
-  --kama-periwinkle-100: #c9d5ed;
-  --kama-gray-01: #f6f7f9;
-  --kama-gray-03: #949baa;
+  --kama-cocoa: #805138;
+  --kama-cocoa-ink: #6e4327;
+  --kama-cream: #efe8de;
+  --kama-cream-soft: #f6f1e9;
+  --kama-clay: #d2c2b9;
+
+  /* legacy aliases (kept for existing rules) */
+  --kama-navy: #6e4327;
+  --kama-navy-blackish: #3a2a1d;
+  --kama-coral: #805138;
+  --kama-blue: #a98f7b;
+  --kama-blue-60: #cbb7a8;
+  --kama-blue-80: #bda292;
+  --kama-periwinkle-50: #f1eadd;
+  --kama-periwinkle-100: #d2c2b9;
+  --kama-gray-01: #f6f1ea;
+  --kama-gray-03: #93837a;
+}
+
+/* ---- Hiatus design-system remap to KAMA palette ---------------------- */
+/* Loaded after hiatus.css, so these override the Webflow tokens. */
+
+:root {
+  /* ink & text */
+  --text-color--text-primary: var(--kama-cocoa);
+  --text-color--text-secondary: var(--kama-cocoa-ink);
+  --base-color-deep-navy--deep-navy-100: var(--kama-cocoa);
+  --base-color-deep-navy--deep-navy-90: #744b33;
+  --base-color-deep-navy--deep-navy-80: #67432c;
+  --base-color-deep-navy--deep-navy-70: #5a3b26;
+  --base-color-deep-navy--deep-navy-60: #4d3320;
+  --base-color-deep-navy--deep-navy-50: #412b1b;
+  --base-color-deep-navy--blackish: #2f1f12;
+
+  /* backgrounds */
+  --background-color--background-primary: #f6f1e9;
+  --background-color--background-secondary: #f6f1e9;
+  --background-color--background-alternate: var(--kama-cream);
+  --background-color--background-tertiary: #2f1f12;
+  --background-color--button: var(--kama-cocoa);
+
+  /* borders */
+  --border-color--border-primary: var(--kama-cocoa);
+  --border-color--border-secondary: #a98f7b;
+  --border-color--border-alternate: #faf6ef;
+
+  /* coral ramp → cocoa ramp (lighter as the number decreases) */
+  --base-color-corals--coral-100: #805138;
+  --base-color-corals--coral-90: #8f6049;
+  --base-color-corals--coral-80: #a1745e;
+  --base-color-corals--coral-70: #b28a75;
+  --base-color-corals--coral-60: #b78f7c;
+  --base-color-corals--coral-50: #c0a08e;
+  --base-color-corals--coral-40: #cdb6a6;
+  --base-color-corals--coral-30: #d9c8bc;
+  --base-color-corals--coral-20: #e3d8ce;
+  --base-color-corals--coral-10: #ece3da;
+
+  /* hiatus blue ramp → warm tan ramp */
+  --base-color-hiatus-blue--hiatus-blue-100: #9c7b5e;
+  --base-color-hiatus-blue--hiatus-blue-90: #a88b70;
+  --base-color-hiatus-blue--hiatus-blue-80: #b49a82;
+  --base-color-hiatus-blue--hiatus-blue-70: #c0a994;
+  --base-color-hiatus-blue--hiatus-blue-60: #ccb7a6;
+  --base-color-hiatus-blue--hiatus-blue-50: #d6c3b3;
+  --base-color-hiatus-blue--hiatus-blue-40: #e0cfc0;
+  --base-color-hiatus-blue--hiatus-blue-30: #e8dbce;
+  --base-color-hiatus-blue--hiatus-blue-20: #efe6dc;
+  --base-color-hiatus-blue--hiatus-blue-10: #f5efe7;
+
+  /* periwinkle ramp → cream ramp */
+  --base-color-periwinkle--periwinkle-100: #e2d6c9;
+  --base-color-periwinkle--periwinkle-90: #e6dbcf;
+  --base-color-periwinkle--periwinkle-80: #e9e0d5;
+  --base-color-periwinkle--periwinkle-70: #ece4da;
+  --base-color-periwinkle--periwinkle-60: #efe8df;
+  --base-color-periwinkle--periwinkle-50: #f2ebe2;
+  --base-color-periwinkle--periwinkle-40: #f5efe7;
+  --base-color-periwinkle--periwinkle-30: #f7f3ec;
+  --base-color-periwinkle--periwinkle-20: #f9f6f0;
+  --base-color-periwinkle--periwinkle-10: #fbf9f4;
+
+  /* neutrals → warm grays */
+  --base-color-neutral--cool-gray-01: #f6f1e9;
+  --base-color-neutral--cool-grey-02: #eee6db;
+  --base-color-neutral--cool-gray-03: #93837a;
+  --base-color-neutral--cool-gray-04: #7d6c60;
+  --base-color-neutral--bluish-gray-100: #d2c2b9;
+  --base-color-neutral--bluish-gray-80: #dbd2c7;
+  --transparent-color--neutrals-cool-gray-03: #93837a80;
+  --base-color-functionals--hiatus-hover-blue: #e2d6c9;
+}
+
+/* Literal (non-token) gradients & backgrounds in hiatus.css that must
+ * follow the KAMA PDF palette as well. */
+.bkg-coral-gradient {
+  background-image: linear-gradient(
+    104deg,
+    #e2d6c900,
+    #f6f1e9cc 50%,
+    #80513899
+  );
+}
+@media screen and (max-width: 767px) {
+  .bkg-coral-gradient {
+    background-image: linear-gradient(
+      126deg,
+      #e2d6c900,
+      #f6f1e9cc 50%,
+      var(--base-color-corals--coral-100)
+    );
+  }
+  .section_counter-banner {
+    background-color: var(--base-color-periwinkle--periwinkle-50);
+  }
+}
+
+/* hi-contrast literal backgrounds left over in hiatus.css */
+.home-locations,
+.padding-section-global.home-locations,
+.section_counter-banner,
+.text-field {
+  background-color: var(--kama-cream);
+}
+
+.form_input,
+.newsletter_dropdown {
+  background-color: #f6f1e9bf;
+}
+
+.badge.is-location {
+  background-color: var(--base-color-hiatus-blue--hiatus-blue-40);
+}
+
+.heading {
+  color: var(--kama-cocoa);
 }
 
 /* ---- Font faces ------------------------------------------------------ */

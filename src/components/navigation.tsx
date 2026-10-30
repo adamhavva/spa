@@ -41,14 +41,14 @@ const menuColumns = [
     ],
     highlights: [
       {
-        image: "/img/navbar-collection-1.avif",
+        image: "/img/kama/03-oil-bowl.jpg",
         badge: "new",
         eyebrow: "Just Rp 1.5jt a month",
         label: "Join KAMA Now",
         href: "/membership",
       },
       {
-        image: "/img/BANNER_IMG.webp",
+        image: "/img/kama/07-flower-bowl.jpg",
         badge: "gift",
         eyebrow: "Best. Gift. Ever.",
         label: "KAMA Gift Card",

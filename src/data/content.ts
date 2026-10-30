@@ -88,7 +88,7 @@ export const treatments: Treatment[] = [
       { duration: "90 min", price: "195k" },
       { duration: "120 min", price: "245k" },
     ],
-    image: "/img/hiatus-addison-location-hero-clean-wide-no-curb-tight-sign.jpg",
+    image: "/img/kama/02-bottle-shadows.jpg",
   },
   {
     kind: "treatment",
@@ -104,7 +104,7 @@ export const treatments: Treatment[] = [
       { duration: "90 min", price: "225k" },
       { duration: "120 min", price: "285k" },
     ],
-    image: "/img/Allen_RELAX_LOUNGE.jpg",
+    image: "/img/kama/01-incense.jpg",
   },
   {
     kind: "treatment",
@@ -116,7 +116,7 @@ export const treatments: Treatment[] = [
       "A focused recovery treatment designed for active bodies and everyday tension. Combining deep muscle release, targeted trigger-point pressure, assisted stretching, and a warm compress, helping to ease tight muscles, support mobility, and leave the body feeling lighter and restored.",
     note: "This treatment is not intended for injury treatment or rehabilitation.",
     prices: [{ duration: "75 min", price: "399k" }],
-    image: "/img/stone-oak-15.jpg",
+    image: "/img/kama/09-leaf-drop.jpg",
   },
   {
     kind: "treatment",
@@ -131,7 +131,7 @@ export const treatments: Treatment[] = [
       { duration: "60 min", price: "375k" },
       { duration: "90 min", price: "449k" },
     ],
-    image: "/img/Fort_Worth-min.jpg",
+    image: "/img/kama/03-oil-bowl.jpg",
   },
   {
     kind: "treatment",
@@ -146,7 +146,7 @@ export const treatments: Treatment[] = [
       { duration: "60 min", price: "375k" },
       { duration: "90 min", price: "449k" },
     ],
-    image: "/img/location6-min.jpg",
+    image: "/img/kama/04-turmeric-scrub.jpg",
   },
   {
     kind: "treatment",
@@ -161,7 +161,7 @@ export const treatments: Treatment[] = [
       { duration: "60 min", price: "375k" },
       { duration: "90 min", price: "449k" },
     ],
-    image: "/img/location8-min.jpg",
+    image: "/img/kama/08-water-drop.jpg",
   },
 ];
 
@@ -196,7 +196,7 @@ export const packages: Package[] = [
     ],
     duration: "2 hours",
     price: "650k",
-    image: "/img/Southlake_SPA_ROOM_ELLENYANG_003.jpg",
+    image: "/img/kama/03-oil-bowl.jpg",
   },
   {
     kind: "package",
@@ -214,7 +214,7 @@ export const packages: Package[] = [
     ],
     duration: "2 hours 30 minute",
     price: "765k",
-    image: "/img/The_Lab_Location2.webp",
+    image: "/img/kama/04-turmeric-scrub.jpg",
   },
   {
     kind: "package",
@@ -234,7 +234,7 @@ export const packages: Package[] = [
     ],
     duration: "3 hours 30 minute",
     price: "1000k",
-    image: "/img/frisco_thumb-min.webp",
+    image: "/img/kama/05-foot-bath.jpg",
   },
   {
     kind: "package",
@@ -255,7 +255,7 @@ export const packages: Package[] = [
     ],
     duration: "4 hours",
     price: "1500k",
-    image: "/img/location7-min.jpg",
+    image: "/img/kama/06-bride.jpg",
   },
 ];
 
@@ -267,35 +267,35 @@ export const additionalServices = [
     price: "120k",
     description:
       "A gentle exfoliation that buffs away dullness and renew skin radiance. Comes in selected of home-special-blend scrubs.",
-    image: "/img/Allen_RELAX_LOUNGE.jpg",
+    image: "/img/kama/04-turmeric-scrub.jpg",
   },
   {
     name: "Body Mask",
     price: "120k",
     description:
       "A nourishing body wrap that deeply hydrates and restores balance. Comes in choices of classic body mask ingredients.",
-    image: "/img/the-heights-retail-p-800.jpg",
+    image: "/img/kama/06-bride.jpg",
   },
   {
     name: "Bath Ritual",
     price: "115k",
     description:
       "A soothing soak in the bathtub, infused with our special tea bag blend for deep relaxation and renewal.",
-    image: "/img/IMG_5651-min.jpg",
+    image: "/img/kama/07-flower-bowl.jpg",
   },
   {
     name: "Head & Scalp Treatment",
     price: "100k",
     description:
       "A calming therapy that soothes the scalp and eases stress. Using argan oil and natural ingredients.",
-    image: "/img/IMG_5651-min.jpg",
+    image: "/img/kama/05-foot-bath.jpg",
   },
   {
     name: "Face Ritual",
     price: "250k",
     description:
       "An elevated acupressure-inspired treatment for the face, designed to release tension, awaken circulation, and restore natural glow.",
-    image: "/img/IMG_5653-min.jpg",
+    image: "/img/kama/02-bottle-shadows.jpg",
   },
 ];
 
@@ -365,7 +365,7 @@ export const locations = [
     email: "hello@kamaspa.id",
     hours: "Mon – Sun. 10 AM – 8 PM",
     tag: "Flagship",
-    image: "/img/Southlake_SPA_ROOM_ELLENYANG_003.jpg",
+    image: "/img/kama/01-incense.jpg",
   },
   {
     kind: "treatment",
@@ -377,7 +377,7 @@ export const locations = [
     email: "sudirman@kamaspa.id",
     hours: "Mon – Sun. 10 AM – 8 PM",
     tag: "Coming Soon",
-    image: "/img/location8-min.jpg",
+    image: "/img/kama/08-water-drop.jpg",
   },
   {
     kind: "treatment",
@@ -389,7 +389,7 @@ export const locations = [
     email: "kebayoran@kamaspa.id",
     hours: "Mon – Sun. 10 AM – 8 PM",
     tag: "Coming Soon",
-    image: "/img/location7-min.jpg",
+    image: "/img/kama/05-foot-bath.jpg",
   },
 ];
 
