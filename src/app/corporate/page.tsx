@@ -308,7 +308,7 @@ export default function CorporatePage() {
             <div className="get-in-touch_banner">
               <h4 className="header-l">Let&apos;s build your wellness program.</h4>
               <a
-                href="https://wa.me/6281314856565?text=Hi%20KAMA%20Spa%2C%20I%27d%20like%20to%20discuss%20a%20corporate%20wellness%20program."
+                href="https://wa.me/6281316052040?text=Hi%20KAMA%20Spa%2C%20I%27d%20like%20to%20discuss%20a%20corporate%20wellness%20program."
                 target="_blank"
                 rel="noopener"
                 className="button is-tertiary is-icon margin-left-auto-desktop w-inline-block"

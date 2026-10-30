@@ -5,7 +5,7 @@ export const site = {
     "KAMA Spa adalah wellness sanctuary di jantung South Jakarta. Memadukan teknik penyembuhan tradisional dengan pendekatan wellness modern untuk mengembalikan keseimbangan, relaksasi, dan ketenangan.",
   address: "Jl. Barito I No.21, Kramat Pela, Jakarta Selatan",
   instagram: "https://www.instagram.com/kama__spa/",
-  phone: "+62 813-1605-2040",
+  phone: "+6281316052040",
   phoneHref: "tel:+6281316052040",
   email: "hello@kamaspa.id",
   hours: "Mon – Sun. 10 AM – 8 PM",
