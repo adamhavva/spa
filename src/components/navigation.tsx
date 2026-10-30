@@ -127,26 +127,6 @@ export function Navigation() {
                     >
                       <Logo className="code-embed-2" />
                     </Link>
-                    <div className="navigation_actions_tools">
-                      <Link
-                        href="/menu"
-                        className="navigation_button-icon hide-tablet w-inline-block"
-                        aria-label="Search treatments"
-                      >
-                        <div className="navigation_icon w-embed">
-                          <Search />
-                        </div>
-                      </Link>
-                      <a
-                        href={site.phoneHref}
-                        className="navigation_button-icon hide-tablet"
-                        aria-label="Book via WhatsApp"
-                      >
-                        <div className="navigation_icon w-embed">
-                          <WhatsApp />
-                        </div>
-                      </a>
-                    </div>
                   </div>
                 </div>
               </div>
