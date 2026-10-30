@@ -577,10 +577,10 @@ video {
   }
 }
 
-/* ---- Header layout: nav links left, logo + actions right -------------- */
+/* ---- Header layout: logo left, nav links right ---------------------- */
 
 .navigation_container {
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto 1fr;
 }
 
 /* ---- Fixed navigation ----------------------------------------------- */

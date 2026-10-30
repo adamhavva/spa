@@ -85,6 +85,16 @@ export function Navigation() {
             <div className="padding-global height-fill">
               <div className="container-large height-fill">
                 <div className="w-layout-grid navigation_container">
+                  <div className="navigation_actions">
+                    <Link
+                      href="/"
+                      aria-current="page"
+                      className="navigation_logo w-inline-block w--current"
+                    >
+                      <Logo className="code-embed-2" />
+                    </Link>
+                  </div>
+
                   <div className="navigation_container_links">
                     <div className="navigation_links">
                       {nav.primary.map((item) =>
@@ -117,16 +127,6 @@ export function Navigation() {
                     >
                       <div className="mobile-menu_button_open navigation_link">Menu</div>
                     </button>
-                  </div>
-
-                  <div className="navigation_actions">
-                    <Link
-                      href="/"
-                      aria-current="page"
-                      className="navigation_logo w-inline-block w--current"
-                    >
-                      <Logo className="code-embed-2" />
-                    </Link>
                   </div>
                 </div>
               </div>
