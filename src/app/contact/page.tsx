@@ -72,7 +72,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="sizing-grow">
+                {/* <div className="sizing-grow">
                   <div className="section-header">
                     <h2 className="header-l">Book a Treatment</h2>
                   </div>
@@ -101,7 +101,7 @@ export default function ContactPage() {
                     <Clock />
                     <span>{site.hours}</span>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

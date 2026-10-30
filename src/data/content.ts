@@ -464,10 +464,10 @@ export const membership = {
   href: "/membership",
 };
 
-export const newsletter = {
-  title: "Join Our Newsletter",
-  body: "Get the updates first. Select your preferred locations to receive content that's tailored just for you.",
-};
+// export const newsletter = {
+//   title: "Join Our Newsletter",
+//   body: "Get the updates first. Select your preferred locations to receive content that's tailored just for you.",
+// };
 
 export const footerTagline =
   "Powered by traditional healing wisdom and a high-touch philosophy, KAMA is out to change the wellness industry — one deep exhale at a time.";

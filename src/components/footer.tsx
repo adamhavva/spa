@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Facebook, Instagram, TikTok, WhatsApp } from "./icons";
 import { NewsletterForm } from "./forms/newsletter-form";
-import { footerLinks, footerTagline, locations, newsletter, site } from "@/data/content";
+import { footerLinks, footerTagline, locations } from "@/data/content";
 
 export function Footer() {
   return (
@@ -76,14 +76,6 @@ export function Footer() {
             </div>
 
             <div className="footer_content">
-              <div className="layout-row max-width-420">
-                <div className="eyebrow-s text-style-allcaps">NEWSLETTER</div>
-                <div className="newsletter-text_wrapp">
-                  <h4 className="header-m">{newsletter.title}</h4>
-                  <div className="body-m opacity-50">{newsletter.body}</div>
-                </div>
-                <NewsletterForm />
-              </div>
 
               <div className="footer-links-grid_wrapp">
                 <div className="w-layout-grid footer-links-grid">
