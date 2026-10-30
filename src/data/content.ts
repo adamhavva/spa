@@ -1,0 +1,476 @@
+export const site = {
+  name: "KAMA Spa",
+  tagline: "Relax. Refresh. (Repeat).",
+  description:
+    "KAMA Spa adalah wellness sanctuary di jantung South Jakarta. Memadukan teknik penyembuhan tradisional dengan pendekatan wellness modern untuk mengembalikan keseimbangan, relaksasi, dan ketenangan.",
+  address: "Jl. Barito I No.21, Kramat Pela, Jakarta Selatan",
+  instagram: "https://www.instagram.com/kama__spa/",
+  phone: "+62 813-1605-2040",
+  phoneHref: "tel:+6281316052040",
+  email: "hello@kamaspa.id",
+  hours: "Mon – Sun. 10 AM – 8 PM",
+};
+
+export const nav = {
+  primary: [
+    { label: "Menu", href: "/menu", mega: "services" },
+    { label: "Corporate Wellness", href: "/corporate", mega: "corporate" },
+    { label: "Spa 101", href: "/spa-101" },
+    { label: "Gift Cards", href: "/gift-cards" },
+    { label: "Locations", href: "/locations" },
+    { label: "Contact", href: "/contact" },
+  ],
+  bookNow: "Book Now",
+};
+
+export const footerLinks = {
+  Services: [
+    { label: "All Treatments", href: "/menu" },
+    { label: "Massage", href: "/menu#massage" },
+    { label: "Body & Scrub", href: "/menu#body" },
+    { label: "Face Ritual", href: "/menu#face" },
+    { label: "Head & Scalp", href: "/menu#head" },
+    { label: "Bath Ritual", href: "/menu#bath" },
+  ],
+  Corporate: [
+    { label: "Corporate Wellness", href: "/corporate" },
+    { label: "In-Office Program", href: "/corporate#in-office" },
+    { label: "In-Spa Experience", href: "/corporate#in-spa" },
+    { label: "Wellness Benefits", href: "/corporate#benefits" },
+    { label: "Partnership", href: "/contact" },
+  ],
+  About: [
+    { label: "Who We Are", href: "/about" },
+    { label: "Spa 101", href: "/spa-101" },
+    { label: "Contact", href: "/contact" },
+    { label: "Gift Cards", href: "/gift-cards" },
+    { label: "Membership", href: "/membership" },
+  ],
+  Community: [
+    { label: "Journal", href: "/journal" },
+    { label: "Join Our Team", href: "/join-our-team" },
+    { label: "Corporate Wellness", href: "/corporate" },
+  ],
+};
+
+export const socials = [
+  { label: "Instagram", href: "https://www.instagram.com/kama__spa/", icon: "instagram" },
+  { label: "Facebook", href: "https://www.facebook.com/", icon: "facebook" },
+  { label: "TikTok", href: "https://www.tiktok.com/", icon: "tiktok" },
+];
+
+/* ---------- Treatments / Menu ---------- */
+
+export type Treatment = {
+  kind: "treatment";
+  slug: string;
+  name: string;
+  category: "Massage" | "Body" | "Face" | "Head & Scalp" | "Bath";
+  tagline?: string;
+  description: string;
+  note?: string;
+  prices: { duration: string; price: string }[];
+  image: string;
+};
+
+export const treatments: Treatment[] = [
+  {
+    kind: "treatment",
+    slug: "chair-reflexology",
+    name: "Chair Reflexology",
+    category: "Massage",
+    tagline: "A full reflexology treatment focused on the feet and shoulders",
+    description:
+      "A full reflexology treatment focused on the feet and shoulders, stimulating nerve points connected to vital organs and effective in relaxing the lower body, improving blood circulation, and reducing tension in the shoulder area.",
+    note: "We are using dry massage techniques without oil.",
+    prices: [
+      { duration: "60 min", price: "145k" },
+      { duration: "90 min", price: "195k" },
+      { duration: "120 min", price: "245k" },
+    ],
+    image: "/img/hiatus-addison-location-hero-clean-wide-no-curb-tight-sign.jpg",
+  },
+  {
+    kind: "treatment",
+    slug: "chair-spa",
+    name: "Chair Spa",
+    category: "Massage",
+    tagline: "A curated relaxation treatment",
+    description:
+      "A curated relaxation treatment beginning with an aromatic meditation ritual, followed by intentional pressure applied to stimulating points along the arms, back, and feet, and thoughtfully completed with a sensory foot ritual as a calming final touch.",
+    note: "We are using dry massage techniques without oil.",
+    prices: [
+      { duration: "75 min", price: "195k" },
+      { duration: "90 min", price: "225k" },
+      { duration: "120 min", price: "285k" },
+    ],
+    image: "/img/Allen_RELAX_LOUNGE.jpg",
+  },
+  {
+    kind: "treatment",
+    slug: "chair-body-recovery",
+    name: "Chair Body Recovery",
+    category: "Massage",
+    tagline: "A focused recovery treatment designed for active bodies",
+    description:
+      "A focused recovery treatment designed for active bodies and everyday tension. Combining deep muscle release, targeted trigger-point pressure, assisted stretching, and a warm compress, helping to ease tight muscles, support mobility, and leave the body feeling lighter and restored.",
+    note: "This treatment is not intended for injury treatment or rehabilitation.",
+    prices: [{ duration: "75 min", price: "399k" }],
+    image: "/img/stone-oak-15.jpg",
+  },
+  {
+    kind: "treatment",
+    slug: "sukma-laya",
+    name: "Sukma Laya",
+    category: "Massage",
+    tagline: "A traditional massage rooted in Javanese culture",
+    description:
+      "A traditional massage rooted in Javanese culture, known for its deep, rhythmic pressure that combines acupressure and deep tissue techniques.",
+    note: "Start with FREE foot bath.",
+    prices: [
+      { duration: "60 min", price: "375k" },
+      { duration: "90 min", price: "449k" },
+    ],
+    image: "/img/Fort_Worth-min.jpg",
+  },
+  {
+    kind: "treatment",
+    slug: "urip-padma",
+    name: "Urip Padma",
+    category: "Massage",
+    tagline: "A holistic full-body massage inspired by traditional Balinese techniques",
+    description:
+      "A holistic full-body massage inspired by traditional Balinese techniques that blends acupressure, gentle stretching, reflexology, and aromatherapy to balance energy and induce deep calm.",
+    note: "Start with FREE foot bath.",
+    prices: [
+      { duration: "60 min", price: "375k" },
+      { duration: "90 min", price: "449k" },
+    ],
+    image: "/img/location6-min.jpg",
+  },
+  {
+    kind: "treatment",
+    slug: "skogsra-massage",
+    name: "Skogsrå Massage",
+    category: "Massage",
+    tagline: "Swedish Style Massage",
+    description:
+      "A gentle Swedish full-body massage with flowing strokes and light to medium pressure, offering a pampered sensation, deep relaxation, balanced mood, and a refreshed body.",
+    note: "Start with FREE foot bath.",
+    prices: [
+      { duration: "60 min", price: "375k" },
+      { duration: "90 min", price: "449k" },
+    ],
+    image: "/img/location8-min.jpg",
+  },
+];
+
+/* ---------- Day Spa packages ---------- */
+
+export type Package = {
+  kind: "package";
+  slug: string;
+  name: string;
+  subtitle: string;
+  quote: string;
+  description: string;
+  includes: { label: string; minutes: number }[];
+  duration: string;
+  price: string;
+  image: string;
+};
+
+export const packages: Package[] = [
+  {
+    kind: "package",
+    slug: "samadhana",
+    name: "Samådhåna",
+    subtitle: "A state of balance & inner resolution",
+    quote: "In stillness, we remember who we are.",
+    description:
+      "A grounding two-hour ritual to restore balance from head to toe. Sink into rhythmic massage strokes and melt into a calming scalp journey.",
+    includes: [
+      { label: "Body Massage", minutes: 90 },
+      { label: "Face Ritual", minutes: 30 },
+      { label: "Head & Scalp Treatment", minutes: 15 },
+    ],
+    duration: "2 hours",
+    price: "650k",
+    image: "/img/Southlake_SPA_ROOM_ELLENYANG_003.jpg",
+  },
+  {
+    kind: "package",
+    slug: "dharana",
+    name: "Dhåranå",
+    subtitle: "Grounded focus & renewed vitality",
+    quote: "Where your attention flows, healing follows.",
+    description:
+      "A complete reset: begin with a restorative massage, unveil new skin with our revitalizing scrub, soothe deeply with a nourishing mask, and emerge radiant through a ritual bath.",
+    includes: [
+      { label: "Body Massage", minutes: 90 },
+      { label: "Body Scrub", minutes: 15 },
+      { label: "Body Mask", minutes: 15 },
+      { label: "Bath Ritual", minutes: 15 },
+    ],
+    duration: "2 hours 30 minute",
+    price: "765k",
+    image: "/img/The_Lab_Location2.webp",
+  },
+  {
+    kind: "package",
+    slug: "aroha",
+    name: "Åroha",
+    subtitle: "The rise to radiance",
+    quote: "Rise, replenish, and return to your radiance.",
+    description:
+      "Let this sacred flow elevate your senses — from long, enveloping massage strokes to the tender care of body rituals. A full-body renewal, finishing in a soul-soothing bath.",
+    includes: [
+      { label: "Body Massage", minutes: 90 },
+      { label: "Face Ritual", minutes: 30 },
+      { label: "Body Scrub", minutes: 15 },
+      { label: "Body Mask", minutes: 15 },
+      { label: "Head & Scalp Treatment", minutes: 15 },
+      { label: "Bath Ritual", minutes: 15 },
+    ],
+    duration: "3 hours 30 minute",
+    price: "1000k",
+    image: "/img/frisco_thumb-min.webp",
+  },
+  {
+    kind: "package",
+    slug: "karuna",
+    name: "Karuna",
+    subtitle: "Soulful pre-wedding journey",
+    quote: "A whole self-embrace carefully crafted.",
+    description:
+      "This treatment embodies loving-kindness toward oneself, a holistic ritual designed to comfort the body, calm the mind, and illuminate the inner glow of every bride-to-be. Your bridal light, softly unveiled.",
+    includes: [
+      { label: "Body Massage", minutes: 90 },
+      { label: "Breast, Abdomen & Hip Stimulation", minutes: 30 },
+      { label: "Face Ritual", minutes: 30 },
+      { label: "Body Scrub", minutes: 15 },
+      { label: "Body Mask", minutes: 15 },
+      { label: "Ms.V Therapy", minutes: 15 },
+      { label: "Bath Ritual", minutes: 15 },
+    ],
+    duration: "4 hours",
+    price: "1500k",
+    image: "/img/location7-min.jpg",
+  },
+];
+
+/* ---------- Additional services ---------- */
+
+export const additionalServices = [
+  {
+    name: "Body Scrub",
+    price: "120k",
+    description:
+      "A gentle exfoliation that buffs away dullness and renew skin radiance. Comes in selected of home-special-blend scrubs.",
+    image: "/img/Allen_RELAX_LOUNGE.jpg",
+  },
+  {
+    name: "Body Mask",
+    price: "120k",
+    description:
+      "A nourishing body wrap that deeply hydrates and restores balance. Comes in choices of classic body mask ingredients.",
+    image: "/img/the-heights-retail-p-800.jpg",
+  },
+  {
+    name: "Bath Ritual",
+    price: "115k",
+    description:
+      "A soothing soak in the bathtub, infused with our special tea bag blend for deep relaxation and renewal.",
+    image: "/img/IMG_5651-min.jpg",
+  },
+  {
+    name: "Head & Scalp Treatment",
+    price: "100k",
+    description:
+      "A calming therapy that soothes the scalp and eases stress. Using argan oil and natural ingredients.",
+    image: "/img/IMG_5651-min.jpg",
+  },
+  {
+    name: "Face Ritual",
+    price: "250k",
+    description:
+      "An elevated acupressure-inspired treatment for the face, designed to release tension, awaken circulation, and restore natural glow.",
+    image: "/img/IMG_5653-min.jpg",
+  },
+];
+
+/* ---------- Corporate wellness ---------- */
+
+export const corporateBenefits = [
+  "Higher employee engagement",
+  "Improved productivity & focus",
+  "Reduced stress and burnout",
+  "Better employee retention",
+  "Stronger workplace culture",
+  "Higher employer branding value",
+];
+
+export const corporateSolutions = [
+  {
+    title: "In-Office Wellness Program",
+    items: [
+      "On-site chair massage or mini treatments",
+      "Office relaxation day",
+      "Pop-up wellness corner",
+    ],
+  },
+  {
+    title: "In-Spa Corporate Experience",
+    items: ["Team relaxation sessions", "Employee rewards or incentives", "Private group bookings"],
+  },
+  {
+    title: "Corporate Wellness Benefits",
+    items: [
+      "Employee privileges, campaign vouchers, and long-term wellness partnerships",
+    ],
+  },
+];
+
+export const corporatePrograms = [
+  {
+    name: "Essential",
+    description:
+      "A simple reset during the workday. For teams looking to provide a meaningful wellness touchpoint through professional neck, shoulder, and back relief.",
+    features: ["Chair massage", "In-office setup", "30–45 min per guest"],
+  },
+  {
+    name: "Signature",
+    description:
+      "A complete workplace recovery experience. Combines massage, aromatherapy, wellness drinks, and employee perks to create a more intentional wellness activation.",
+    features: ["Full body massage", "Aromatherapy add-on", "Wellness drinks", "Employee perks"],
+  },
+  {
+    name: "Executive",
+    description:
+      "The most comprehensive wellness offering. A deeper recovery-focused experience featuring assisted stretching, warm compress therapy, recovery essentials, and premium wellness amenities.",
+    features: ["Assisted stretching", "Warm compress therapy", "Recovery essentials", "Premium amenities"],
+  },
+];
+
+/* ---------- Locations ---------- */
+
+export const locations = [
+  {
+    kind: "treatment",
+    slug: "south-jakarta",
+    name: "South Jakarta",
+    area: "Kramat Pela",
+    address: "Jl. Barito I No.21, Kramat Pela, Jakarta Selatan",
+    phone: "+62 813-1605-2040",
+    email: "hello@kamaspa.id",
+    hours: "Mon – Sun. 10 AM – 8 PM",
+    tag: "Flagship",
+    image: "/img/Southlake_SPA_ROOM_ELLENYANG_003.jpg",
+  },
+  {
+    kind: "treatment",
+    slug: "sudirman",
+    name: "Sudirman",
+    area: "SCBD",
+    address: "Jl. Jend. Sudirman Kav. 52-53, Jakarta Selatan",
+    phone: "+62 813-1605-2040",
+    email: "sudirman@kamaspa.id",
+    hours: "Mon – Sun. 10 AM – 8 PM",
+    tag: "Coming Soon",
+    image: "/img/location8-min.jpg",
+  },
+  {
+    kind: "treatment",
+    slug: "kebayoran",
+    name: "Kebayoran",
+    area: "Senayan",
+    address: "Jl. Asia Afrika No. 8, Kebayoran Baru, Jakarta Selatan",
+    phone: "+62 813-1605-2040",
+    email: "kebayoran@kamaspa.id",
+    hours: "Mon – Sun. 10 AM – 8 PM",
+    tag: "Coming Soon",
+    image: "/img/location7-min.jpg",
+  },
+];
+
+/* ---------- Home content ---------- */
+
+export const heroStats = [
+  { value: "12", label: "years of care" },
+  { value: "40+", label: "signature treatments" },
+  { value: "3", label: "Jakarta locations" },
+];
+
+export const journalPosts = [
+  {
+    kind: "treatment",
+    slug: "javanese-massage-roots",
+    tag: "Massage",
+    title: "The Roots of Javanese Healing: Sukma Laya",
+    excerpt:
+      "Discover the ancient rhythm of Javanese massage — deep rhythmic pressure, acupressure, and a philosophy of restoring the body's natural balance.",
+    image: "/img/IMG_5652-min.jpg",
+  },
+  {
+    kind: "treatment",
+    slug: "corporate-wellness-jakarta",
+    tag: "Corporate",
+    title: "Wellness at Work: A Guide to Corporate Wellness in Jakarta",
+    excerpt:
+      "Employee wellness is no longer just a benefit. Here is how leading teams in Jakarta build engagement, focus, and retention through meaningful reset experiences.",
+    image: "/img/IMG_5654-min.jpg",
+  },
+  {
+    kind: "treatment",
+    slug: "pre-wedding-ritual",
+    tag: "Package",
+    title: "Karuna: A Soulful Pre-Wedding Journey",
+    excerpt:
+      "A four-hour ritual designed to comfort the body, calm the mind, and illuminate the inner glow of every bride-to-be.",
+    image: "/img/IMG_5653-min.jpg",
+  },
+];
+
+export const testimonials = [
+  {
+    quote:
+      "Sukma Laya is unlike any massage I have ever had. The pressure was exactly right and the foot bath at the start set the whole tone. I will be back.",
+    name: "Amalia P.",
+    location: "Jakarta | Sudirman",
+    role: "Guest",
+  },
+  {
+    quote:
+      "We booked the in-office program for our team and it was a complete reset. The chair massage was smooth, professional, and genuinely relaxing.",
+    name: "Bagus W.",
+    location: "Jakarta | Kebayoran",
+    role: "Guest",
+  },
+  {
+    quote:
+      "The Åroha package is worth every rupiah. From the body massage to the bath ritual, every step felt intentional. My skin has never felt this good.",
+    name: "Clarissa N.",
+    location: "Jakarta | South Jakarta",
+    role: "Guest",
+  },
+];
+
+export const membership = {
+  eyebrow: "membership",
+  title: "KAMA Membership.",
+  price: "Just Rp 1.5jt a month.",
+  body: "Make sure your me-time is always accounted for. You get a credit for one essential service a month, lower prices, special offers, and more.",
+  cta: "Join KAMA Now",
+  href: "/membership",
+};
+
+export const newsletter = {
+  title: "Join Our Newsletter",
+  body: "Get the updates first. Select your preferred locations to receive content that's tailored just for you.",
+};
+
+export const footerTagline =
+  "Powered by traditional healing wisdom and a high-touch philosophy, KAMA is out to change the wellness industry — one deep exhale at a time.";
+
+export const priceDisclaimer =
+  "Price are in thousands of Rupiah and exclude 10% goverment tax.";

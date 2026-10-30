@@ -1,0 +1,455 @@
+/*
+ * KAMA-specific additions on top of the Hiatus design-system stylesheet.
+ * Everything here either fills a gap in the original CSS or adapts it to
+ * KAMA's content (longer Indonesian copy, KAMA colours, etc.).
+ */
+
+/* ---- Design tokens -------------------------------------------------- */
+
+:root {
+  --kama-navy: #1a174b;
+  --kama-navy-blackish: #19174b;
+  --kama-coral: #ee7868;
+  --kama-blue: #5e93db;
+  --kama-blue-60: #9ebee9;
+  --kama-blue-80: #7ea9e2;
+  --kama-periwinkle-50: #e4eaf6;
+  --kama-periwinkle-100: #c9d5ed;
+  --kama-gray-01: #f6f7f9;
+  --kama-gray-03: #949baa;
+}
+
+/* ---- Font faces ------------------------------------------------------ */
+
+@font-face {
+  font-family: "Ft regola neue trial";
+  src: url("/fonts/FTRegolaNeueTrial-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ft regola neue trial";
+  src: url("/fonts/FTRegolaNeueTrial-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ft regola neue trial";
+  src: url("/fonts/FTRegolaNeueTrial-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ft regola neue trial";
+  src: url("/fonts/FTRegolaNeueTrial-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ft regola neue trial";
+  src: url("/fonts/FTRegolaNeueTrial-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ft regola neue trial";
+  src: url("/fonts/FTRegolaNeueTrial-Heavy.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Romie trial";
+  src: url("/fonts/RomieTrial-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Romie trial";
+  src: url("/fonts/RomieTrial-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Romie trial";
+  src: url("/fonts/RomieTrial-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Romie trial";
+  src: url("/fonts/RomieTrial-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Romie trial";
+  src: url("/fonts/RomieTrial-Heavy.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Romie trial";
+  src: url("/fonts/RomieTrial-Regular-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ---- Base ------------------------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Ft regola neue trial", sans-serif;
+  color: var(--kama-navy);
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+ * Heading styles are intentionally left to the design system stylesheet
+ * (hiatus.css), which sets the Romie face and weight per heading level.
+ */
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+::selection {
+  background-color: var(--kama-coral);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--kama-blue);
+  outline-offset: 3px;
+}
+
+/* ---- Layout helpers used by KAMA pages ------------------------------- */
+
+.navigation_link {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font-family: inherit;
+  text-align: left;
+}
+
+.footer-locations {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing--small);
+  padding: 0 0 5rem;
+}
+
+.text-style-1line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.padding-global-mobile {
+  display: none;
+}
+
+.no-padding {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.section-header.no-padding {
+  margin-bottom: var(--spacing--xlarge);
+}
+
+.section-header_button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing--xxsmall);
+  font-size: var(--typography--caption-s-size);
+  line-height: 1.2;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+.section-header_button .button_icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.social-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.button_icon,
+.button-icon {
+  width: var(--button--icon-size);
+  height: var(--button--icon-size);
+  flex-shrink: 0;
+}
+
+.button.is-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button--inner-gap);
+}
+
+.button.is-icon .button_icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.button.is-text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--button--inner-gap);
+  width: auto;
+  border-color: transparent;
+  background: transparent;
+  padding: 0;
+}
+
+.button.is-text:hover {
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+.button.width-fill {
+  width: 100%;
+}
+
+/* ---- Treatment / menu listing ---------------------------------------- */
+
+.treatment-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing--medium);
+  height: 100%;
+}
+
+.treatment-card_image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  width: 100%;
+}
+
+.treatment-card_body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing--small);
+  flex: 1;
+}
+
+.treatment-card_price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing--small);
+  border-top: 1px solid var(--kama-periwinkle-100);
+  padding-top: var(--spacing--small);
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing--medium);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--kama-periwinkle-100);
+}
+
+.price-row:last-child {
+  border-bottom: 0;
+}
+
+.price-row_duration {
+  font-size: var(--typography--caption-s-size);
+  color: var(--kama-gray-03);
+}
+
+.price-row_value {
+  font-family: "Romie trial", serif;
+  font-size: 1.125rem;
+}
+
+.package-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--kama-periwinkle-100);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  background: #fff;
+  height: 100%;
+}
+
+.package-card_image {
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+}
+
+.package-card_body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing--small);
+  padding: var(--spacing--large);
+  flex: 1;
+}
+
+.package-includes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing--xxsmall);
+  margin-top: var(--spacing--small);
+}
+
+.package-includes_item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: var(--kama-periwinkle-50);
+  border-radius: 20rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.package-includes_item svg {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.benefit-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing--small);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefit-list_item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing--small);
+  font-size: var(--typography--caption-s-size);
+  line-height: 1.5;
+}
+
+.benefit-list_icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: var(--kama-coral);
+}
+
+/* ---- Page hero ------------------------------------------------------- */
+
+.page-hero {
+  padding-top: 11rem;
+  padding-bottom: var(--spacing--xhuge);
+  background-color: var(--kama-periwinkle-50);
+}
+
+.page-hero_image {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  width: 100%;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing--small);
+  height: 100%;
+}
+
+.contact-card_image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  width: 100%;
+}
+
+.contact-card_body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing--xxsmall);
+}
+
+.contact-meta {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing--xxsmall);
+  font-size: var(--typography--caption-s-size);
+  line-height: 1.5;
+}
+
+.contact-meta svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+/* ---- Location cards -------------------------------------------------- */
+
+.location-card_component {
+  text-align: left;
+}
+
+.location-card_component .image-container {
+  position: relative;
+}
+
+.location-card_component:hover .hover-overlay {
+  opacity: 1;
+}
+
+/* ---- Mobile menu close button ---------------------------------------- */
+
+.mobile-menu_component .modal_card_header_close_icon {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+/* ---- Responsive ------------------------------------------------------ */
+
+@media screen and (max-width: 991px) {
+  .footer-locations {
+    padding-bottom: var(--spacing--xlarge);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .page-hero {
+    padding-top: 9rem;
+    padding-bottom: var(--spacing--huge);
+  }
+}

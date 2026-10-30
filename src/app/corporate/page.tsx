@@ -1,0 +1,199 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
+import { ArrowRight, Check } from "@/components/icons";
+import {
+  corporateBenefits,
+  corporatePrograms,
+  corporateSolutions,
+  site,
+} from "@/data/content";
+
+export const metadata: Metadata = {
+  title: "Corporate Wellness",
+  description:
+    "KAMA Corporate Wellness Solutions — program wellness di kantor, pengalaman wellness tim, dan benefit kesehatan karyawan.",
+};
+
+export default function CorporatePage() {
+  return (
+    <>
+      <Navigation />
+      <main className="main-wrapper">
+        <section className="page-hero">
+          <div className="padding-global">
+            <div className="container-large">
+              <div className="section-header">
+                <div className="eyebrow-s text-style-allcaps">Corporate Wellness Solutions</div>
+                <h1 className="header-xxl">
+                  Empowering healthier teams through meaningful wellness experiences.
+                </h1>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="padding-section-global">
+          <div className="padding-global">
+            <div className="container-large">
+              <div className="layout-row gap-xlarge">
+                <div className="sizing-grow">
+                  <div className="page-hero_image image-container">
+                    <img
+                      src="/img/body-min.webp"
+                      alt="Corporate wellness session"
+                      className="image-cover"
+                      loading="eager"
+                    />
+                  </div>
+                </div>
+                <div className="sizing-grow layout-center">
+                  <h3 className="header-l">About Us</h3>
+                  <div className="spacer-small" />
+                  <p className="body-m text-color-gray">
+                    KAMA Spa is a wellness sanctuary in the heart of South Jakarta. Combining
+                    traditional healing techniques and modern wellness approaches, KAMA Spa
+                    offers thoughtfully curated treatments designed to restore balance,
+                    relaxation, and mindful presence.
+                  </p>
+                  <div className="spacer-medium" />
+                  <p className="body-m text-color-gray">
+                    More than relaxation — we create meaningful reset experiences.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="benefits" className="padding-section-global home-locations">
+          <div className="padding-global">
+            <div className="container-large">
+              <div className="section-header">
+                <h2 className="header-l">
+                  Healthy Employees Build Stronger Companies
+                </h2>
+                <p className="body-m text-color-gray">
+                  Employee wellness is no longer just a benefit—it has become an essential
+                  investment in building a healthier, happier, and more productive workplace.
+                </p>
+              </div>
+              <div className="layout-row gap-large">
+                <ul className="benefit-list sizing-grow">
+                  {corporateBenefits.map((b) => (
+                    <li key={b} className="benefit-list_item">
+                      <span className="benefit-list_icon">
+                        <Check />
+                      </span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <div className="sizing-grow">
+                  <div className="text-rich-text header-l w-richtext">
+                    <p>
+                      <em>
+                        Wellness is not an expense. It&apos;s an investment in your people.
+                      </em>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="in-office" className="padding-section-global">
+          <div className="padding-global">
+            <div className="container-large">
+              <div className="section-header">
+                <div className="eyebrow-s text-style-allcaps">Why Partner with KAMA?</div>
+                <h2 className="header-l">
+                  Thoughtfully designed wellness experiences that go beyond massage.
+                </h2>
+                <p className="body-m text-color-gray">
+                  Our goal isn&apos;t simply to provide massage. We create meaningful wellness
+                  experiences for your people.
+                </p>
+              </div>
+
+              <div className="w-layout-grid whats-new_list">
+                {corporateSolutions.map((sol) => (
+                  <div key={sol.title} className="package-card w-dyn-item">
+                    <div className="package-card_body">
+                      <h3 className="header-s">{sol.title}</h3>
+                      <ul className="benefit-list">
+                        {sol.items.map((item) => (
+                          <li key={item} className="benefit-list_item">
+                            <span className="benefit-list_icon">
+                              <Check />
+                            </span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="in-spa" className="padding-section-global">
+          <div className="padding-global">
+            <div className="container-large">
+              <div className="section-header">
+                <div className="eyebrow-s text-style-allcaps">In-Office Program</div>
+                <h2 className="header-l">
+                  A Restorative Wellness Experience at Your Workplace
+                </h2>
+                <p className="body-m text-color-gray">Sample Programs*</p>
+              </div>
+
+              <div className="w-layout-grid whats-new_list">
+                {corporatePrograms.map((prog) => (
+                  <div key={prog.name} className="package-card w-dyn-item">
+                    <div className="package-card_body">
+                      <div className="eyebrow-s text-style-allcaps">{prog.name}</div>
+                      <div className="body-m text-color-gray">{prog.description}</div>
+                      <ul className="benefit-list">
+                        {prog.features.map((f) => (
+                          <li key={f} className="benefit-list_item">
+                            <span className="benefit-list_icon">
+                              <Check />
+                            </span>
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section_get-in-touch is-top-off">
+          <div className="get-in-touch_container">
+            <div className="get-in-touch_banner">
+              <h4 className="header-l">Let&apos;s design a program for your team.</h4>
+              <a
+                href={site.phoneHref}
+                className="button is-tertiary is-icon margin-left-auto-desktop w-inline-block"
+              >
+                <div>Talk to Us</div>
+                <div className="button_icon w-embed">
+                  <ArrowRight />
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+}
