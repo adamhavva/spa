@@ -142,9 +142,9 @@ export function Navigation() {
         }`}
       >
         <nav className="container-kama" aria-label="Global">
-          <div className="relative flex flex-wrap items-center justify-between py-3 md:h-16 md:flex-nowrap md:py-0 xl:h-20">
+          <div className="relative flex flex-wrap items-center justify-between py-3 xl:h-20 xl:flex-nowrap xl:py-0">
             {/* Brand + mobile toggle */}
-            <div className="flex w-full items-center justify-between md:w-auto">
+            <div className="flex w-full items-center justify-between xl:w-auto">
               <Link
                 href="/"
                 aria-current="page"
@@ -157,6 +157,8 @@ export function Navigation() {
                 <button
                   type="button"
                   ref={toggleRef}
+                  /* FlyonUI's collapse script sets aria-expanded on this node. */
+                  suppressHydrationWarning
                   className="collapse-toggle btn btn-outline btn-secondary btn-sm btn-square h-10 w-10 p-0 text-base-content"
                   data-collapse={`#${megaMenuId}`}
                   aria-controls={megaMenuId}
