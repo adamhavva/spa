@@ -455,19 +455,44 @@ export const testimonials = [
   },
 ];
 
-export const membership = {
+export type MembershipService = {
+  name: string;
+  description: string;
+};
+
+export type MembershipData = {
+  eyebrow: string;
+  title: string;
+  price: string;
+  body: string;
+  cta: string;
+  href: string;
+  servicesIntro: string;
+  services: MembershipService[];
+};
+
+export const membership: MembershipData = {
   eyebrow: "membership",
   title: "KAMA Membership.",
   price: "Just Rp 1.5jt a month.",
   body: "Make sure your me-time is always accounted for. You get a credit for one essential service a month, lower prices, special offers, and more.",
   cta: "Join KAMA Now",
   href: "/membership",
+  servicesIntro: "Your monthly credit can be used for any of these essential services:",
+  services: [
+    { name: "Sukma Laya (60 min)", description: "Full reflexology treatment focused on the feet and shoulders." },
+    { name: "Face Ritual (30 min)", description: "Elevated acupressure-inspired treatment for the face." },
+    { name: "Head & Scalp Treatment (15 min)", description: "Calming therapy that soothes the scalp and eases stress." },
+    { name: "Body Scrub (15 min)", description: "Gentle exfoliation that buffs away dullness and renews skin radiance." },
+    { name: "Body Mask (15 min)", description: "Nourishing body wrap that deeply hydrates and restores balance." },
+    { name: "Bath Ritual (15 min)", description: "Soothing soak in the bathtub, infused with special tea bag blend." },
+  ],
 };
 
-// export const newsletter = {
-//   title: "Join Our Newsletter",
-//   body: "Get the updates first. Select your preferred locations to receive content that's tailored just for you.",
-// };
+export const newsletter = {
+  title: "Join Our Newsletter",
+  body: "Get the updates first. Select your preferred locations to receive content that's tailored just for you.",
+};
 
 export const footerTagline =
   "Powered by traditional healing wisdom and a high-touch philosophy, KAMA is out to change the wellness industry — one deep exhale at a time.";

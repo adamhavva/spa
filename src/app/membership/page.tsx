@@ -157,45 +157,6 @@ export default function MembershipPage() {
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="section_quote">
-          <div className="padding-section-global">
-            <div className="padding-global">
-              <div className="container-large">
-                <div className="dropdowns_content">
-                  <div className="dropdowns_group-wrapper">
-                    <h4 className="header-l">FAQ</h4>
-                    <div className="body-m text-color-gray">
-                      Masih ada yang belum jelas? Tim kami dengan senang hati membantu.
-                    </div>
-                  </div>
-                  <div className="dropdowns_group">
-                    {membership.faq.map((item) => (
-                      <details
-                        key={item.q}
-                        className="dropdown_component border-black w-dropdown"
-                      >
-                        <summary className="dropdown_trigger w-dropdown-toggle">
-                          <div className="sizing-grow">
-                            <h5 className="header-s">{item.q}</h5>
-                          </div>
-                          <div className="dropdown_icon show-more w-embed">
-                            <ChevronDown />
-                          </div>
-                        </summary>
-                        <div className="dropdown_content w-dropdown-list">
-                          <div className="dropdown_content-inner-2">
-                            <div className="body-m text-color-gray">{item.a}</div>
-                          </div>
-                        </div>
-                      </details>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         <section className="section_get-in-touch is-top-off">
           <div className="get-in-touch_container">

@@ -144,36 +144,12 @@ export const membership = {
   servicesIntro:
     "Dengan menjadi anggota, Anda mendapat akses eksklusif ke essential services KAMA — treatment yang disesuaikan dengan kebutuhan wellness Anda.",
   services: [
-    {
-      name: "Sukma Laya",
-      description:
-        "Massage tradisional berakar pada budaya Jawa, dengan tekanan ritmis yang memadukan akupresur dan teknik deep tissue untuk mengembalikan keseimbangan alami tubuh.",
-    },
-    {
-      name: "Urip Padma",
-      description:
-        "Massage full-body holistik yang terinspirasi teknik Bali: akupresur, peregangan lembut, refleksologi, dan aromaterapi untuk menyeimbangkan energi dan membawa ketenangan.",
-    },
-    {
-      name: "Chair Spa",
-      description:
-        "Perawatan relaksasi terkurasi: ritual meditasi aromatik, tekanan yang disengaja di titik-titik kunci lengan, punggung, dan kaki, ditutup dengan ritual kaki yang menenangkan.",
-    },
-    {
-      name: "Face Ritual",
-      description:
-        "Treatment wajah dengan pendekatan akupresur — melepaskan ketegangan, membangkitkan sirkulasi, dan mengembalikan glow alami kulit Anda.",
-    },
-    {
-      name: "Body Scrub",
-      description:
-        "Eksfoliasi lembut yang mengangkat sisa-sisa kulit mati dan memperbarui radiance kulit, dengan pilihan blend scrub khusus kami.",
-    },
-    {
-      name: "Bath Ritual",
-      description:
-        "Perendaman menenangkan di bathtub dengan infuse tea blend khas kami untuk relaksasi mendalam dan regenerasi.",
-    },
+    { name: "Sukma Laya (60 min)", description: "Full reflexology treatment focused on the feet and shoulders." },
+    { name: "Face Ritual (30 min)", description: "Elevated acupressure-inspired treatment for the face." },
+    { name: "Head & Scalp Treatment (15 min)", description: "Calming therapy that soothes the scalp and eases stress." },
+    { name: "Body Scrub (15 min)", description: "Gentle exfoliation that buffs away dullness and renews skin radiance." },
+    { name: "Body Mask (15 min)", description: "Nourishing body wrap that deeply hydrates and restores balance." },
+    { name: "Bath Ritual (15 min)", description: "Soothing soak in the bathtub, infused with special tea bag blend." },
   ],
   plans: [
     {

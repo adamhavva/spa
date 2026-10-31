@@ -156,7 +156,7 @@ export default function LocationsPage() {
               <div className="w-dyn-list">
                 <div className="location-grid w-dyn-items">
                   {locations.map((loc) => (
-                    <div key={loc.slug} className="w-dyn-item">
+                    <div key={loc.slug} id={loc.slug} className="w-dyn-item">
                       <Link
                         href="/contact"
                         className="location-card_component in-grid w-inline-block"

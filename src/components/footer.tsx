@@ -50,7 +50,7 @@ export function Footer() {
                       <Instagram />
                     </div>
                   </a>
-                  <a
+                  {/* <a
                     href="https://www.facebook.com/"
                     className="footer-link-block w-inline-block"
                     aria-label="Facebook"
@@ -58,8 +58,8 @@ export function Footer() {
                     <div className="footer-icon w-embed">
                       <Facebook />
                     </div>
-                  </a>
-                  <a
+                  </a> */}
+                  {/* <a
                     href="https://www.tiktok.com/"
                     className="footer-link-block w-inline-block"
                     aria-label="TikTok"
@@ -67,7 +67,7 @@ export function Footer() {
                     <div className="footer-icon w-embed">
                       <TikTok />
                     </div>
-                  </a>
+                  </a> */}
                 </div>
               </div>
               <div className="footer_header">
