@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { WhatsApp } from "@/components/icons";
 import { site } from "@/data/content";
@@ -40,6 +41,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-full flex-col bg-cream-soft font-sans text-cocoa">
         {children}
+        {/* FlyonUI JS — powers the collapse (mobile menu) + dropdown (mega menu).
+            Loaded lazily so it only touches the DOM after React has hydrated. */}
+        <Script src="/flyonui.js" strategy="lazyOnload" />
         <a
           href={whatsappHref}
           target="_blank"

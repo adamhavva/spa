@@ -1,12 +1,30 @@
 /*
  * KAMA Spa — global stylesheet
  *
- * Tailwind CSS v4 (CSS-first config) sits on top of the legacy Webflow
- * design-system stylesheets (hiatus.css / custom.css / kama.css), which are
- * imported into the `legacy` cascade layer so utility classes always win.
+ * Tailwind CSS v4 (CSS-first config) + the FlyonUI component library sit on
+ * top of the legacy Webflow design-system stylesheets (hiatus.css /
+ * custom.css / kama.css), which are imported into the `legacy` cascade layer.
+ *
+ * Cascade order (explicit, so nothing fights over specificity):
+ *   theme  ->  base  ->  legacy  ->  components  ->  utilities
+ * Legacy rules beat the Tailwind reset (so the not-yet-migrated pages keep
+ * their look) but lose to every utility and component class.
  */
 
+@layer theme, base, legacy, components, utilities;
+
 @import "tailwindcss";
+
+/* FlyonUI — semantic component classes (menu, dropdown, collapse, …).
+   The `button` component is excluded: the site has its own `.btn` design. */
+@plugin "flyonui" {
+  themes: false;
+  exclude: ["button"];
+}
+
+/* Variants used by the FlyonUI JS components (collapse-open:, dropdown-open:). */
+@import "flyonui/variants.css";
+
 @import "./hiatus.css" layer(legacy);
 @import "./custom.css" layer(legacy);
 @import "./kama.css" layer(legacy);
@@ -22,6 +40,37 @@
   --color-cream-soft: #f6f1e9;
   --color-cream-card: #fdedda;
   --color-tan: #e2d6c9;
+
+  /* ---- FlyonUI semantic tokens, mapped to the KAMA palette ----------- */
+  --color-base-100: #f6f1e9; /* cream-soft — page + navbar surface   */
+  --color-base-200: #efe8de; /* cream — subtle surfaces              */
+  --color-base-300: #cdaf96; /* clay — borders                        */
+  --color-base-content: #603009; /* cocoa — text                      */
+  --color-primary: #603009; /* cocoa                                 */
+  --color-primary-content: #f6f1e9;
+  --color-secondary: #96745b; /* caramel                             */
+  --color-secondary-content: #f6f1e9;
+  --color-accent: #2a1604; /* espresso                             */
+  --color-accent-content: #f6f1e9;
+  --color-neutral: #4f2807; /* ink                                 */
+  --color-neutral-content: #f6f1e9;
+  --color-info: #2a1604;
+  --color-info-content: #f6f1e9;
+  --color-success: #25d366; /* WhatsApp green                     */
+  --color-success-content: #ffffff;
+  --color-warning: #96745b;
+  --color-warning-content: #2a1604;
+  --color-error: #a3341f;
+  --color-error-content: #f6f1e9;
+
+  /* FlyonUI shape tokens — sharp edges to match the KAMA identity. */
+  --radius-selector: 0rem;
+  --radius-field: 0rem;
+  --radius-box: 0rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
 
   /* ---- Typography ----------------------------------------------------- */
   --font-sans: "Ft regola neue trial", ui-sans-serif, system-ui, sans-serif;
@@ -141,6 +190,29 @@
   .btn-ghost:hover {
     text-decoration: underline;
     text-underline-offset: 0.3rem;
+  }
+
+  /* Small button — mirrors the FlyonUI `btn-sm` class name. */
+  .btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+  }
+
+  /* Square icon button — mirrors the FlyonUI `btn-square` class name. */
+  .btn-square {
+    padding-inline: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  /* Caramel button — mirrors the FlyonUI `btn-secondary` class name. */
+  .btn-secondary {
+    background-color: var(--color-caramel);
+    color: #fff;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-ink);
   }
 
   /* Small uppercase label used across the site. */
