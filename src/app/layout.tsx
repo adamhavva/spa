@@ -44,7 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           href={whatsappHref}
           target="_blank"
           rel="noopener"
-          className="fixed bottom-4 right-4 z-[60] flex h-12 w-12 items-center justify-center rounded-full bg-cocoa text-white shadow-lg shadow-black/20 transition hover:bg-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-caramel sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
+          className="fixed bottom-4 right-4 z-[60] flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#25d366] ring-1 ring-[#25d366]/30 shadow-lg shadow-black/20 transition hover:bg-[#25d366] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25d366] sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
           aria-label="Chat via WhatsApp"
         >
           <WhatsApp />

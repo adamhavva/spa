@@ -92,8 +92,7 @@ const menuGroups: MenuGroup[] = [
   },
 ];
 
-export function Navigation({ overlay = false }: { overlay?: boolean }) {
-  const [openMega, setOpenMega] = useState<string | null>(null);
+export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileGroup, setMobileGroup] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -115,7 +114,6 @@ export function Navigation({ overlay = false }: { overlay?: boolean }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setOpenMega(null);
         setMobileOpen(false);
       }
     };
@@ -123,78 +121,43 @@ export function Navigation({ overlay = false }: { overlay?: boolean }) {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const activeGroup = menuGroups.find((g) => g.id === openMega);
-
-  /* Header sits on top of a dark hero → transparent until the user scrolls. */
-  const transparent = overlay && !scrolled;
-  const linkColor = transparent
-    ? "text-white/90 hover:text-white"
-    : "text-cocoa hover:text-cocoa/70";
-  const burgerColor = transparent
-    ? "border-white/40 text-white hover:bg-white hover:text-cocoa"
-    : "border-cocoa/20 text-cocoa hover:bg-cocoa hover:text-white";
+  /* Header is always solid — no transparent overlay. */
+  const linkColor = "text-cocoa hover:text-cocoa/70";
+  const burgerColor =
+    "border-cocoa/20 text-cocoa hover:bg-cocoa hover:text-white";
 
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
-          transparent
-            ? "border-transparent bg-transparent"
-            : scrolled
-              ? "border-tan/60 bg-cream-soft/95 shadow-sm backdrop-blur"
-              : "border-transparent bg-cream-soft"
+        className={`fixed inset-x-0 top-0 z-50 border-b border-tan/60 bg-cream-soft transition-shadow duration-300 ${
+          scrolled ? "shadow-sm" : ""
         }`}
-        onMouseLeave={() => setOpenMega(null)}
       >
         <div className="container-kama">
           <div className="flex h-16 items-center justify-between gap-3 lg:h-20 lg:gap-6">
             {/* Brand */}
             <Link href="/" aria-current="page" className="shrink-0">
-              <Logo
-                className="h-5 w-auto lg:h-[22px]"
-                variant={transparent ? "light" : "dark"}
-              />
+              <Logo className="h-5 w-auto lg:h-[22px]" />
             </Link>
 
-            {/* Desktop navigation */}
+            {/* Desktop navigation — plain horizontal links, no dropdown */}
             <nav
               aria-label="Primary"
-              className="hidden shrink-0 items-center gap-2.5 lg:flex xl:gap-6"
+              className="hidden shrink-0 items-center gap-3 lg:flex lg:gap-4 xl:gap-8"
             >
-              {nav.primary.map((item) =>
-                item.mega ? (
-                  <button
-                    key={item.label}
-                    type="button"
-                    aria-expanded={openMega === item.mega}
-                    onMouseEnter={() => setOpenMega(item.mega)}
-                    onFocus={() => setOpenMega(item.mega)}
-                    onClick={() =>
-                      setOpenMega((c) => (c === item.mega ? null : item.mega!))
-                    }
-                    className={`flex shrink-0 items-center gap-1 whitespace-nowrap text-[0.875rem] transition-colors xl:text-[0.9375rem] ${linkColor} ${
-                      openMega === item.mega && !transparent ? "text-cocoa/70" : ""
-                    }`}
-                  >
-                    {item.label}
-                    <ChevronDown className="h-3 w-3" />
-                  </button>
-                ) : (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className={`shrink-0 whitespace-nowrap text-[0.875rem] transition-colors xl:text-[0.9375rem] ${linkColor}`}
-                  >
-                    {item.label}
-                  </Link>
-                ),
-              )}
+              {nav.primary.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={`shrink-0 whitespace-nowrap text-[0.875rem] transition-colors xl:text-[0.9375rem] ${linkColor}`}
+                >
+                  {item.label}
+                </Link>
+              ))}
 
               <Link
                 href="/contact"
-                className={`btn ml-1 shrink-0 whitespace-nowrap px-4 py-2.5 text-[0.8125rem] xl:ml-2 xl:px-6 xl:py-3 xl:text-[0.9375rem] ${
-                  transparent ? "btn-light" : "btn-primary"
-                }`}
+                className="btn ml-2 shrink-0 whitespace-nowrap px-4 py-2.5 text-[0.8125rem] btn-primary xl:ml-3 xl:px-6 xl:py-3 xl:text-[0.9375rem]"
               >
                 {nav.bookNow}
               </Link>
@@ -219,74 +182,10 @@ export function Navigation({ overlay = false }: { overlay?: boolean }) {
           </div>
         </div>
 
-        {/* Mega menu (desktop) */}
-        {activeGroup && (
-          <div
-            className="absolute inset-x-0 top-full hidden border-b border-tan/60 bg-white shadow-xl lg:block"
-            onMouseEnter={() => setOpenMega(activeGroup.id)}
-          >
-            <div className="container-kama">
-              <div className="grid gap-8 py-8 lg:grid-cols-1 lg:gap-10 lg:py-10 xl:grid-cols-[minmax(0,1fr)_auto] xl:gap-12 xl:py-12">
-                {/* Link columns */}
-                <div className="flex flex-wrap gap-x-10 gap-y-8 xl:gap-x-16">
-                  {activeGroup.columns.map((col) => (
-                    <div
-                      key={col.title}
-                      className="min-w-[11rem] flex-1 sm:max-w-[18rem]"
-                    >
-                      <div className="eyebrow mb-4 text-cocoa/60">{col.title}</div>
-                      <div className="flex flex-col gap-2.5">
-                        {col.links.map((link) => (
-                          <Link
-                            key={link.label}
-                            href={link.href}
-                            onClick={() => setOpenMega(null)}
-                            className="text-[0.9375rem] transition-colors hover:text-cocoa/70"
-                          >
-                            {link.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Highlight cards */}
-                <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:max-w-lg xl:w-[30rem] xl:max-w-none">
-                  {activeGroup.highlights.map((h) => (
-                    <Link
-                      key={h.label}
-                      href={h.href}
-                      onClick={() => setOpenMega(null)}
-                      className="group block min-w-0"
-                    >
-                      <div className="relative aspect-square overflow-hidden bg-cream">
-                        <img
-                          src={h.image}
-                          alt=""
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                        <span className="absolute left-3 top-3 bg-white px-2 py-1 text-[0.625rem] uppercase tracking-[0.14em] text-cocoa">
-                          {h.badge}
-                        </span>
-                      </div>
-                      <div className="mt-3 flex flex-col gap-1">
-                        <span className="text-caption text-cocoa/60">{h.eyebrow}</span>
-                        <span className="font-display text-title-sm">{h.label}</span>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </header>
 
-      {/* Spacer: the header is fixed, so pages without a dark hero need room for it */}
-      {!overlay && (
-        <div className="h-16 lg:h-20" aria-hidden="true" />
-      )}
+      {/* Spacer: the header is fixed, so page content needs room for it */}
+      <div className="h-16 lg:h-20" aria-hidden="true" />
 
       {/* Mobile drawer */}
       <div
@@ -414,9 +313,9 @@ export function Navigation({ overlay = false }: { overlay?: boolean }) {
           <div className="sticky bottom-0 -mx-6 mt-8 flex gap-3 border-t border-cocoa/10 bg-cream-soft/95 px-6 py-4 backdrop-blur sm:-mx-10 sm:px-10">
             <a
               href={site.phoneHref}
-              className="btn btn-outline flex-1 border-cocoa/30 text-cocoa"
+              className="btn btn-outline flex-1 border-[#25d366]/40 text-cocoa"
             >
-              <WhatsApp className="h-4 w-4" />
+              <WhatsApp className="h-4 w-4 text-[#25d366]" />
               WhatsApp
             </a>
             <Link

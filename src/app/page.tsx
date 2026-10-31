@@ -11,7 +11,7 @@ import { SocialsSection } from "@/components/home/socials";
 export default function Home() {
   return (
     <>
-      <Navigation overlay />
+      <Navigation />
       <main className="flex-1">
         <Hero />
         <MembershipBanner />
