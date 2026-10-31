@@ -1,0 +1,1045 @@
+/*
+ * KAMA-specific additions on top of the Hiatus design-system stylesheet.
+ * Everything here either fills a gap in the original CSS or adapts it to
+ * KAMA's content (longer Indonesian copy, KAMA colours, etc.).
+ */
+
+/* ---- Design tokens -------------------------------------------------- */
+
+/*
+ * Palette extracted from references/referensi warna.pdf (KAMA
+ * Corporate Wellness deck — the colour reference for the site):
+ *   espresso #603009  (deep brown background & headings)
+ *   caramel  #96745B  (warm mid brown / tan accents)
+ *   cream    #FDECDA  (peachy card cream)
+ *   paper    #EFE8DE  (speckled paper background)
+ */
+
+:root {
+  --kama-cocoa: #603009;
+  --kama-cocoa-ink: #4f2807;
+  --kama-cream: #efe8de;
+  --kama-cream-soft: #f6f1e9;
+  --kama-cream-card: #fdedda;
+  --kama-clay: #cdaf96;
+
+  /* legacy aliases (kept for existing rules) */
+  --kama-navy: #4f2807;
+  --kama-navy-blackish: #2a1604;
+  --kama-coral: #603009;
+  --kama-blue: #9a745b;
+  --kama-blue-60: #cbb7a8;
+  --kama-blue-80: #bda292;
+  --kama-periwinkle-50: #f1eadd;
+  --kama-periwinkle-100: #d2c2b9;
+  --kama-gray-01: #f6f1ea;
+  --kama-gray-03: #93837a;
+}
+
+/* ---- Hiatus design-system remap to KAMA palette ---------------------- */
+/* Loaded after hiatus.css, so these override the Webflow tokens. */
+
+:root {
+  /* ink & text */
+  --text-color--text-primary: var(--kama-cocoa);
+  --text-color--text-secondary: var(--kama-cocoa-ink);
+  --base-color-deep-navy--deep-navy-100: var(--kama-cocoa);
+  --base-color-deep-navy--deep-navy-90: #56300f;
+  --base-color-deep-navy--deep-navy-80: #4d2a0d;
+  --base-color-deep-navy--deep-navy-70: #44250b;
+  --base-color-deep-navy--deep-navy-60: #3b2009;
+  --base-color-deep-navy--deep-navy-50: #331b08;
+  --base-color-deep-navy--blackish: #2a1604;
+
+  /* backgrounds */
+  --background-color--background-primary: #f6f1e9;
+  --background-color--background-secondary: #f6f1e9;
+  --background-color--background-alternate: var(--kama-cream);
+  --background-color--background-tertiary: #2a1604;
+  --background-color--button: var(--kama-cocoa);
+
+  /* borders */
+  --border-color--border-primary: var(--kama-cocoa);
+  --border-color--border-secondary: #9a745b;
+  --border-color--border-alternate: #faf6ef;
+
+  /* coral ramp → espresso ramp (lighter as the number decreases) */
+  --base-color-corals--coral-100: #603009;
+  --base-color-corals--coral-90: #74431c;
+  --base-color-corals--coral-80: #8a5f38;
+  --base-color-corals--coral-70: #96745b;
+  --base-color-corals--coral-60: #a5836b;
+  --base-color-corals--coral-50: #b6957f;
+  --base-color-corals--coral-40: #cbb49e;
+  --base-color-corals--coral-30: #dcccc0;
+  --base-color-corals--coral-20: #e6ded2;
+  --base-color-corals--coral-10: #efe8de;
+
+  /* hiatus blue ramp → warm tan ramp */
+  --base-color-hiatus-blue--hiatus-blue-100: #8a5f38;
+  --base-color-hiatus-blue--hiatus-blue-90: #9a745b;
+  --base-color-hiatus-blue--hiatus-blue-80: #b49a82;
+  --base-color-hiatus-blue--hiatus-blue-70: #c0a994;
+  --base-color-hiatus-blue--hiatus-blue-60: #ccb7a6;
+  --base-color-hiatus-blue--hiatus-blue-50: #d6c3b3;
+  --base-color-hiatus-blue--hiatus-blue-40: #e0cfc0;
+  --base-color-hiatus-blue--hiatus-blue-30: #e8dbce;
+  --base-color-hiatus-blue--hiatus-blue-20: #efe6dc;
+  --base-color-hiatus-blue--hiatus-blue-10: #f5efe7;
+
+  /* periwinkle ramp → cream ramp */
+  --base-color-periwinkle--periwinkle-100: #e2d6c9;
+  --base-color-periwinkle--periwinkle-90: #e6dbcf;
+  --base-color-periwinkle--periwinkle-80: #e9e0d5;
+  --base-color-periwinkle--periwinkle-70: #ece4da;
+  --base-color-periwinkle--periwinkle-60: #efe8df;
+  --base-color-periwinkle--periwinkle-50: #f2ebe2;
+  --base-color-periwinkle--periwinkle-40: #f5efe7;
+  --base-color-periwinkle--periwinkle-30: #f7f3ec;
+  --base-color-periwinkle--periwinkle-20: #f9f6f0;
+  --base-color-periwinkle--periwinkle-10: #fbf9f4;
+
+  /* neutrals → warm grays */
+  --base-color-neutral--cool-gray-01: #f6f1e9;
+  --base-color-neutral--cool-grey-02: #eee6db;
+  --base-color-neutral--cool-gray-03: #93837a;
+  --base-color-neutral--cool-gray-04: #7d6c60;
+  --base-color-neutral--bluish-gray-100: #d2c2b9;
+  --base-color-neutral--bluish-gray-80: #dbd2c7;
+  --transparent-color--neutrals-cool-gray-03: #93837a80;
+  --base-color-functionals--hiatus-hover-blue: #e2d6c9;
+}
+
+/* Literal (non-token) gradients & backgrounds in hiatus.css that must
+ * follow the KAMA PDF palette as well. */
+.bkg-coral-gradient {
+  background-image: linear-gradient(
+    104deg,
+    #e2d6c900,
+    #f6f1e9cc 50%,
+    #60300999
+  );
+}
+@media screen and (max-width: 767px) {
+  .bkg-coral-gradient {
+    background-image: linear-gradient(
+      126deg,
+      #e2d6c900,
+      #f6f1e9cc 50%,
+      var(--base-color-corals--coral-100)
+    );
+  }
+  .section_counter-banner {
+    background-color: var(--base-color-periwinkle--periwinkle-50);
+  }
+}
+
+/* hi-contrast literal backgrounds left over in hiatus.css */
+.home-locations,
+.padding-section-global.home-locations,
+.section_counter-banner,
+.text-field {
+  background-color: var(--kama-cream);
+}
+
+.form_input,
+.newsletter_dropdown {
+  background-color: #f6f1e9bf;
+}
+
+.badge.is-location {
+  background-color: var(--base-color-hiatus-blue--hiatus-blue-40);
+}
+
+.heading {
+  color: var(--kama-cocoa);
+}
+
+/* ---- Font faces ------------------------------------------------------ */
+
+@font-face {
+  font-family: "Ft regola neue trial";
+  src: url("/fonts/FTRegolaNeueTrial-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ft regola neue trial";
+  src: url("/fonts/FTRegolaNeueTrial-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ft regola neue trial";
+  src: url("/fonts/FTRegolaNeueTrial-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ft regola neue trial";
+  src: url("/fonts/FTRegolaNeueTrial-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ft regola neue trial";
+  src: url("/fonts/FTRegolaNeueTrial-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ft regola neue trial";
+  src: url("/fonts/FTRegolaNeueTrial-Heavy.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Romie trial";
+  src: url("/fonts/RomieTrial-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Romie trial";
+  src: url("/fonts/RomieTrial-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Romie trial";
+  src: url("/fonts/RomieTrial-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Romie trial";
+  src: url("/fonts/RomieTrial-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Romie trial";
+  src: url("/fonts/RomieTrial-Heavy.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Romie trial";
+  src: url("/fonts/RomieTrial-Regular-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ---- Base ------------------------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Ft regola neue trial", sans-serif;
+  color: var(--kama-navy);
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+ * Heading styles are intentionally left to the design system stylesheet
+ * (hiatus.css), which sets the Romie face and weight per heading level.
+ */
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+::selection {
+  background-color: var(--kama-coral);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--kama-blue);
+  outline-offset: 3px;
+}
+
+/* ---- Layout helpers used by KAMA pages ------------------------------- */
+
+.navigation_link {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font-family: inherit;
+  text-align: left;
+}
+
+.text-style-1line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.padding-global-mobile {
+  display: none;
+}
+
+.no-padding {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.section-header.no-padding {
+  margin-bottom: var(--spacing--xlarge);
+}
+
+.section-header_button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing--xxsmall);
+  font-size: var(--typography--caption-s-size);
+  line-height: 1.2;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+.section-header_button .button_icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.social-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.button_icon,
+.button-icon {
+  width: var(--button--icon-size);
+  height: var(--button--icon-size);
+  flex-shrink: 0;
+}
+
+.button.is-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button--inner-gap);
+}
+
+.button.is-icon .button_icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.button.is-text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--button--inner-gap);
+  width: auto;
+  border-color: transparent;
+  background: transparent;
+  padding: 0;
+}
+
+.button.is-text:hover {
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+.button.width-fill {
+  width: 100%;
+}
+
+/* ---- Treatment / menu listing ---------------------------------------- */
+
+.treatment-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing--medium);
+  height: 100%;
+}
+
+.treatment-card_image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  width: 100%;
+}
+
+.treatment-card_body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing--small);
+  flex: 1;
+}
+
+.treatment-card_price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing--small);
+  border-top: 1px solid var(--kama-periwinkle-100);
+  padding-top: var(--spacing--small);
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing--medium);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--kama-periwinkle-100);
+}
+
+.price-row:last-child {
+  border-bottom: 0;
+}
+
+.price-row_duration {
+  font-size: var(--typography--caption-s-size);
+  color: var(--kama-gray-03);
+}
+
+.price-row_value {
+  font-family: "Romie trial", serif;
+  font-size: 1.125rem;
+}
+
+.package-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--kama-periwinkle-100);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  background: #fff;
+  height: 100%;
+}
+
+.package-card_image {
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+}
+
+.package-card_body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing--small);
+  padding: var(--spacing--large);
+  flex: 1;
+}
+
+.package-includes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing--xxsmall);
+  margin-top: var(--spacing--small);
+}
+
+.package-includes_item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: var(--kama-periwinkle-50);
+  border-radius: 20rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.package-includes_item svg {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.benefit-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing--small);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefit-list_item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing--small);
+  font-size: var(--typography--caption-s-size);
+  line-height: 1.5;
+}
+
+.benefit-list_icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: var(--kama-coral);
+}
+
+/* ---- Page hero ------------------------------------------------------- */
+
+.page-hero {
+  padding-top: 11rem;
+  padding-bottom: var(--spacing--xhuge);
+  background-color: var(--kama-periwinkle-50);
+}
+
+.page-hero_image {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  width: 100%;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing--small);
+  height: 100%;
+}
+
+.contact-card_image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  width: 100%;
+}
+
+.contact-card_body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing--xxsmall);
+}
+
+.contact-meta {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing--xxsmall);
+  font-size: var(--typography--caption-s-size);
+  line-height: 1.5;
+}
+
+.contact-meta svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+/* ---- Location cards -------------------------------------------------- */
+
+.location-card_component {
+  text-align: left;
+}
+
+.location-card_component .image-container {
+  position: relative;
+}
+
+.location-card_component:hover .hover-overlay {
+  opacity: 1;
+}
+
+/* ---- Mobile menu close button ---------------------------------------- */
+
+.mobile-menu_component .modal_card_header_close_icon {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+/* ---- Mobile responsive overrides ------------------------------------ */
+
+@media screen and (max-width: 767px) {
+  /* ---- Navigation: hide desktop links, show mobile menu button ---- */
+  .navigation_links,
+  .navigation_actions_tools {
+    display: none !important;
+  }
+
+  .mobile-menu_button {
+    display: block !important;
+  }
+
+  /* ---- Mobile menu: full screen overlay --------------------------- */
+  .mobile-menu_component {
+    display: flex !important;
+    flex-direction: column;
+    background-color: var(--kama-cream-soft);
+    z-index: 1000;
+  }
+
+  .mobile-menu_content {
+    padding: 2rem 1.5rem;
+    flex: 1;
+  }
+
+  .mobile-menu_dropdowns {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .dropdown_trigger {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--kama-clay);
+    font-size: 1.125rem;
+    cursor: pointer;
+  }
+
+  /* Force dropdown content to be visible in mobile menu */
+  .dropdown_content,
+  .dropdown_content-inner-2 {
+    display: block !important;
+    padding: 0.75rem 0 1rem !important;
+  }
+
+  .mobile-menu_links-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+
+  .mobile-menu_links-list a {
+    color: var(--kama-cocoa) !important;
+    font-size: 0.9375rem !important;
+    line-height: 1.4 !important;
+    text-decoration: none !important;
+    display: block !important;
+  }
+
+  .mobile-menu_links-list a:hover {
+    color: var(--kama-cocoa-ink) !important;
+  }
+
+  /* ---- Mobile menu highlights (membership/gift cards) ------------- */
+  .mobile-menu_highlights {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .mobile-menu_highlights a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .mobile-menu_highlights img {
+    width: 100%;
+    max-width: 120px;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-menu_highlights .navi-text {
+    font-size: 0.75rem;
+    color: var(--kama-gray-03);
+  }
+
+  .mobile-menu_highlights .navi-text:last-child {
+    font-weight: 600;
+    color: var(--kama-cocoa);
+    font-size: 0.875rem;
+  }
+
+  /* ---- Mobile menu actions (WhatsApp + Menu button) --------------- */
+  .mobile-menu_actions_secondary {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.75rem;
+    padding: 1rem 0;
+  }
+
+  .mobile-menu_actions_secondary a {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1rem !important;
+    background-color: var(--white) !important;
+    border: 1px solid var(--kama-clay) !important;
+    border-radius: 0.5rem;
+    text-decoration: none !important;
+    color: var(--kama-cocoa) !important;
+    font-size: 0.9375rem !important;
+  }
+
+  /* ---- Mobile Book Now button ------------------------------------- */
+  .mobile-menu_book-now {
+    padding: 1rem 0;
+  }
+
+  .mobile-menu_book-now a {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    padding: 1rem !important;
+    background-color: var(--kama-cocoa) !important;
+    color: var(--white) !important;
+    border-radius: 0.5rem;
+    text-decoration: none !important;
+    font-weight: 600;
+  }
+
+  /* ---- Hero: responsive text -------------------------------------- */
+  .hero-viewport {
+    min-height: 500px;
+  }
+
+  .text-center_wrapper {
+    padding: 0 1.5rem;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .header-xs {
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .header-xxl {
+    font-size: 2.25rem !important;
+    line-height: 1.15 !important;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .home_hero_membership {
+    position: absolute;
+    bottom: 2rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    transform: none !important;
+    max-width: none;
+    margin: 0 !important;
+  }
+
+  .membership_text-wrap {
+    max-width: 100%;
+  }
+
+  .caption-m {
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* ---- Menu grid: 1-2 columns on mobile --------------------------- */
+  .whats-new_list,
+  .grid_signature-packages {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .treatment-card {
+    max-width: 100%;
+  }
+
+  /* ---- Corporate page: stack layout ------------------------------- */
+  .corporate-split {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .corporate-split.split-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ---- Footer: stack columns -------------------------------------- */
+  .footer-links-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    text-align: center;
+  }
+
+  /* ---- Menu gallery: responsive grid ------------------------------ */
+  .menu-gallery {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  /* ---- General: padding adjustments ------------------------------- */
+  .padding-global {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  .container-large {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* ---- Buttons: full width on mobile ------------------------------ */
+  .button {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .button-group {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+
+  .button-group .button {
+    margin: 0 !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .header-xxl {
+    font-size: 2rem !important;
+  }
+
+  .header-l {
+    font-size: 1.5rem !important;
+  }
+
+  .menu-gallery {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ---- Header layout: logo left, nav links right ---------------------- */
+
+.navigation_container {
+  grid-template-columns: auto 1fr;
+}
+
+/* ---- Fixed navigation ----------------------------------------------- */
+
+.navigation_holder,
+.navigation_component {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5rem !important;
+}
+
+/* ---- Main content needs top padding to avoid fixed nav ---------------- */
+
+.main-wrapper {
+  padding-top: 5rem !important;
+}
+
+/* ---- Floating WhatsApp button ---------------------------------------- */
+
+.whatsapp-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 50;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 999px;
+  background-color: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px #60300933;
+  transition: transform 0.15s ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-2px);
+}
+
+.whatsapp-float svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+/* ---- Corporate page split layouts ------------------------------------ */
+
+.corporate-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing--xxxlarge);
+  align-items: center;
+}
+
+.corporate-split.split-3 {
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+}
+
+@media screen and (max-width: 991px) {
+  .corporate-split,
+  .corporate-split.split-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Hero overlay: full viewport, fixed behind scroll ---------------- */
+
+.hero-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #4427161a;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-overlay.is-coral-circle {
+  position: fixed;
+  z-index: 1;
+  aspect-ratio: 1;
+  opacity: 0.6;
+  filter: blur(50px);
+  background-color: #80513899;
+  border-radius: 200rem;
+  width: 69.4375rem;
+  height: 69.4375rem;
+  top: -100%;
+  left: 71.7%;
+}
+
+.hero-overlay.is-blue-circle {
+  position: fixed;
+  z-index: 1;
+  aspect-ratio: 1;
+  opacity: 0.6;
+  filter: blur(100px);
+  object-fit: fill;
+  background-color: #a98f7b;
+  border-radius: 200rem;
+  width: 105.813rem;
+  height: 105.813rem;
+  display: block;
+  top: -135.5%;
+  left: 45.3%;
+}
+
+/* ---- Hero layout: full-viewport wrapper ------------------------------ */
+
+.hero-viewport {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: calc(-1 * var(--utilities--padding-global, 1.5rem));
+  margin-right: calc(-1 * var(--utilities--padding-global, 1.5rem));
+  width: calc(100% + var(--utilities--padding-global, 1.5rem) * 2);
+}
+
+.hero-viewport > * {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-viewport .home_hero_asset {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-viewport .home_hero_asset img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- Override default hero heights to full viewport ------------------ */
+
+.hero-viewport .home_hero_container {
+  height: 100% !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* ---- Remove hero padding from section -------------------------------- */
+
+.section_hero,
+.section_hero * {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.hero-viewport {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+@media screen and (max-width: 767px) {
+  .hero-viewport {
+    min-height: 500px;
+    margin-left: calc(-1 * var(--utilities--padding-global, 1rem));
+    margin-right: calc(-1 * var(--utilities--padding-global, 1rem));
+    width: calc(100% + var(--utilities--padding-global, 1rem) * 2);
+  }
+}
+
+.menu-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing--large);
+}
+
+@media screen and (max-width: 991px) {
+  .menu-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .menu-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.menu-gallery_item {
+  display: block;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 24px #6030091f;
+  transition: transform 0.15s ease;
+}
+
+.menu-gallery_item:hover {
+  transform: translateY(-4px);
+}
+
+.menu-gallery_item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
