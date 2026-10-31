@@ -1,145 +1,131 @@
 import Link from "next/link";
-import { ArrowRight, Facebook, Instagram, TikTok, WhatsApp } from "./icons";
-import { NewsletterForm } from "./forms/newsletter-form";
+import { ArrowRight, Instagram } from "./icons";
 import { footerLinks, footerTagline, locations } from "@/data/content";
 
 export function Footer() {
   return (
-    <footer id="footer" className="section_footer">
-      <div className="footer">
-        <div className="container-large">
-          <div className="newsletter_component">
-            <div className="sizing-grow layout-align-center">
-              <h3 className="header-l">
-                Become a KAMA Member for Rp 1.5jt a month
-              </h3>
-            </div>
-            <div className="button-group margin-left-auto-desktop">
+    <footer id="footer" className="mt-auto">
+      {/* Membership call-to-action */}
+      <section className="bg-cream-card">
+        <div className="container-kama">
+          <div className="flex flex-col items-start gap-6 py-10 md:flex-row md:items-center md:justify-between md:py-14">
+            <h2 className="max-w-[22ch] font-display text-title md:text-[2.375rem] md:leading-[1.2]">
+              Become a KAMA Member for Rp 1.5jt a month
+            </h2>
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <Link
                 href="/membership"
-                className="button is-tertiary is-icon w-inline-block"
+                className="btn btn-outline whitespace-nowrap border-cocoa/40"
               >
-                <div>Learn More</div>
-                <div className="button_icon w-embed">
-                  <ArrowRight />
-                </div>
+                Learn More
               </Link>
               <Link
                 href="/membership"
-                className="button is-secondary is-icon is-dark sizing-grow w-inline-block"
+                className="btn btn-primary whitespace-nowrap"
               >
-                <div>Join KAMA Now</div>
-                <div className="button_icon w-embed">
-                  <ArrowRight />
-                </div>
+                Join KAMA Now
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="footer-content_outer">
-            <div className="footer_social-quote">
-              <div className="layout-row gap-large">
-                <div className="eyebrow-s text-style-allcaps">CONNECT WITH US</div>
-                <div className="icon-socials">
-                  <a
-                    href="https://www.instagram.com/kama__spa/"
-                    className="footer-link-block w-inline-block"
-                    aria-label="Instagram"
-                  >
-                    <div className="footer-icon w-embed">
-                      <Instagram />
-                    </div>
-                  </a>
-                  {/* <a
-                    href="https://www.facebook.com/"
-                    className="footer-link-block w-inline-block"
-                    aria-label="Facebook"
-                  >
-                    <div className="footer-icon w-embed">
-                      <Facebook />
-                    </div>
-                  </a> */}
-                  {/* <a
-                    href="https://www.tiktok.com/"
-                    className="footer-link-block w-inline-block"
-                    aria-label="TikTok"
-                  >
-                    <div className="footer-icon w-embed">
-                      <TikTok />
-                    </div>
-                  </a> */}
-                </div>
-              </div>
-              <div className="footer_header">
-                <h3 className="header-m text-style-italic">{footerTagline}</h3>
+      {/* Main footer */}
+      <section className="bg-cocoa text-cream-soft">
+        <div className="container-kama">
+          <div className="grid gap-12 py-14 lg:grid-cols-12 lg:gap-10 lg:py-20">
+            {/* Brand + tagline */}
+            <div className="lg:col-span-5">
+              <div className="flex flex-col gap-5">
+                <span className="eyebrow text-cream-soft/70">Connect with us</span>
+                <a
+                  href="https://www.instagram.com/kama__spa/"
+                  aria-label="Instagram"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-cream-soft/40 transition-colors hover:bg-cream-soft hover:text-cocoa"
+                >
+                  <Instagram className="h-5 w-5" />
+                </a>
+                <p className="max-w-[46ch] font-display text-title-lg text-cream-soft md:text-[1.75rem] md:leading-[1.4]">
+                  {footerTagline}
+                </p>
               </div>
             </div>
 
-            <div className="footer_content">
-
-              <div className="footer-links-grid_wrapp">
-                <div className="w-layout-grid footer-links-grid">
-                  {Object.entries(footerLinks).map(([group, links]) => (
-                    <div key={group} className="footer-links_wrapper">
-                      <div className="eyebrow-s text-style-allcaps text-weight-bold">
-                        {group}
-                      </div>
-                      <div className="layout-row gap-xxsmall">
-                        {links.map((link) => (
-                          <Link key={link.label} href={link.href} className="footer_link w-inline-block">
-                            <div className="caption-s">{link.label}</div>
+            {/* Link groups */}
+            <div className="lg:col-span-7">
+              <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4 lg:gap-x-8 xl:grid-cols-5">
+                {Object.entries(footerLinks).map(([group, links]) => (
+                  <div key={group} className="flex flex-col gap-4">
+                    <span className="eyebrow text-cream-soft/60">{group}</span>
+                    <ul className="flex flex-col gap-2.5">
+                      {links.map((link) => (
+                        <li key={link.label}>
+                          <Link
+                            href={link.href}
+                            className="text-caption text-cream-soft/85 transition-colors hover:text-white"
+                          >
+                            {link.label}
                           </Link>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                  <div className="footer-links_wrapper">
-                    <div className="eyebrow-s text-style-allcaps text-weight-bold">
-                      Locations
-                    </div>
-                    <div className="layout-row gap-xxsmall">
-                      <Link href="/locations" className="footer_link caption-s">
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+
+                <div className="flex flex-col gap-4">
+                  <span className="eyebrow text-cream-soft/60">Locations</span>
+                  <ul className="flex flex-col gap-2.5">
+                    <li>
+                      <Link
+                        href="/locations"
+                        className="text-caption text-cream-soft/85 transition-colors hover:text-white"
+                      >
                         All Locations
                       </Link>
-                      {locations.map((loc) => (
+                    </li>
+                    {locations.map((loc) => (
+                      <li key={loc.slug}>
                         <Link
-                          key={loc.slug}
                           href={`/locations#${loc.slug}`}
-                          className="footer_link w-inline-block"
+                          className="text-caption text-cream-soft/85 transition-colors hover:text-white"
                         >
-                          <div className="caption-s">
-                            {loc.name} | {loc.area}
-                          </div>
+                          {loc.name} | {loc.area}
                         </Link>
-                      ))}
-                    </div>
-                  </div>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="section_footer-bottom">
-        <div className="container-large">
-          <div className="footer-bottom">
-            <div className="layout-column">
-              <div className="eyebrow-s text-style-allcaps">
-                © 2026 KAMA Spa. All rights reserved.
-              </div>
-            </div>
-            <div className="layout-column gap-medium margin-left-auto">
-              <Link href="/privacy-policy" className="caption-s">
+      {/* Bottom bar */}
+      <section className="border-t border-cocoa/20 bg-cocoa text-cream-soft">
+        <div className="container-kama">
+          <div className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between">
+            <span className="text-caption text-cream-soft/70">
+              © 2026 KAMA Spa. All rights reserved.
+            </span>
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
+              <Link
+                href="/privacy-policy"
+                className="text-caption text-cream-soft/70 transition-colors hover:text-white"
+              >
                 Privacy Policy
               </Link>
-              <Link href="/terms-conditions" className="caption-s">
+              <Link
+                href="/terms-conditions"
+                className="text-caption text-cream-soft/70 transition-colors hover:text-white"
+              >
                 Terms &amp; Conditions
               </Link>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </footer>
   );
 }

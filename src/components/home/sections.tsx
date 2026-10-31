@@ -1,75 +1,55 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowRightLong, ArrowRight } from "@/components/icons";
+import { ArrowRight } from "@/components/icons";
 import { journalPosts, locations, testimonials } from "@/data/content";
 
 export function LocationsSection() {
   return (
-    <section className="section_slider">
-      <div className="padding-section-global home-locations">
-        <div className="padding-global">
-          <div className="container-large">
-            <div className="content_wrapp home-location-text">
-              <div className="section-header home-location-section">
-                <h3 className="header-l home-location-header">Locations</h3>
-                <p className="home-location-text">
-                  KAMA locations are conveniently located throughout South Jakarta, with
-                  more on the way.
-                  <br />‍
-                </p>
-                <div className="icon-wrapper hide">
-                  <button type="button" aria-label="Previous locations">
-                    <div className="slider-arrow is-disabled w-embed">
-                      <ArrowLeft />
-                    </div>
-                  </button>
-                  <button type="button" aria-label="Next locations">
-                    <div className="slider-arrow w-embed">
-                      <ArrowRightLong />
-                    </div>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="padding-global">
-              <div className="container-large">
-                <div className="layout-center home-loctions-button">
-                  <Link
-                    href="/locations"
-                    className="button is-secondary is-icon locations-button w-inline-block"
-                  >
-                    <div>View All Locations</div>
-                    <div className="button_icon w-embed">
-                      <ArrowRight />
-                    </div>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="slider_mask w-dyn-list">
-              <div className="slider_slide is-locations-grid w-dyn-items">
-                {locations.map((loc) => (
-                  <div key={loc.slug} className="slider_item is-home-locations-tablet w-dyn-item">
-                    <Link
-                      href={`/locations#${loc.slug}`}
-                      className="location-card_component w-inline-block"
-                    >
-                      <div className="image-container aspect-ratio-square is-relative">
-                        <img src={loc.image} alt={`${loc.name} KAMA Spa`} className="image-cover" />
-                        <div className="hover-overlay" />
-                        <div className="special-tag">
-                          <div className="badge">{loc.tag}</div>
-                        </div>
-                      </div>
-                      <div className="caption-l">
-                        {loc.name} | {loc.area}
-                      </div>
-                    </Link>
-                  </div>
-                ))}
-              </div>
-            </div>
+    <section className="bg-cream-soft">
+      <div className="container-kama py-14 md:py-16 lg:py-20">
+        {/* Section header */}
+        <div className="flex flex-col items-center gap-6 text-center lg:flex-row lg:items-end lg:justify-between lg:gap-10 lg:text-left">
+          <div className="flex flex-col gap-3">
+            <h2 className="font-display text-title md:text-[2.375rem] md:leading-[1.2]">
+              Locations
+            </h2>
+            <p className="max-w-[46ch] text-body text-cocoa/70">
+              KAMA locations are conveniently located throughout South Jakarta, with more on
+              the way.
+            </p>
           </div>
+
+          <Link
+            href="/locations"
+            className="btn btn-outline shrink-0 border-cocoa/40"
+          >
+            View All Locations
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
+
+        {/* Location grid */}
+        <ul className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3 lg:gap-8">
+          {locations.map((loc) => (
+            <li key={loc.slug}>
+              <Link href={`/locations#${loc.slug}`} className="group block">
+                <div className="relative aspect-square overflow-hidden bg-cream">
+                  <img
+                    src={loc.image}
+                    alt={`${loc.name} KAMA Spa`}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute left-3 top-3 bg-white px-2.5 py-1 text-[0.625rem] uppercase tracking-[0.14em] text-cocoa">
+                    {loc.tag}
+                  </span>
+                </div>
+                <p className="mt-4 text-title-sm">
+                  {loc.name} | {loc.area}
+                </p>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -77,95 +57,86 @@ export function LocationsSection() {
 
 export function WhatsNewSection() {
   return (
-    <section id="home_whats_new" className="section_whats-new">
-      <div className="padding-section-global">
-        <div className="padding-global is-mobile-off">
-          <div className="container-large">
-            <div className="padding-global-mobile">
-              <div className="section-header is-mobile">
-                <h2 className="heading-style-h3 font-family-alternate">What’s New</h2>
-              </div>
-            </div>
-            <div className="layout-column-desktop gap-xlarge">
-              <div className="layout-row gap-large sizing-grow hide-mobile">
-                <h2 className="header-l">What’s New</h2>
-                <div className="newsletter-text_wrapp sizing-grow">
-                  <div className="body-m text-color-gray">
-                    We believe authentic beauty reaches far beyond the superficial, through
-                    consistent self-care you let the beauty shine both externally and
-                    internally. <br />‍
-                    <span className="text-black-tablet">
-                      Sign up to our newsletter to be informed about all our novelties.
-                    </span>
-                  </div>
-                  <Link href="#footer" className="button is-secondary is-icon w-inline-block">
-                    <div>
-                      Subscribe <span className="show-until-1280">to Newsletter</span>
-                    </div>
-                    <div className="button_icon w-embed">
-                      <ArrowRight />
-                    </div>
-                  </Link>
-                </div>
-              </div>
-              <div className="slider_mask column-section">
-                <div className="w-dyn-list">
-                  <div role="list" className="whats-new_list w-dyn-items">
-                    {journalPosts.map((post) => (
-                      <div key={post.slug} role="listitem" className="whats-new_card w-dyn-item">
-                        <div className="image-container ratio16-11">
-                          <img src={post.image} alt="" loading="lazy" className="image-cover" />
-                        </div>
-                        <div className="article-cart_inner-text">
-                          <div className="article-card_tags">
-                            <div className="eyebrow-s">{post.tag}</div>
-                            <div>·</div>
-                            <div className="eyebrow-s">KAMA Journal</div>
-                          </div>
-                          <h3 className="header-s">{post.title}</h3>
-                        </div>
-                        <div className="spacer-xxlarge" />
-                        <Link href="/journal" className="button is-tertiary whats-new-button w-button">
-                          Learn More
-                        </Link>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+    <section id="home_whats_new" className="scroll-mt-20 bg-cream-soft">
+      <div className="container-kama py-14 md:py-16 lg:py-20">
+        {/* Section header */}
+        <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
+          <div className="flex flex-col gap-3">
+            <h2 className="font-display text-title md:text-[2.375rem] md:leading-[1.2]">
+              What’s New
+            </h2>
+            <p className="max-w-[52ch] text-body text-cocoa/70">
+              We believe authentic beauty reaches far beyond the superficial, through
+              consistent self-care you let the beauty shine both externally and internally.
+            </p>
           </div>
+
+          <Link
+            href="#footer"
+            className="btn btn-outline shrink-0 border-cocoa/40"
+          >
+            Subscribe to Newsletter
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
+
+        {/* Journal grid */}
+        <ul className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3 lg:gap-10">
+          {journalPosts.map((post) => (
+            <li key={post.slug} className="flex h-full flex-col">
+              <Link href="/journal" className="group flex h-full flex-col">
+                <div className="aspect-[16/11] overflow-hidden bg-cream">
+                  <img
+                    src={post.image}
+                    alt=""
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+
+                <div className="mt-5 flex flex-1 flex-col gap-4">
+                  <div className="flex items-center gap-2">
+                    <span className="eyebrow text-cocoa/60">{post.tag}</span>
+                    <span aria-hidden="true">·</span>
+                    <span className="eyebrow text-cocoa/60">KAMA Journal</span>
+                  </div>
+                  <h3 className="font-display text-title-sm md:text-[1.375rem] md:leading-[1.3]">
+                    {post.title}
+                  </h3>
+                  <span className="mt-auto inline-flex items-center gap-2 text-[0.9375rem] underline underline-offset-4 transition-opacity hover:opacity-70">
+                    Learn More
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-      <div className="divider-gray" />
     </section>
   );
 }
 
 export function TestimonialsSection() {
   return (
-    <section className="section_quote">
-      <div className="padding-section-global">
-        <div className="padding-global">
-          <div className="container-large">
-            <div className="section-header">
-              <h2 className="header-l">Reviews</h2>
-            </div>
-            <div className="w-layout-grid whats-new_list">
-              {testimonials.map((t) => (
-                <div key={t.name} className="whats-new_card w-dyn-item">
-                  <div className="article-cart_inner-text">
-                    <div className="body-m text-color-gray">“{t.quote}”</div>
-                    <div className="spacer-medium" />
-                    <div className="caption-m text-weight-bold">{t.name}</div>
-                    <div className="caption-s text-color-gray">{t.location}</div>
-                    <div className="eyebrow-s">{t.role}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+    <section className="bg-cream">
+      <div className="container-kama py-14 md:py-16 lg:py-20">
+        <h2 className="font-display text-title md:text-[2.375rem] md:leading-[1.2]">
+          Reviews
+        </h2>
+
+        <ul className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3 lg:mt-12 lg:gap-8">
+          {testimonials.map((t) => (
+            <li key={t.name} className="flex h-full flex-col bg-cream-soft p-6 md:p-8">
+              <blockquote className="text-lead text-cocoa/80">“{t.quote}”</blockquote>
+              <div className="mt-6 flex flex-col gap-1">
+                <span className="text-[0.9375rem] font-bold">{t.name}</span>
+                <span className="text-caption text-cocoa/60">{t.location}</span>
+                <span className="eyebrow mt-1 text-cocoa/50">{t.role}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
