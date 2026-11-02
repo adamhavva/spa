@@ -8,7 +8,7 @@ export function Hero() {
       {/* Background image + overlays */}
       <div className="absolute inset-0 -z-10">
         <img
-          src="/img/kama/01-incense.gif"
+          src="/img/kama/incense_smoke_animated.gif"
           alt=""
           className="h-full w-full object-cover"
         />

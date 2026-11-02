@@ -557,6 +557,14 @@ video {
 
 /* ---- Location cards -------------------------------------------------- */
 
+/* The three branches read better side by side: three columns from tablet
+   up, one column on phones. */
+@media screen and (min-width: 768px) {
+  .location-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 .location-card_component {
   text-align: left;
 }

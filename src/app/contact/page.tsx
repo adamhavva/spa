@@ -3,7 +3,8 @@ import Link from "next/link";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { ReservationForm } from "@/components/forms/reservation-form";
-import { Clock, LocationPin, WhatsApp } from "@/components/icons";
+import { LocationCards } from "@/components/contact/location-cards";
+import { LocationPin, WhatsApp } from "@/components/icons";
 import { locations, site } from "@/data/content";
 
 export const metadata: Metadata = {
@@ -39,37 +40,7 @@ export default function ContactPage() {
                   <div className="section-header">
                     <h2 className="header-l">Our Locations</h2>
                   </div>
-                  <div className="w-layout-grid whats-new_list">
-                    {locations.map((loc) => (
-                      <div key={loc.slug} className="contact-card w-dyn-item">
-                        <div className="contact-card_image image-container">
-                          <img
-                            src={loc.image}
-                            alt={`${loc.name} KAMA Spa`}
-                            loading="lazy"
-                            className="image-cover"
-                          />
-                        </div>
-                        <div className="contact-card_body">
-                          <h3 className="header-s">
-                            {loc.name} | {loc.area}
-                          </h3>
-                          <div className="contact-meta">
-                            <LocationPin />
-                            <span>{loc.address}</span>
-                          </div>
-                          <div className="contact-meta">
-                            <Clock />
-                            <span>{loc.hours}</span>
-                          </div>
-                          <div className="contact-meta">
-                            <WhatsApp />
-                            <span>{loc.phone}</span>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                  <LocationCards locations={locations} />
                 </div>
 
                 {/* <div className="sizing-grow">
