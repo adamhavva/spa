@@ -7,11 +7,54 @@ export const site = {
   instagram: "https://www.instagram.com/kama__spa/",
   phone: "+6281316052040",
   phoneHref: "tel:+6281316052040",
+  whatsapp: "https://wa.me/6281316052040",
   email: "hello@kamaspa.id",
   hours: "Mon – Sun. 10 AM – 8 PM",
 };
 
-export const nav = {
+export type NavLink = {
+  label: string;
+  href: string;
+};
+
+export type NavHighlight = {
+  image: string;
+  badge: string;
+  eyebrow: string;
+  label: string;
+  href: string;
+};
+
+/**
+ * A dropdown group in the header. `columns` are the link lists, `highlights`
+ * the small promo cards, `footerLink` an optional "see everything" escape
+ * hatch.
+ */
+export type NavMegaGroup = {
+  id: string;
+  label: string;
+  /** `wide` fits two link columns, `narrow` a single one. */
+  panel: "wide" | "narrow";
+  columns: { title: string; links: NavLink[] }[];
+  highlights: NavHighlight[];
+  footerLink?: NavLink;
+};
+
+export type NavPrimaryItem = {
+  label: string;
+  href: string;
+  mega?: string;
+};
+
+export const nav: {
+  primary: NavPrimaryItem[];
+  bookNow: string;
+  megaGroups: Record<string, NavMegaGroup>;
+} = {
+  /**
+   * Header order matters: the dropdown groups come first, the plain links
+   * after. `mega` points at a key in `nav.megaGroups`.
+   */
   primary: [
     { label: "Menu", href: "/menu", mega: "services" },
     { label: "Corporate Wellness", href: "/corporate", mega: "corporate" },
@@ -21,6 +64,84 @@ export const nav = {
     { label: "Contact", href: "/contact" },
   ],
   bookNow: "Book Now",
+  megaGroups: {
+    services: {
+      id: "services",
+      label: "Menu",
+      panel: "wide",
+      columns: [
+        {
+          title: "Treatments",
+          links: [
+            { label: "Massage", href: "/menu#massage" },
+            { label: "Body & Scrub", href: "/menu#body" },
+            { label: "Face Ritual", href: "/menu#face" },
+            { label: "Head & Scalp", href: "/menu#head" },
+            { label: "Bath Ritual", href: "/menu#bath" },
+          ],
+        },
+        {
+          title: "More",
+          links: [
+            { label: "All Day Spa Packages", href: "/menu#packages" },
+            { label: "Membership", href: "/membership" },
+            { label: "Gift Cards", href: "/gift-cards" },
+            { label: "Journal", href: "/journal" },
+          ],
+        },
+      ],
+      highlights: [
+        {
+          image: "/img/kama/03-oil-bowl.jpg",
+          badge: "new",
+          eyebrow: "Just Rp 1.5jt a month",
+          label: "Join KAMA Now",
+          href: "/membership",
+        },
+        {
+          image: "/img/kama/07-flower-bowl.jpg",
+          badge: "gift",
+          eyebrow: "Best. Gift. Ever.",
+          label: "KAMA Gift Card",
+          href: "/gift-cards",
+        },
+      ],
+      footerLink: { label: "Lihat semua treatment", href: "/menu" },
+    },
+    corporate: {
+      id: "corporate",
+      label: "Corporate Wellness",
+      panel: "narrow",
+      columns: [
+        {
+          title: "Corporate",
+          links: [
+            { label: "Corporate Wellness", href: "/corporate" },
+            { label: "In-Office Program", href: "/corporate#in-office" },
+            { label: "In-Spa Experience", href: "/corporate#in-spa" },
+            { label: "Wellness Benefits", href: "/corporate#benefits" },
+          ],
+        },
+      ],
+      highlights: [
+        {
+          image: "/img/kama/05-foot-bath.jpg",
+          badge: "new",
+          eyebrow: "Wellness at work",
+          label: "In-Office Program",
+          href: "/corporate#in-office",
+        },
+        {
+          image: "/img/kama/09-leaf-drop.jpg",
+          badge: "gift",
+          eyebrow: "Best. Gift. Ever.",
+          label: "KAMA Gift Card",
+          href: "/gift-cards",
+        },
+      ],
+      footerLink: { label: "Lihat program corporate", href: "/corporate" },
+    },
+  },
 };
 
 export const footerLinks = {

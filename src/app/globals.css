@@ -29,6 +29,66 @@
 @import "./custom.css" layer(legacy);
 @import "./kama.css" layer(legacy);
 
+@layer base {
+  :root {
+    /* Height of the fixed site header. The header, the mobile drawer and the
+       page spacer all read this token, so they can never drift apart. */
+    --kama-header-h: 4rem;
+  }
+
+  @media (min-width: 80rem) {
+    :root {
+      --kama-header-h: 5rem;
+    }
+  }
+
+  /* Anchor targets must clear the fixed header. */
+  :where(section, div)[id] {
+    scroll-margin-top: calc(var(--kama-header-h) + 1rem);
+  }
+}
+
+@layer components {
+  /* Dropdown panel of the header — a short, calm fade. */
+  .kama-dropdown-panel {
+    animation: kama-dropdown-in 140ms ease-out;
+  }
+
+  /* Mobile drawer — slides down a few pixels. */
+  .kama-drawer {
+    animation: kama-drawer-in 160ms ease-out;
+  }
+
+  @keyframes kama-dropdown-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes kama-drawer-in {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .kama-dropdown-panel,
+    .kama-drawer {
+      animation: none;
+    }
+  }
+}
+
 @theme {
   /* ---- Brand palette (references/referensi warna.pdf) ----------------- */
   --color-cocoa: #603009;
