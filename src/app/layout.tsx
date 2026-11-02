@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { WhatsApp } from "@/components/icons";
-import { FlyonUIScript } from "@/components/flyonui-script";
 import { site } from "@/data/content";
 
 export const metadata: Metadata = {
@@ -41,8 +40,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-full flex-col bg-cream-soft font-sans text-cocoa">
         {children}
-        {/* FlyonUI JS — powers the collapse (mobile menu) + dropdown (mega menu). */}
-        <FlyonUIScript />
         <a
           href={whatsappHref}
           target="_blank"
