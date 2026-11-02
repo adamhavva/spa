@@ -48,7 +48,7 @@ export default function JournalPage() {
                     />
                   </div>
                 </div>
-                <div className="sizing-grow layout-center">
+                <div className="sizing-grow layout-center flex flex-col items-start">
                   <div className="tag_group eyebrow-s">
                     <div className="eyebrow-s">{featured.category}</div>
                     <div>·</div>
@@ -65,7 +65,7 @@ export default function JournalPage() {
                     <div className="caption-s text-color-gray">{featured.readTime} baca</div>
                   </div>
                   <div className="spacer-large" />
-                  <Link href="/menu" className="button is-secondary is-icon w-inline-block">
+                  <Link href="/menu" className="button is-secondary is-icon w-inline-block w-full md:w-[400px] max-w-full">
                     <div>Explore Treatments</div>
                     <div className="button_icon w-embed">
                       <ArrowRight />
@@ -85,7 +85,7 @@ export default function JournalPage() {
                 <div className="eyebrow-s text-style-allcaps">All Articles</div>
                 <h2 className="header-l">Bacaan terbaru.</h2>
               </div>
-              <div className="w-layout-grid articles_grid">
+              <div className="w-layout-grid articles_grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
                 {rest.map((post) => (
                   <article key={post.slug} id={post.slug} className="blog_item w-dyn-item">
                     <div className="article_image image-container">
@@ -128,7 +128,7 @@ export default function JournalPage() {
               <h4 className="header-l">Have any questions? Drop us a line.</h4>
               <Link
                 href="/contact"
-                className="button is-tertiary is-icon margin-left-auto-desktop w-inline-block"
+                className="button is-tertiary is-icon margin-left-auto-desktop w-inline-block w-full md:w-[400px] max-w-full"
               >
                 <div>Get In Touch</div>
                 <div className="button_icon w-embed">

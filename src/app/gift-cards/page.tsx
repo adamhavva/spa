@@ -45,10 +45,10 @@ export default function GiftCardsPage() {
                   lokasi KAMA Spa, dan tidak memiliki tanggal kedaluwarsa.
                 </p>
               </div>
-              <div className="w-layout-grid whats-new_list">
+              <div className="w-layout-grid whats-new_list grid-cols-1 md:grid-cols-2">
                 {giftCards.denominations.map((card) => (
-                  <div key={card.value} className="whats-new_card w-dyn-item">
-                    <div className="image-container ratio16-11">
+                  <div key={card.value} className="whats-new_card w-dyn-item w-full max-w-none min-w-0">
+                    <div className="image-container ratio16-11 w-full max-w-none min-w-0">
                       <img
                         src={card.image}
                         alt={card.label}
@@ -64,7 +64,7 @@ export default function GiftCardsPage() {
                       <div className="body-m text-color-gray">{card.body}</div>
                     </div>
                     <div className="spacer-xxlarge" />
-                    <Link href="/contact" className="button is-tertiary whats-new-button w-button">
+                    <Link href="/contact" className="button is-tertiary whats-new-button w-button w-full max-w-none">
                       Beli Gift Card
                     </Link>
                   </div>
@@ -82,10 +82,10 @@ export default function GiftCardsPage() {
                 <div className="eyebrow-s text-style-allcaps">Specials</div>
                 <h2 className="header-l">Perayaan & penawaran terbatas.</h2>
               </div>
-              <div className="w-layout-grid whats-new_list">
+              <div className="w-layout-grid whats-new_list grid-cols-1 md:grid-cols-2">
                 {giftCards.specials.map((special) => (
-                  <div key={special.title} className="whats-new_card w-dyn-item">
-                    <div className="image-container ratio16-11">
+                  <div key={special.title} className="whats-new_card w-dyn-item w-full max-w-none min-w-0">
+                    <div className="image-container ratio16-11 w-full max-w-none min-w-0">
                       <img
                         src={special.image}
                         alt={special.title}
@@ -104,7 +104,7 @@ export default function GiftCardsPage() {
                       <div className="caption-s text-color-gray">{special.period}</div>
                     </div>
                     <div className="spacer-xxlarge" />
-                    <Link href="/contact" className="button is-tertiary whats-new-button w-button">
+                    <Link href="/contact" className="button is-tertiary whats-new-button w-button w-full max-w-none">
                       Book Now
                     </Link>
                   </div>
@@ -120,14 +120,14 @@ export default function GiftCardsPage() {
             <div className="padding-global">
               <div className="container-large">
                 <div className="layout-row gap-xlarge">
-                  <div className="sizing-grow layout-center">
+                  <div className="sizing-grow layout-center flex flex-col items-start">
                     <div className="eyebrow-s text-style-allcaps">Packaging</div>
                     <div className="spacer-small" />
                     <h3 className="header-l">{giftCards.packagingTitle}</h3>
                     <div className="spacer-medium" />
                     <p className="body-m text-color-gray">{giftCards.packagingBody}</p>
                     <div className="spacer-large" />
-                    <Link href="/locations" className="button is-secondary is-icon w-inline-block">
+                    <Link href="/locations" className="button is-secondary is-icon w-inline-block w-full md:w-[400px] max-w-full">
                       <div>Visit Our Locations</div>
                       <div className="button_icon w-embed">
                         <ArrowRight />
@@ -160,14 +160,14 @@ export default function GiftCardsPage() {
                 <div className="spacer-medium" />
                 <p className="body-m text-color-gray">{giftCards.signatureBody}</p>
               </div>
-              <div className="w-layout-grid whats-new_list">
+              <div className="w-layout-grid whats-new_list grid-cols-1 md:grid-cols-2">
                 {packages.map((p) => (
                   <Link
                     key={p.slug}
                     href={`/menu/${p.slug}`}
-                    className="package-card w-dyn-item"
+                    className="package-card w-dyn-item w-full max-w-none min-w-0"
                   >
-                    <div className="package-card_image image-container">
+                    <div className="package-card_image image-container w-full max-w-none min-w-0">
                       <img src={p.image} alt={p.name} loading="lazy" className="image-cover" />
                     </div>
                     <div className="package-card_body">
@@ -192,7 +192,7 @@ export default function GiftCardsPage() {
               <h4 className="header-l">Have any questions? Drop us a line.</h4>
               <Link
                 href="/contact"
-                className="button is-tertiary is-icon margin-left-auto-desktop w-inline-block"
+                className="button is-tertiary is-icon margin-left-auto-desktop w-inline-block w-full md:w-[400px] max-w-full"
               >
                 <div>Get In Touch</div>
                 <div className="button_icon w-embed">

@@ -57,7 +57,10 @@ export function LocationsSection() {
 
 export function WhatsNewSection() {
   return (
-    <section id="home_whats_new" className="scroll-mt-20 bg-cream-soft">
+    <section
+      id="home_whats_new"
+      className="scroll-mt-[calc(var(--kama-header-h)+1rem)] bg-cream-soft"
+    >
       <div className="container-kama py-14 md:py-16 lg:py-20">
         {/* Section header */}
         <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-10">

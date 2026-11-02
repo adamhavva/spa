@@ -42,8 +42,11 @@
     }
   }
 
-  /* Anchor targets must clear the fixed header. */
-  :where(section, div)[id] {
+  /* Anchor targets must clear the fixed header.
+     `:where()` keeps the specificity at zero, so a deliberate Tailwind
+     `scroll-mt-*` utility on the element still wins. Applies to every
+     element that can be an anchor target, not only section/div. */
+  :where([id]) {
     scroll-margin-top: calc(var(--kama-header-h) + 1rem);
   }
 }

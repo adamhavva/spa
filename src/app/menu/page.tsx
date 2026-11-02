@@ -24,6 +24,24 @@ const categoryLabels: Record<string, string> = {
   Bath: "Bath",
 };
 
+const featureSections = [
+  {
+    anchor: "face",
+    eyebrow: "Perawatan Wajah",
+    imageFirst: true,
+  },
+  {
+    anchor: "head",
+    eyebrow: "Perawatan Kepala & Kulit Kepala",
+    imageFirst: false,
+  },
+  {
+    anchor: "bath",
+    eyebrow: "Ritual Bak Mandi",
+    imageFirst: true,
+  },
+] as const;
+
 const menuBookPages = Array.from(
   { length: 10 },
   (_, i) => ({
@@ -34,7 +52,7 @@ const menuBookPages = Array.from(
 
 export default function MenuPage() {
   const massage = treatments.filter((t) => t.category === "Massage");
-  const body = treatments.filter((t) => t.category === "Body");
+  const bodyAddOns = additionalServices.filter((s) => s.category === "Body");
 
   return (
     <>
@@ -66,7 +84,7 @@ export default function MenuPage() {
               </div>
 
               <div className="w-layout-grid whats-new_list">
-                {[...massage, ...body].map((t) => (
+                {massage.map((t) => (
                   <Link
                     key={t.slug}
                     href={`/menu/${t.slug}`}
@@ -94,6 +112,103 @@ export default function MenuPage() {
             </div>
           </div>
         </section>
+
+        {/* Body & scrub add-ons */}
+        <section id="body" className="padding-section-global">
+          <div className="padding-global">
+            <div className="container-large">
+              <div className="section-header">
+                <div className="eyebrow-s text-style-allcaps">Layanan Tambahan</div>
+                <h2 className="header-l">Body & Scrub</h2>
+              </div>
+
+              <div className="w-layout-grid whats-new_list">
+                {bodyAddOns.map((s) => (
+                  <div key={s.name} className="treatment-card w-dyn-item">
+                    <div className="treatment-card_image image-container">
+                      <img src={s.image} alt={s.name} loading="lazy" className="image-cover" />
+                    </div>
+                    <div className="treatment-card_body">
+                      <div className="eyebrow-s text-style-allcaps">{categoryLabels[s.category]}</div>
+                      <h3 className="header-s">{s.name}</h3>
+                      <div className="body-m text-color-gray">{s.description}</div>
+                      <div className="treatment-card_price-row">
+                        <span className="caption-s text-color-gray">Add-on</span>
+                        <span className="price-row_value">{s.price}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Single-service features */}
+        {featureSections.map((section) => {
+          const service = additionalServices.find((s) => s.anchor === section.anchor);
+
+          if (!service) return null;
+
+          const media = (
+            <div className="treatment-card_image image-container">
+              <img src={service.image} alt={service.name} loading="lazy" className="image-cover" />
+            </div>
+          );
+
+          const content = (
+            <div className="treatment-card_body">
+              <div className="body-m text-color-gray">{service.description}</div>
+              <div className="treatment-card_price-row">
+                <span className="caption-s text-color-gray">Add-on</span>
+                <span className="price-row_value">{service.price}</span>
+              </div>
+            </div>
+          );
+
+          return (
+            <section key={section.anchor} id={section.anchor} className="padding-section-global">
+              <div className="padding-global">
+                <div className="container-large">
+                  <div className="section-header">
+                    <div className="eyebrow-s text-style-allcaps">{section.eyebrow}</div>
+                    <h2 className="header-l">{service.name}</h2>
+                  </div>
+
+                  <div className="grid gap-8 md:grid-cols-2 md:items-center">
+                    {section.imageFirst ? (
+                      <>
+                        {media}
+                        {content}
+                      </>
+                    ) : (
+                      <>
+                        {content}
+                        {media}
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        })}
+
+        {/* Booking CTA + price disclaimer for add-ons */}
+        <div className="padding-global">
+          <div className="container-large">
+            <div className="spacer-large" />
+            <div className="eyebrow-s text-color-gray">{priceDisclaimer}</div>
+
+            <div className="spacer-xlarge" />
+            <Link href="/contact" className="button is-secondary is-icon w-inline-block">
+              <div>Book Your Treatment</div>
+              <div className="button_icon w-embed">
+                <ArrowRight />
+              </div>
+            </Link>
+          </div>
+        </div>
 
         {/* Day Spa packages */}
         <section id="packages" className="padding-section-global home-locations">
@@ -138,46 +253,6 @@ export default function MenuPage() {
               </div>
               <div className="spacer-large" />
               <div className="eyebrow-s text-color-gray">{priceDisclaimer}</div>
-            </div>
-          </div>
-        </section>
-
-        {/* Additional services */}
-        <section id="body" className="padding-section-global">
-          <div className="padding-global">
-            <div className="container-large">
-              <div className="section-header">
-                <div className="eyebrow-s text-style-allcaps">Additional Service</div>
-                <h2 className="header-l">Add-ons & Rituals</h2>
-              </div>
-
-              <div className="w-layout-grid whats-new_list">
-                {additionalServices.map((s) => (
-                  <div key={s.name} className="treatment-card w-dyn-item">
-                    <div className="treatment-card_image image-container">
-                      <img src={s.image} alt={s.name} loading="lazy" className="image-cover" />
-                    </div>
-                    <div className="treatment-card_body">
-                      <h3 className="header-s">{s.name}</h3>
-                      <div className="body-m text-color-gray">{s.description}</div>
-                      <div className="treatment-card_price-row">
-                        <span className="caption-s text-color-gray">Add-on</span>
-                        <span className="price-row_value">{s.price}</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="spacer-large" />
-              <div className="eyebrow-s text-color-gray">{priceDisclaimer}</div>
-
-              <div className="spacer-xlarge" />
-              <Link href="/contact" className="button is-secondary is-icon w-inline-block">
-                <div>Book Your Treatment</div>
-                <div className="button_icon w-embed">
-                  <ArrowRight />
-                </div>
-              </Link>
             </div>
           </div>
         </section>

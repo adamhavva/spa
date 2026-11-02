@@ -500,10 +500,19 @@ video {
 
 /* ---- Page hero ------------------------------------------------------- */
 
+/* The 11rem top padding was a workaround for a header that overlapped the
+   content. The header is fixed and the `<Navigation />` spacer already
+   reserves its height, so the hero only needs breathing room now. */
 .page-hero {
-  padding-top: 11rem;
+  padding-top: var(--spacing--giant);
   padding-bottom: var(--spacing--xhuge);
   background-color: var(--kama-periwinkle-50);
+}
+
+@media screen and (max-width: 767px) {
+  .page-hero {
+    padding-top: var(--spacing--xhuge);
+  }
 }
 
 .page-hero_image {
@@ -850,8 +859,15 @@ video {
 
 /* ---- Main content needs top padding to avoid fixed nav ---------------- */
 
+/* The header is `position: fixed` and every page renders <Navigation />,
+   which already renders a spacer of exactly `--kama-header-h` right before
+   the page content. The legacy `padding-top: 5rem` therefore double-counted
+   the header (and was hardcoded, so it drifted from the 4rem mobile header).
+   The spacer is the single source of truth for the header clearance, so this
+   padding is neutralised here. Do not re-add a header-sized padding-top:
+   that is what caused the double offset. */
 .main-wrapper {
-  padding-top: 5rem !important;
+  padding-top: 0 !important;
 }
 
 /* ---- Floating WhatsApp button ---------------------------------------- */

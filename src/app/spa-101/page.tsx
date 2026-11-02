@@ -42,11 +42,11 @@ export default function Spa101Page() {
               <div className="section-header">
                 <h2 className="header-l">Apa yang terjadi selama kunjungan Anda.</h2>
               </div>
-              <div className="w-layout-grid grid_benefits is-spa101">
+              <div className="w-layout-grid grid_benefits is-spa101 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {spa101.steps.map((step) => {
                   const Icon = stepIcons[step.icon];
                   return (
-                    <div key={step.key} className="spa101_card w-dyn-item">
+                    <div key={step.key} className="spa101_card w-dyn-item w-full max-w-none">
                       <div className="benefits_card">
                         <div className="icon-height-xmedium w-embed">
                           <Icon />
@@ -121,7 +121,7 @@ export default function Spa101Page() {
                   dilengkapi sebelum layanan dimulai.
                 </p>
               </div>
-              <div className="w-layout-grid grid_benefits">
+              <div className="w-layout-grid grid_benefits grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                 {spa101.minorPolicy.map((policy) => (
                   <div key={policy.label} className="benefits_card w-dyn-item">
                     <div className="benefits_text-wrap">

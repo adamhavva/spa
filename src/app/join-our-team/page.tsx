@@ -44,10 +44,13 @@ export default function JoinOurTeamPage() {
                 <div className="spacer-medium" />
                 <p className="body-m text-color-gray">{careers.positionsIntro}</p>
               </div>
-              <div className="w-layout-grid whats-new_list">
+              <div className="w-layout-grid whats-new_list grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {careers.positions.map((position) => (
-                  <div key={position.title} className="whats-new_card w-dyn-item">
-                    <div className="article-cart_inner-text">
+                  <div
+                    key={position.title}
+                    className="whats-new_card w-dyn-item w-full min-w-0 max-w-none"
+                  >
+                    <div className="article-cart_inner-text min-w-0">
                       <h3 className="header-s">{position.title}</h3>
                       <div className="caption-s text-color-gray">{position.type}</div>
                       <div className="caption-s text-color-gray">{position.location}</div>
@@ -55,7 +58,7 @@ export default function JoinOurTeamPage() {
                     <div className="spacer-xxlarge" />
                     <a
                       href="mailto:jobs@kamaspa.id"
-                      className="button is-tertiary whats-new-button w-button"
+                      className="button is-tertiary whats-new-button w-button w-full max-w-none"
                     >
                       Apply Now
                     </a>
@@ -74,9 +77,12 @@ export default function JoinOurTeamPage() {
                 <div className="eyebrow-s text-style-allcaps">Main Benefits</div>
                 <h2 className="header-l">Yang kami tawarkan kepada tim kami.</h2>
               </div>
-              <div className="w-layout-grid benefits_grid">
+              <div className="w-layout-grid benefits_grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {careers.benefits.map((benefit) => (
-                  <div key={benefit.title} className="benefits_main-card w-dyn-item">
+                  <div
+                    key={benefit.title}
+                    className="benefits_main-card w-dyn-item w-full min-w-0"
+                  >
                     <h4 className="header-xl">{benefit.value}</h4>
                     <div className="layout-row gap-xxsmall">
                       <div className="caption-m">{benefit.title}</div>
@@ -97,14 +103,14 @@ export default function JoinOurTeamPage() {
                 <div className="eyebrow-s text-style-allcaps">Locations</div>
                 <h2 className="header-l">Lokasi kami.</h2>
               </div>
-              <div className="w-layout-grid whats-new_list">
+              <div className="w-layout-grid whats-new_list grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {locations.map((loc) => (
                   <Link
                     key={loc.slug}
                     href={`/locations#${loc.slug}`}
-                    className="location-card_component w-inline-block"
+                    className="location-card_component w-inline-block w-full min-w-0 max-w-none"
                   >
-                    <div className="image-container aspect-ratio-square is-relative">
+                    <div className="image-container aspect-ratio-square is-relative w-full h-auto">
                       <img
                         src={loc.image}
                         alt={`${loc.name} KAMA Spa`}
@@ -134,9 +140,12 @@ export default function JoinOurTeamPage() {
                 <div className="section-header">
                   <h2 className="header-l">Cerita dari tim kami.</h2>
                 </div>
-                <div className="w-layout-grid slider_slide workers-reviews_grid">
+                <div className="w-layout-grid slider_slide workers-reviews_grid overflow-x-auto snap-x">
                   {careers.reviews.map((review) => (
-                    <div key={review.name} className="workers-reviews_card w-dyn-item">
+                    <div
+                      key={review.name}
+                      className="workers-reviews_card w-dyn-item snap-start"
+                    >
                       <div className="body-m">“{review.quote}”</div>
                       <div className="workers-review_worker">
                         <div className="caption-s text-weight-semibold">{review.name}</div>

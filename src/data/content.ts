@@ -382,9 +382,22 @@ export const packages: Package[] = [
 
 /* ---------- Additional services ---------- */
 
-export const additionalServices = [
+export type AdditionalService = {
+  name: string;
+  /** Which menu section the service belongs to. */
+  category: "Body" | "Face" | "Head & Scalp" | "Bath";
+  /** Anchor id of the section that showcases the service. */
+  anchor: string;
+  price: string;
+  description: string;
+  image: string;
+};
+
+export const additionalServices: AdditionalService[] = [
   {
     name: "Body Scrub",
+    category: "Body",
+    anchor: "body",
     price: "120k",
     description:
       "A gentle exfoliation that buffs away dullness and renew skin radiance. Comes in selected of home-special-blend scrubs.",
@@ -392,6 +405,8 @@ export const additionalServices = [
   },
   {
     name: "Body Mask",
+    category: "Body",
+    anchor: "body",
     price: "120k",
     description:
       "A nourishing body wrap that deeply hydrates and restores balance. Comes in choices of classic body mask ingredients.",
@@ -399,6 +414,8 @@ export const additionalServices = [
   },
   {
     name: "Bath Ritual",
+    category: "Bath",
+    anchor: "bath",
     price: "115k",
     description:
       "A soothing soak in the bathtub, infused with our special tea bag blend for deep relaxation and renewal.",
@@ -406,6 +423,8 @@ export const additionalServices = [
   },
   {
     name: "Head & Scalp Treatment",
+    category: "Head & Scalp",
+    anchor: "head",
     price: "100k",
     description:
       "A calming therapy that soothes the scalp and eases stress. Using argan oil and natural ingredients.",
@@ -413,6 +432,8 @@ export const additionalServices = [
   },
   {
     name: "Face Ritual",
+    category: "Face",
+    anchor: "face",
     price: "250k",
     description:
       "An elevated acupressure-inspired treatment for the face, designed to release tension, awaken circulation, and restore natural glow.",
