@@ -15,11 +15,7 @@ const HERO_ROUTES = [
   "/menu/sukma-laya",
   "/membership",
   "/contact",
-  "/spa-101",
-  "/journal",
-  "/gift-cards",
   "/corporate",
-  "/join-our-team",
   "/privacy-policy",
   "/terms-conditions",
 ];

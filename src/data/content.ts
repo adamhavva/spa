@@ -61,8 +61,6 @@ export const nav: {
   primary: [
     { label: "Menu", href: "/menu", mega: "services" },
     { label: "Corporate Wellness", href: "/corporate", mega: "corporate" },
-    { label: "Spa 101", href: "/spa-101" },
-    { label: "Gift Cards", href: "/gift-cards" },
     { label: "Locations", href: "/locations" },
     { label: "Contact", href: "/contact" },
     {
@@ -93,8 +91,6 @@ export const nav: {
           links: [
             { label: "All Day Spa Packages", href: "/menu#packages" },
             { label: "Membership", href: "/membership" },
-            { label: "Gift Cards", href: "/gift-cards" },
-            { label: "Journal", href: "/journal" },
           ],
         },
       ],
@@ -107,11 +103,11 @@ export const nav: {
           href: "/membership",
         },
         {
-          image: "/img/kama/07-flower-bowl.jpg",
-          badge: "gift",
-          eyebrow: "Best. Gift. Ever.",
-          label: "KAMA Gift Card",
-          href: "/gift-cards",
+          image: "/img/kama/06-bride.jpg",
+          badge: "new",
+          eyebrow: "2 – 4 hour rituals",
+          label: "All Day Spa",
+          href: "/menu#packages",
         },
       ],
       footerLink: { label: "Lihat semua treatment", href: "/menu" },
@@ -140,11 +136,11 @@ export const nav: {
           href: "/corporate#in-office",
         },
         {
-          image: "/img/kama/09-leaf-drop.jpg",
-          badge: "gift",
-          eyebrow: "Best. Gift. Ever.",
-          label: "KAMA Gift Card",
-          href: "/gift-cards",
+          image: "/img/kama/corporate/05-lounge.jpg",
+          badge: "team",
+          eyebrow: "Bring your team",
+          label: "In-Spa Experience",
+          href: "/corporate#in-spa",
         },
       ],
       footerLink: { label: "Lihat program corporate", href: "/corporate" },
@@ -169,17 +165,10 @@ export const footerLinks = {
     { label: "Partnership", href: "mailto:marketing@kamaspa.id" },
   ],
   About: [
-    { label: "Who We Are", href: "/about" },
-    { label: "Spa 101", href: "/spa-101" },
     { label: "Contact", href: "/contact" },
-    { label: "Gift Cards", href: "/gift-cards" },
     { label: "Membership", href: "/membership" },
   ],
-  Community: [
-    { label: "Journal", href: "/journal" },
-    { label: "Join Our Team", href: "/join-our-team" },
-    { label: "Corporate Wellness", href: "/corporate" },
-  ],
+  Community: [{ label: "Corporate Wellness", href: "/corporate" }],
 };
 
 export const socials = [
@@ -588,29 +577,32 @@ export const journalPosts = [
   {
     kind: "treatment",
     slug: "javanese-massage-roots",
+    href: "/menu#massage",
     tag: "Massage",
     title: "The Roots of Javanese Healing: Sukma Laya",
     excerpt:
       "Discover the ancient rhythm of Javanese massage — deep rhythmic pressure, acupressure, and a philosophy of restoring the body's natural balance.",
-    image: "/img/IMG_5652-min.jpg",
+    image: "/img/kama/corporate/11-footwash.jpg",
   },
   {
     kind: "treatment",
     slug: "corporate-wellness-jakarta",
+    href: "/corporate",
     tag: "Corporate",
     title: "Wellness at Work: A Guide to Corporate Wellness in Jakarta",
     excerpt:
       "Employee wellness is no longer just a benefit. Here is how leading teams in Jakarta build engagement, focus, and retention through meaningful reset experiences.",
-    image: "/img/IMG_5654-min.jpg",
+    image: "/img/kama/corporate/10-inoffice-massage.jpg",
   },
   {
     kind: "treatment",
     slug: "pre-wedding-ritual",
+    href: "/menu#packages",
     tag: "Package",
     title: "Karuna: A Soulful Pre-Wedding Journey",
     excerpt:
       "A four-hour ritual designed to comfort the body, calm the mind, and illuminate the inner glow of every bride-to-be.",
-    image: "/img/IMG_5653-min.jpg",
+    image: "/img/kama/06-bride.jpg",
   },
 ];
 

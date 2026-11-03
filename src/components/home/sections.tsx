@@ -90,7 +90,7 @@ export function WhatsNewSection() {
         <ul className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3 lg:gap-10">
           {journalPosts.map((post) => (
             <li key={post.slug} className="flex h-full flex-col">
-              <Link href="/journal" className="group flex h-full flex-col">
+              <Link href={post.href} className="group flex h-full flex-col">
                 <div className="aspect-[16/11] overflow-hidden bg-cream">
                   <img
                     src={post.image}

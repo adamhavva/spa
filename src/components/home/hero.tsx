@@ -51,7 +51,7 @@ export function Hero() {
             <div className="bg-white p-6 text-cocoa shadow-lg shadow-black/10 lg:py-7">
               <div className="flex flex-col gap-2">
                 <span className="eyebrow text-cocoa/70">
-                  <Link href="/about" className="hover:opacity-70">
+                  <Link href="/menu" className="hover:opacity-70">
                     Welcome to KAMA Spa
                   </Link>
                 </span>
@@ -89,7 +89,7 @@ export function HeroStats() {
               <br />
               <em className="font-normal">we create meaningful reset experiences.</em>
             </h2>
-            <Link href="/about" className="btn btn-primary mt-2">
+            <Link href="/corporate" className="btn btn-primary mt-2">
               Our Story
             </Link>
           </div>

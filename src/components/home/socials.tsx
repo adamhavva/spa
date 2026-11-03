@@ -3,18 +3,18 @@ import { site } from "@/data/content";
 import { Reveal } from "@/components/reveal";
 
 const galleryImages = [
-  "/img/IMG_5651-min.jpg",
-  "/img/IMG_5652-min.jpg",
-  "/img/IMG_5654-min.jpg",
-  "/img/IMG_5653-min.jpg",
-  "/img/IMG_5655-min.jpg",
-  "/img/IMG_5656-min.jpg",
-  "/img/IMG_5657-min.jpg",
-  "/img/IMG_5658-min.jpg",
-  "/img/IMG_5660-min.jpg",
-  "/img/IMG_5659-min.jpg",
-  "/img/IMG_5662-min.jpg",
-  "/img/IMG_5661-min.jpg",
+  "/img/kama/01-incense.jpg",
+  "/img/kama/02-bottle-shadows.jpg",
+  "/img/kama/03-oil-bowl.jpg",
+  "/img/kama/04-turmeric-scrub.jpg",
+  "/img/kama/05-foot-bath.jpg",
+  "/img/kama/06-bride.jpg",
+  "/img/kama/07-flower-bowl.jpg",
+  "/img/kama/08-water-drop.jpg",
+  "/img/kama/09-leaf-drop.jpg",
+  "/img/kama/corporate/02-massage.jpg",
+  "/img/kama/corporate/05-lounge.jpg",
+  "/img/kama/corporate/12-guest-lounge.jpg",
 ];
 
 export function SocialsSection() {
