@@ -174,16 +174,6 @@ async function TreatmentContent({
                       <Link href="/contact" className="button width-fill w-inline-block">
                         <div>Book This Treatment</div>
                       </Link>
-                      <div className="spacer-xsmall" />
-                      <Link
-                        href="/locations"
-                        className="button is-secondary is-text width-fill w-inline-block"
-                      >
-                        <div>View Locations</div>
-                        <div className="button_icon w-embed">
-                          <ArrowRight />
-                        </div>
-                      </Link>
                     </div>
                   </div>
                 </div>

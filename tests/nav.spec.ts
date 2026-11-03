@@ -164,7 +164,6 @@ test("desktop header keeps the dropdown groups first", async ({
   expect([...items.map((t) => t.trim()), cta?.trim()]).toEqual([
     "Menu",
     "Corporate Wellness",
-    "Locations",
     "Contact",
     "Service Menu",
     "Book Now",

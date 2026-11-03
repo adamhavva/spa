@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Email, Instagram, TikTok } from "./icons";
 import { CopyrightYear } from "./copyright-year";
-import { footerLinks, footerTagline, locations, socials } from "@/data/content";
+import { footerLinks, footerTagline, socials } from "@/data/content";
 import { MEMBER_MESSAGE, waLink } from "@/lib/whatsapp";
 
 /* One icon per social platform — never a generic link glyph. */
@@ -116,30 +116,6 @@ export function Footer() {
                     </ul>
                   </div>
                 ))}
-
-                <div className="flex flex-col gap-4">
-                  <span className="eyebrow text-cream-soft/60">Locations</span>
-                  <ul className="flex flex-col gap-2.5">
-                    <li>
-                      <Link
-                        href="/locations"
-                        className="text-caption text-cream-soft/85 transition-colors hover:text-white"
-                      >
-                        All Locations
-                      </Link>
-                    </li>
-                    {locations.map((loc) => (
-                      <li key={loc.slug}>
-                        <Link
-                          href={`/locations#${loc.slug}`}
-                          className="text-caption text-cream-soft/85 transition-colors hover:text-white"
-                        >
-                          {loc.name} | {loc.area}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
             </div>
           </div>

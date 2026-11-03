@@ -61,7 +61,6 @@ export const nav: {
   primary: [
     { label: "Menu", href: "/menu", mega: "services" },
     { label: "Corporate Wellness", href: "/corporate", mega: "corporate" },
-    { label: "Locations", href: "/locations" },
     { label: "Contact", href: "/contact" },
     {
       label: "Service Menu",
