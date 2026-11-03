@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { ArrowRight, ArrowRightThin } from "@/components/icons";
 import { heroStats, membership } from "@/data/content";
+import { Reveal } from "@/components/reveal";
 
 export function Hero() {
   return (
-    <header className="relative isolate overflow-hidden bg-espresso text-white">
+    <Reveal as="header" className="relative isolate overflow-hidden bg-espresso text-white">
       {/* Background image + overlays */}
       <div className="absolute inset-0 -z-10">
         <img
@@ -72,13 +73,13 @@ export function Hero() {
           </div>
         </div>
       </div>
-    </header>
+    </Reveal>
   );
 }
 
 export function HeroStats() {
   return (
-    <section className="bg-gradient-to-r from-cream via-cream-soft to-cocoa/70 text-cocoa">
+    <Reveal as="section" className="bg-gradient-to-r from-cream via-cream-soft to-cocoa/70 text-cocoa">
       <div className="container-kama">
         <div className="grid gap-10 py-14 lg:grid-cols-2 lg:items-center lg:gap-16 lg:py-20">
           <div className="flex flex-col items-start gap-5">
@@ -111,13 +112,13 @@ export function HeroStats() {
           </div>
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 }
 
 export function MembershipBanner() {
   return (
-    <section className="bg-cream-soft">
+    <Reveal as="section" className="bg-cream-soft">
       <div className="container-kama py-12 md:py-16 lg:py-20">
         <div className="grid overflow-hidden bg-cream lg:grid-cols-2">
           <div className="relative aspect-[4/3] w-full lg:aspect-auto lg:min-h-[30rem]">
@@ -142,13 +143,13 @@ export function MembershipBanner() {
           </div>
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 }
 
 export function BookingBanner() {
   return (
-    <section className="bg-cream-soft">
+    <Reveal as="section" className="bg-cream-soft">
       <div className="container-kama py-12 md:py-16">
         <div className="flex flex-col items-center gap-6 bg-cream-card px-6 py-10 text-center md:flex-row md:justify-between md:gap-8 md:px-12 md:py-14 md:text-left">
           <h2 className="font-display text-title md:text-[2.375rem] md:leading-[1.2]">
@@ -163,6 +164,6 @@ export function BookingBanner() {
           </Link>
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 }

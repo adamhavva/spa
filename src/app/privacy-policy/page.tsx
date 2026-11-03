@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { privacyPolicy } from "@/data/pages";
+import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -14,7 +15,7 @@ export default function PrivacyPolicyPage() {
     <>
       <Navigation />
       <main className="main-wrapper">
-        <section className="page-hero">
+        <Reveal as="section" className="page-hero">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -24,9 +25,9 @@ export default function PrivacyPolicyPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
-        <section className="padding-section-global is-top-off">
+        <Reveal as="section" className="padding-section-global is-top-off">
           <div className="padding-global">
             <div className="container-large">
               <div className="w-layout-grid grid_content is-text-pages">
@@ -78,7 +79,7 @@ export default function PrivacyPolicyPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
       </main>
       <Footer />
     </>

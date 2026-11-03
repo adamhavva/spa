@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { WhatsApp } from "@/components/icons";
-import { site } from "@/data/content";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 
 export const metadata: Metadata = {
   title: {
@@ -35,18 +34,24 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="id"
       className="h-full antialiased"
       data-scroll-behavior="smooth"
+      /* The inline script below sets `data-js` on <html> before React
+         hydrates, so the attribute only exists on the client. React must not
+         try to reconcile it. */
+      suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-cream-soft font-sans text-cocoa">
+        
+        {/* Marks the document as script-enabled, so the scroll-reveal
+            animations may hide their blocks. Without JS the content stays
+            visible — the site must never depend on JavaScript to be read. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.dataset.js='true'",
+          }}
+        />
         {children}
-        <a
-          href={site.whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="fixed bottom-4 right-4 z-30 flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#25d366] ring-1 ring-[#25d366]/30 shadow-lg shadow-black/20 transition hover:bg-[#25d366] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25d366] sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
-          aria-label="Chat via WhatsApp"
-        >
-          <WhatsApp />
-        </a>
+        
+        <WhatsAppButton />
       </body>
     </html>
   );

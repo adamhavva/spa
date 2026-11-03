@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="136" height="22" viewBox="0 0 136 22" fill="none" class="h-[22px] w-auto" role="img" aria-label="KAMA Spa">
+  <g fill="#603009">
+    <circle cx="11" cy="11" r="10.25" stroke="#603009" stroke-width="1.5" fill="none"/>
+    <path d="M11 3.6c1.9 1.7 2.85 3.55 2.85 5.55S12.9 12.95 11 14.6c-1.9-1.65-2.85-3.5-2.85-5.45S9.1 5.3 11 3.6Z"/>
+    <path d="M4.15 9.4c2.35.15 4.05.75 5.1 1.8 1.05 1.05 1.65 2.75 1.8 5.1-2.35-.15-4.05-.75-5.1-1.8-1.05-1.05-1.65-2.75-1.8-5.1Z"/>
+    <path d="M17.85 9.4c-2.35.15-4.05.75-5.1 1.8-1.05 1.05-1.65 2.75-1.8 5.1 2.35-.15 4.05-.75 5.1-1.8 1.05-1.05 1.65-2.75 1.8-5.1Z"/>
+  </g>
+  <text x="29" y="17" fill="#603009" style="font-family:&quot;Romie trial&quot;, serif;font-size:20px;letter-spacing:0.06em">KAMA
+  </text>
+  <text x="94" y="16.5" fill="#603009" style="font-family:&quot;Ft regola neue trial&quot;, sans-serif;font-size:9px;font-weight:500;letter-spacing:0.28em">SPA
+  </text>
+</svg>

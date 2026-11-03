@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer";
 import { ArrowRight } from "@/components/icons";
 import { packages } from "@/data/content";
 import { giftCards } from "@/data/pages";
+import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "Gift Cards",
@@ -17,7 +18,7 @@ export default function GiftCardsPage() {
     <>
       <Navigation />
       <main className="main-wrapper">
-        <section className="page-hero">
+        <Reveal as="section" className="page-hero">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -30,10 +31,10 @@ export default function GiftCardsPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Denominations */}
-        <section className="padding-section-global">
+        <Reveal as="section" className="padding-section-global">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -72,10 +73,10 @@ export default function GiftCardsPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Specials */}
-        <section className="padding-section-global home-locations">
+        <Reveal as="section" className="padding-section-global home-locations">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -112,10 +113,10 @@ export default function GiftCardsPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Packaging */}
-        <section className="section_quote">
+        <Reveal as="section" className="section_quote">
           <div className="padding-section-global">
             <div className="padding-global">
               <div className="container-large">
@@ -148,10 +149,10 @@ export default function GiftCardsPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Signature packages */}
-        <section className="padding-section-global">
+        <Reveal as="section" className="padding-section-global">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -184,9 +185,9 @@ export default function GiftCardsPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
-        <section className="section_get-in-touch is-top-off">
+        <Reveal as="section" className="section_get-in-touch is-top-off">
           <div className="get-in-touch_container">
             <div className="get-in-touch_banner">
               <h4 className="header-l">Have any questions? Drop us a line.</h4>
@@ -201,7 +202,7 @@ export default function GiftCardsPage() {
               </Link>
             </div>
           </div>
-        </section>
+        </Reveal>
       </main>
       <Footer />
     </>

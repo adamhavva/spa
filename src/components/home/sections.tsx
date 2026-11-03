@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { ArrowRight } from "@/components/icons";
+import { ReviewsCarousel } from "@/components/home/reviews-carousel";
 import { journalPosts, locations, testimonials } from "@/data/content";
+import { Reveal } from "@/components/reveal";
 
 export function LocationsSection() {
   return (
-    <section className="bg-cream-soft">
+    <Reveal as="section" className="bg-cream-soft">
       <div className="container-kama py-14 md:py-16 lg:py-20">
         {/* Section header */}
         <div className="flex flex-col items-center gap-6 text-center lg:flex-row lg:items-end lg:justify-between lg:gap-10 lg:text-left">
@@ -30,8 +32,8 @@ export function LocationsSection() {
         {/* Location grid */}
         <ul className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3 lg:gap-8">
           {locations.map((loc) => (
-            <li key={loc.slug}>
-              <Link href={`/locations#${loc.slug}`} className="group block">
+            <li key={loc.slug} className="h-full">
+              <Link href={`/locations#${loc.slug}`} className="group flex h-full flex-col">
                 <div className="relative aspect-square overflow-hidden bg-cream">
                   <img
                     src={loc.image}
@@ -51,13 +53,14 @@ export function LocationsSection() {
           ))}
         </ul>
       </div>
-    </section>
+    </Reveal>
   );
 }
 
 export function WhatsNewSection() {
   return (
-    <section
+    <Reveal
+      as="section"
       id="home_whats_new"
       className="scroll-mt-[calc(var(--kama-header-h)+1rem)] bg-cream-soft"
     >
@@ -116,31 +119,20 @@ export function WhatsNewSection() {
           ))}
         </ul>
       </div>
-    </section>
+    </Reveal>
   );
 }
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-cream">
+    <Reveal as="section" className="bg-cream">
       <div className="container-kama py-14 md:py-16 lg:py-20">
         <h2 className="font-display text-title md:text-[2.375rem] md:leading-[1.2]">
           Reviews
         </h2>
 
-        <ul className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3 lg:mt-12 lg:gap-8">
-          {testimonials.map((t) => (
-            <li key={t.name} className="flex h-full flex-col bg-cream-soft p-6 md:p-8">
-              <blockquote className="text-lead text-cocoa/80">“{t.quote}”</blockquote>
-              <div className="mt-6 flex flex-col gap-1">
-                <span className="text-[0.9375rem] font-bold">{t.name}</span>
-                <span className="text-caption text-cocoa/60">{t.location}</span>
-                <span className="eyebrow mt-1 text-cocoa/50">{t.role}</span>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <ReviewsCarousel reviews={testimonials} />
       </div>
-    </section>
+    </Reveal>
   );
 }

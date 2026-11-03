@@ -1,6 +1,15 @@
 import Link from "next/link";
-import { ArrowRight, Instagram } from "./icons";
-import { footerLinks, footerTagline, locations } from "@/data/content";
+import { ArrowRight, Email, Instagram, TikTok } from "./icons";
+import { CopyrightYear } from "./copyright-year";
+import { footerLinks, footerTagline, locations, socials } from "@/data/content";
+import { MEMBER_MESSAGE, waLink } from "@/lib/whatsapp";
+
+/* One icon per social platform — never a generic link glyph. */
+const socialIcons = {
+  instagram: Instagram,
+  tiktok: TikTok,
+  email: Email,
+} as const;
 
 export function Footer() {
   return (
@@ -19,13 +28,15 @@ export function Footer() {
               >
                 Learn More
               </Link>
-              <Link
-                href="/membership"
+              <a
+                href={waLink(MEMBER_MESSAGE)}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-primary whitespace-nowrap"
               >
                 Join KAMA Now
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -39,15 +50,39 @@ export function Footer() {
             <div className="lg:col-span-5">
               <div className="flex flex-col gap-5">
                 <span className="eyebrow text-cream-soft/70">Connect with us</span>
-                <a
-                  href="https://www.instagram.com/kama__spa/"
-                  aria-label="Instagram"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-cream-soft/40 transition-colors hover:bg-cream-soft hover:text-cocoa"
-                >
-                  <Instagram className="h-5 w-5" />
-                </a>
+
+                {/* Social + partnership — the icon matches the platform. */}
+                <div className="flex flex-wrap items-center gap-3">
+                  {socials.map((social) => {
+                    const Icon = socialIcons[social.icon];
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target={social.icon === "email" ? undefined : "_blank"}
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                        className="flex h-11 w-11 items-center justify-center rounded-full border border-cream-soft/40 transition-colors hover:bg-cream-soft hover:text-cocoa"
+                      >
+                        <Icon className="h-5 w-5" />
+                      </a>
+                    );
+                  })}
+                </div>
+
                 <p className="max-w-[46ch] font-display text-title-lg text-cream-soft md:text-[1.75rem] md:leading-[1.4]">
                   {footerTagline}
+                </p>
+
+                {/* Partnership enquiries go straight to the e-mail. */}
+                <p className="text-caption text-cream-soft/70">
+                  Kolaborasi dan partnership:{" "}
+                  <a
+                    href="mailto:marketing@kamaspa.id"
+                    className="underline underline-offset-4 transition-colors hover:text-white"
+                  >
+                    marketing@kamaspa.id
+                  </a>
                 </p>
               </div>
             </div>
@@ -61,12 +96,21 @@ export function Footer() {
                     <ul className="flex flex-col gap-2.5">
                       {links.map((link) => (
                         <li key={link.label}>
-                          <Link
-                            href={link.href}
-                            className="text-caption text-cream-soft/85 transition-colors hover:text-white"
-                          >
-                            {link.label}
-                          </Link>
+                          {link.href.startsWith("mailto:") ? (
+                            <a
+                              href={link.href}
+                              className="text-caption text-cream-soft/85 transition-colors hover:text-white"
+                            >
+                              {link.label}
+                            </a>
+                          ) : (
+                            <Link
+                              href={link.href}
+                              className="text-caption text-cream-soft/85 transition-colors hover:text-white"
+                            >
+                              {link.label}
+                            </Link>
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -107,7 +151,7 @@ export function Footer() {
         <div className="container-kama">
           <div className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between">
             <span className="text-caption text-cream-soft/70">
-              © 2026 KAMA Spa. All rights reserved.
+              <CopyrightYear />
             </span>
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
               <Link

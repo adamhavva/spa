@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Location } from "@/data/content";
 import { Close, Clock, LocationPin, WhatsApp } from "@/components/icons";
+import { locationWhatsApp } from "@/lib/whatsapp";
 
 /**
  * The location list on /contact.
@@ -94,16 +95,34 @@ export function LocationCards({ locations }: { locations: Location[] }) {
               </div>
               <div className="contact-meta">
                 <WhatsApp />
-                <span>{loc.phone}</span>
+                <a
+                  href={locationWhatsApp(loc)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-dotted underline-offset-2 transition hover:text-cocoa/70"
+                >
+                  {loc.phone}
+                </a>
               </div>
-              <a
-                className="btn btn-outline mt-2 self-start border-cocoa/40 text-cocoa"
-                href={loc.mapDirections}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Dapatkan Rute
-              </a>
+              <div className="mt-auto flex flex-wrap gap-2 pt-3">
+                <a
+                  className="btn btn-primary"
+                  href={locationWhatsApp(loc)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <WhatsApp className="h-4 w-4" aria-hidden="true" />
+                  WhatsApp
+                </a>
+                <a
+                  className="btn btn-outline border-cocoa/40 text-cocoa"
+                  href={loc.mapDirections}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Dapatkan Rute
+                </a>
+              </div>
             </div>
           </div>
         ))}

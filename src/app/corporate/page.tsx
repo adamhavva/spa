@@ -8,6 +8,8 @@ import {
   corporatePrograms,
   corporateSolutions,
 } from "@/data/content";
+import { corporateWhatsApp } from "@/lib/whatsapp";
+import { Reveal } from "@/components/reveal";
 
 const corporateInSpa = [
   "Private Group Experiences",
@@ -42,7 +44,7 @@ export default function CorporatePage() {
     <>
       <Navigation />
       <main className="main-wrapper">
-        <section className="page-hero">
+        <Reveal as="section" className="page-hero">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -53,7 +55,7 @@ export default function CorporatePage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         <div className="padding-global">
           <div className="container-large">
@@ -68,7 +70,7 @@ export default function CorporatePage() {
           </div>
         </div>
 
-        <section className="padding-section-global">
+        <Reveal as="section" className="padding-section-global">
           <div className="padding-global">
             <div className="container-large">
               <div className="corporate-split">
@@ -103,9 +105,9 @@ export default function CorporatePage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
-        <section id="benefits" className="padding-section-global home-locations">
+        <Reveal as="section" id="benefits" className="padding-section-global home-locations">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -140,9 +142,9 @@ export default function CorporatePage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
-        <section className="padding-section-global">
+        <Reveal as="section" className="padding-section-global">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -177,9 +179,9 @@ export default function CorporatePage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
-        <section id="in-office" className="padding-section-global">
+        <Reveal as="section" id="in-office" className="padding-section-global">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -212,9 +214,9 @@ export default function CorporatePage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
-        <section id="in-spa" className="padding-section-global home-locations">
+        <Reveal as="section" id="in-spa" className="padding-section-global home-locations">
           <div className="padding-global">
             <div className="container-large">
               <div className="corporate-split">
@@ -254,9 +256,9 @@ export default function CorporatePage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
-        <section className="padding-section-global">
+        <Reveal as="section" className="padding-section-global">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -276,9 +278,9 @@ export default function CorporatePage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
-        <section className="padding-section-global home-locations">
+        <Reveal as="section" className="padding-section-global home-locations">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -301,16 +303,16 @@ export default function CorporatePage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
-        <section className="section_get-in-touch is-top-off">
+        <Reveal as="section" className="section_get-in-touch is-top-off">
           <div className="get-in-touch_container">
             <div className="get-in-touch_banner">
               <h4 className="header-l">Let&apos;s build your wellness program.</h4>
               <a
-                href="https://wa.me/6281316052040?text=Hi%20KAMA%20Spa%2C%20I%27d%20like%20to%20discuss%20a%20corporate%20wellness%20program."
+                href={corporateWhatsApp()}
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 className="button is-tertiary is-icon margin-left-auto-desktop w-inline-block"
               >
                 <div>Talk to Roy · +62 813-1485-6565</div>
@@ -329,7 +331,7 @@ export default function CorporatePage() {
               </a>
             </div>
           </div>
-        </section>
+        </Reveal>
       </main>
       <Footer />
     </>

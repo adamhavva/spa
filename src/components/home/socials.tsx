@@ -1,5 +1,6 @@
 import { ArrowRight, Instagram } from "@/components/icons";
 import { site } from "@/data/content";
+import { Reveal } from "@/components/reveal";
 
 const galleryImages = [
   "/img/IMG_5651-min.jpg",
@@ -18,7 +19,7 @@ const galleryImages = [
 
 export function SocialsSection() {
   return (
-    <section className="bg-cream-soft">
+    <Reveal as="section" className="bg-cream-soft">
       <div className="container-kama py-14 md:py-16 lg:py-20">
         {/* Section header */}
         <div className="flex flex-col items-start gap-4 border-b border-cocoa/15 pb-6 sm:flex-row sm:items-center sm:justify-between">
@@ -72,6 +73,6 @@ export function SocialsSection() {
           ))}
         </ul>
       </div>
-    </section>
+    </Reveal>
   );
 }

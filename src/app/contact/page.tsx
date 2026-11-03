@@ -6,6 +6,8 @@ import { ReservationForm } from "@/components/forms/reservation-form";
 import { LocationCards } from "@/components/contact/location-cards";
 import { LocationPin, WhatsApp } from "@/components/icons";
 import { locations, site } from "@/data/content";
+import { RESERVE_MESSAGE, waLink } from "@/lib/whatsapp";
+import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -18,7 +20,7 @@ export default function ContactPage() {
     <>
       <Navigation />
       <main className="main-wrapper">
-        <section className="page-hero">
+        <Reveal as="section" className="page-hero">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -30,9 +32,9 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
-        <section className="padding-section-global">
+        <Reveal as="section" className="padding-section-global">
           <div className="padding-global">
             <div className="container-large">
               <div className="layout-row gap-xlarge">
@@ -57,7 +59,7 @@ export default function ContactPage() {
                     <WhatsApp />
                     <span>
                       Prefer WhatsApp?{" "}
-                      <a href={site.phoneHref} className="text-style-link">
+                      <a href={waLink(RESERVE_MESSAGE)} className="text-style-link">
                         {site.phone}
                       </a>
                     </span>
@@ -76,9 +78,9 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
-        <section className="section_get-in-touch is-top-off">
+        <Reveal as="section" className="section_get-in-touch is-top-off">
           <div className="get-in-touch_container">
             <div className="get-in-touch_banner">
               <h4 className="header-l">Want to experience KAMA first?</h4>
@@ -87,7 +89,7 @@ export default function ContactPage() {
               </Link>
             </div>
           </div>
-        </section>
+        </Reveal>
       </main>
       <Footer />
     </>

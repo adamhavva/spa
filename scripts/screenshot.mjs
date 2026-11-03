@@ -38,6 +38,21 @@ for (const [name, width, height] of sizes) {
 
   await page.goto(url, { waitUntil: "networkidle", timeout: 60_000 });
   await page.waitForTimeout(500);
+
+  /* Scroll through the page so the scroll-reveal blocks are visible in the
+     screenshot, then return to the top. */
+  await page.evaluate(async () => {
+    const step = window.innerHeight * 0.8;
+    const total = document.body.scrollHeight;
+    for (let y = 0; y < total; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((resolve) => setTimeout(resolve, 120));
+    }
+    window.scrollTo(0, 0);
+    await new Promise((resolve) => setTimeout(resolve, 250));
+  });
+  await page.waitForTimeout(400);
+
   await page.screenshot({
     path: `${out}-${name}.png`,
     fullPage: !viewportOnly,

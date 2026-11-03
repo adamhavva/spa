@@ -4,6 +4,7 @@ import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { ArrowRight, Check, ChevronDown, Clock } from "@/components/icons";
 import { spa101 } from "@/data/pages";
+import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "Spa 101",
@@ -22,7 +23,7 @@ export default function Spa101Page() {
     <>
       <Navigation />
       <main className="main-wrapper">
-        <section className="page-hero">
+        <Reveal as="section" className="page-hero">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -33,10 +34,10 @@ export default function Spa101Page() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Before / During / After */}
-        <section className="section_who-we-are">
+        <Reveal as="section" className="section_who-we-are">
           <div className="padding-global padding-section-global is-basic">
             <div className="container-large">
               <div className="section-header">
@@ -68,10 +69,10 @@ export default function Spa101Page() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Policies */}
-        <section className="section_minor-policy">
+        <Reveal as="section" className="section_minor-policy">
           <div className="padding-global padding-minor-policy">
             <div className="container-large">
               <div className="dropdowns_content">
@@ -106,10 +107,10 @@ export default function Spa101Page() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Minor policy */}
-        <section className="padding-section-global">
+        <Reveal as="section" className="padding-section-global">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -133,9 +134,9 @@ export default function Spa101Page() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
-        <section className="section_get-in-touch is-top-off">
+        <Reveal as="section" className="section_get-in-touch is-top-off">
           <div className="get-in-touch_container">
             <div className="get-in-touch_banner">
               <h4 className="header-l">Have any questions? Drop us a line.</h4>
@@ -150,7 +151,7 @@ export default function Spa101Page() {
               </Link>
             </div>
           </div>
-        </section>
+        </Reveal>
       </main>
       <Footer />
     </>

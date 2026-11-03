@@ -4,11 +4,12 @@ export const site = {
   description:
     "KAMA Spa adalah wellness sanctuary di jantung South Jakarta. Memadukan teknik penyembuhan tradisional dengan pendekatan wellness modern untuk mengembalikan keseimbangan, relaksasi, dan ketenangan.",
   address: "Jl. Barito I No.21, Kramat Pela, Jakarta Selatan",
-  instagram: "https://www.instagram.com/kama__spa/",
+  instagram: "https://www.instagram.com/kama__spa",
+  tiktok: "https://www.tiktok.com/@kama__spa",
   phone: "+6281316052040",
-  phoneHref: "tel:+6281316052040",
-  whatsapp: "https://wa.me/6281316052040",
   email: "hello@kamaspa.id",
+  /** Collaboration & partnership enquiries. */
+  partnershipEmail: "marketing@kamaspa.id",
   hours: "Mon – Sun. 10 AM – 8 PM",
 };
 
@@ -44,6 +45,8 @@ export type NavPrimaryItem = {
   label: string;
   href: string;
   mega?: string;
+  /** External links open in a new tab and are rendered as plain `<a>`. */
+  external?: boolean;
 };
 
 export const nav: {
@@ -62,6 +65,11 @@ export const nav: {
     { label: "Gift Cards", href: "/gift-cards" },
     { label: "Locations", href: "/locations" },
     { label: "Contact", href: "/contact" },
+    {
+      label: "Service Menu",
+      href: "https://drive.google.com/file/d/1UfW-JFOno47KCLi-PwID4XdrCDHkwIfc/view?usp=sharing",
+      external: true,
+    },
   ],
   bookNow: "Book Now",
   megaGroups: {
@@ -158,7 +166,7 @@ export const footerLinks = {
     { label: "In-Office Program", href: "/corporate#in-office" },
     { label: "In-Spa Experience", href: "/corporate#in-spa" },
     { label: "Wellness Benefits", href: "/corporate#benefits" },
-    { label: "Partnership", href: "/contact" },
+    { label: "Partnership", href: "mailto:marketing@kamaspa.id" },
   ],
   About: [
     { label: "Who We Are", href: "/about" },
@@ -175,10 +183,14 @@ export const footerLinks = {
 };
 
 export const socials = [
-  { label: "Instagram", href: "https://www.instagram.com/kama__spa/", icon: "instagram" },
-  { label: "Facebook", href: "https://www.facebook.com/", icon: "facebook" },
-  { label: "TikTok", href: "https://www.tiktok.com/", icon: "tiktok" },
-];
+  { label: "Instagram", href: "https://www.instagram.com/kama__spa", icon: "instagram" },
+  { label: "TikTok", href: "https://www.tiktok.com/@kama__spa", icon: "tiktok" },
+  {
+    label: "Email",
+    href: "mailto:marketing@kamaspa.id",
+    icon: "email",
+  },
+] as const;
 
 /* ---------- Treatments / Menu ---------- */
 

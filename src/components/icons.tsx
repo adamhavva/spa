@@ -226,17 +226,85 @@ export function TikTok({ className }: IconProps) {
       className={className}
       aria-hidden="true"
     >
+      {/* The TikTok note: a "d" bowl on the left of a vertical stem. */}
       <path
-        d="M14 2v10.2a3.3 3.3 0 1 1-3.3-3.3c.35 0 .68.05 1 .15"
+        d="M13.9 2.5v11.6a3.9 3.9 0 1 1-3.9-3.9c.44 0 .86.07 1.25.2"
         stroke="currentColor"
         strokeWidth="1.6"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+      {/* The flag of the note. */}
       <path
-        d="M14 2c.4 2.6 2.2 4.4 4.8 4.7"
+        d="M13.9 2.5c.5 2.85 2.7 4.8 5.8 5.05"
         stroke="currentColor"
         strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function Email({ className }: IconProps) {
+  return (
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect
+        x="2.75"
+        y="4.75"
+        width="18.5"
+        height="14.5"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M3.5 6.5 12 13l8.5-6.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function ExternalLink({ className }: IconProps) {
+  return (
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        d="M14 4h6v6"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M20 4 11.5 12.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M18 14.5V19a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h4.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -265,6 +333,26 @@ export function WhatsApp({ className }: IconProps) {
         d="M8.5 8.5c.3-.6.7-.6 1-.6h.7c.3 0 .6.1.7.5l.8 2c.1.3 0 .5-.2.7l-.5.6c-.2.2-.2.4 0 .7.6 1 1.5 1.9 2.6 2.4.3.2.5.1.7-.1l.6-.7c.2-.2.4-.3.7-.2l2 .9c.3.1.4.3.4.6 0 .8-.6 1.5-1.2 1.7-.5.2-1.2.3-3.3-.7-2.6-1.2-4.2-3.7-4.4-4.2-.2-.4-.2-1 .1-1.4Z"
         fill="currentColor"
       />
+    </svg>
+  );
+}
+
+/**
+ * The official WhatsApp glyph (filled). Used by the floating WhatsApp
+ * button so the icon matches the brand design.
+ */
+export function WhatsAppBrand({ className }: IconProps) {
+  return (
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.174.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.987 2.896 9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.142 1.595 5.945L0 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.421-8.4" />
     </svg>
   );
 }

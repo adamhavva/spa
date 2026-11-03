@@ -168,8 +168,26 @@ test("desktop header keeps the dropdown groups first", async ({
     "Gift Cards",
     "Locations",
     "Contact",
+    "Service Menu",
     "Book Now",
   ]);
+});
+
+test("the Service Menu link opens the price list in a new tab", async ({
+  page,
+}, testInfo) => {
+  test.skip(testInfo.project.name !== DESKTOP, "desktop only");
+
+  const link = page
+    .locator("header nav")
+    .getByRole("link", { name: "Service Menu" });
+
+  await expect(link).toHaveAttribute("target", "_blank");
+  await expect(link).toHaveAttribute("rel", /noopener/);
+  await expect(link).toHaveAttribute(
+    "href",
+    /drive\.google\.com\/file\/d\/1UfW-JFOno47KCLi-PwID4XdrCDHkwIfc/,
+  );
 });
 
 test("desktop mega menu is attached to its trigger", async ({

@@ -9,6 +9,7 @@ import {
   priceDisclaimer,
   treatments,
 } from "@/data/content";
+import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "Menu Treatments",
@@ -58,7 +59,7 @@ export default function MenuPage() {
     <>
       <Navigation />
       <main className="main-wrapper">
-        <section className="page-hero">
+        <Reveal as="section" className="page-hero">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -72,10 +73,10 @@ export default function MenuPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Treatments */}
-        <section id="massage" className="padding-section-global">
+        <Reveal as="section" id="massage" className="padding-section-global">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -111,10 +112,10 @@ export default function MenuPage() {
               <div className="eyebrow-s text-color-gray">{priceDisclaimer}</div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Body & scrub add-ons */}
-        <section id="body" className="padding-section-global">
+        <Reveal as="section" id="body" className="padding-section-global">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -142,7 +143,7 @@ export default function MenuPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Single-service features */}
         {featureSections.map((section) => {
@@ -167,7 +168,7 @@ export default function MenuPage() {
           );
 
           return (
-            <section key={section.anchor} id={section.anchor} className="padding-section-global">
+            <Reveal as="section" key={section.anchor} id={section.anchor} className="padding-section-global">
               <div className="padding-global">
                 <div className="container-large">
                   <div className="section-header">
@@ -190,7 +191,7 @@ export default function MenuPage() {
                   </div>
                 </div>
               </div>
-            </section>
+            </Reveal>
           );
         })}
 
@@ -211,7 +212,7 @@ export default function MenuPage() {
         </div>
 
         {/* Day Spa packages */}
-        <section id="packages" className="padding-section-global home-locations">
+        <Reveal as="section" id="packages" className="padding-section-global home-locations">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -255,10 +256,10 @@ export default function MenuPage() {
               <div className="eyebrow-s text-color-gray">{priceDisclaimer}</div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Menu book gallery */}
-        <section id="gallery" className="padding-section-global home-locations">
+        <Reveal as="section" id="gallery" className="padding-section-global home-locations">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -298,7 +299,7 @@ export default function MenuPage() {
               </a>
             </div>
           </div>
-        </section>
+        </Reveal>
       </main>
       <Footer />
     </>

@@ -4,6 +4,8 @@ import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { ArrowRight, Check, ChevronDown } from "@/components/icons";
 import { membership } from "@/data/pages";
+import { MEMBER_MESSAGE, waLink } from "@/lib/whatsapp";
+import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "Membership",
@@ -16,7 +18,7 @@ export default function MembershipPage() {
     <>
       <Navigation />
       <main className="main-wrapper">
-        <section className="page-hero">
+        <Reveal as="section" className="page-hero">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -26,9 +28,14 @@ export default function MembershipPage() {
                 <p className="body-l text-color-gray">{membership.intro}</p>
                 <div className="spacer-large" />
                 <div className="button-group">
-                  <Link href="/contact" className="button is-tertiary sizing-grow w-inline-block">
+                  <a
+                    href={waLink(MEMBER_MESSAGE)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button is-tertiary sizing-grow w-inline-block"
+                  >
                     <div>Join KAMA Now</div>
-                  </Link>
+                  </a>
                   <a href="/menu" className="button is-secondary sizing-grow w-inline-block">
                     <div>Lihat Menu</div>
                   </a>
@@ -36,10 +43,10 @@ export default function MembershipPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Main benefits */}
-        <section className="section_who-we-are">
+        <Reveal as="section" className="section_who-we-are">
           <div className="padding-global padding-section-global is-basic">
             <div className="container-large">
               <div className="section-header">
@@ -62,10 +69,10 @@ export default function MembershipPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Essential services */}
-        <section className="padding-section-global">
+        <Reveal as="section" className="padding-section-global">
           <div className="padding-global">
             <div className="container-large">
               <div className="dropdowns_content">
@@ -108,10 +115,10 @@ export default function MembershipPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Plans */}
-        <section className="padding-section-global home-locations">
+        <Reveal as="section" className="padding-section-global home-locations">
           <div className="padding-global">
             <div className="container-large">
               <div className="section-header">
@@ -140,25 +147,27 @@ export default function MembershipPage() {
                         ))}
                       </ul>
                       <div className="spacer-small" />
-                      <Link
-                        href="/contact"
+                      <a
+                        href={waLink(MEMBER_MESSAGE)}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="button is-tertiary is-icon w-inline-block"
                       >
                         <div>Join Now</div>
                         <div className="button_icon w-embed">
                           <ArrowRight />
                         </div>
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
 
-        <section className="section_get-in-touch is-top-off">
+        <Reveal as="section" className="section_get-in-touch is-top-off">
           <div className="get-in-touch_container">
             <div className="get-in-touch_banner">
               <h4 className="header-l">Have any questions? Drop us a line.</h4>
@@ -173,7 +182,7 @@ export default function MembershipPage() {
               </Link>
             </div>
           </div>
-        </section>
+        </Reveal>
       </main>
       <Footer />
     </>

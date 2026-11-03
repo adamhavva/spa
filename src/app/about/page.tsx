@@ -4,6 +4,7 @@ import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { ArrowRight } from "@/components/icons";
 import { testimonials } from "@/data/content";
+import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "Who We Are",
@@ -140,7 +141,7 @@ export default function AboutPage() {
           <HeroCircles />
         </header>
 
-        <section className="section_who-we-are">
+        <Reveal as="section" className="section_who-we-are">
           <div className="padding-global padding-section-global is-who-we-are">
             <div className="container-large">
               <div className="our-list_header">
@@ -160,9 +161,9 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
-        <section className="section_reviews">
+        <Reveal as="section" className="section_reviews">
           <div className="padding-section-global">
             <div className="padding-global">
               <div className="container-large">
@@ -212,9 +213,9 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Reveal>
 
-        <section className="section_get-in-touch is-tablet-top">
+        <Reveal as="section" className="section_get-in-touch is-tablet-top">
           <div className="get-in-touch_container">
             <div className="get-in-touch_banner">
               <h4 className="header-l">Have any questions? Drop us a line.</h4>
@@ -229,7 +230,7 @@ export default function AboutPage() {
               </Link>
             </div>
           </div>
-        </section>
+        </Reveal>
       </main>
       <Footer />
     </>

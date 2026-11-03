@@ -1067,3 +1067,161 @@ video {
   width: 100%;
   height: auto;
 }
+
+/* ---- Scroll reveal ---------------------------------------------------- */
+/* The content is visible by default: only a script-enabled document may
+   hide a block before it animates in (`html[data-js="true"]` is set by the
+   inline script in the root layout). Without JavaScript the page stays
+   fully readable. */
+
+html[data-js="true"] .kama-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html[data-js="true"] .kama-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-js="true"] .kama-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---- Floating WhatsApp button ----------------------------------------- */
+/* A soft ring pulses out of the button, so the primary contact action is
+   noticed without being loud. */
+
+.kama-whatsapp-fab {
+  position: relative;
+  isolation: isolate;
+}
+
+.kama-whatsapp-fab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 9999px;
+  background: #25d366;
+  animation: kama-wa-pulse 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes kama-wa-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  70%,
+  100% {
+    transform: scale(1.75);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kama-whatsapp-fab::before {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* ---- Reviews carousel -------------------------------------------------- */
+/* A slim, warm scrollbar so the track reads as scrollable. */
+
+.kama-reviews-track {
+  scrollbar-width: thin;
+  scrollbar-color: var(--kama-periwinkle-100) transparent;
+}
+
+.kama-reviews-track::-webkit-scrollbar {
+  height: 4px;
+}
+
+.kama-reviews-track::-webkit-scrollbar-thumb {
+  background: var(--kama-periwinkle-100);
+}
+
+.kama-reviews-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---- Card consistency -------------------------------------------------
+   Every card of a row must fill its cell, keep its price row and its
+   call-to-action at the bottom, and stay centred on every device
+   (Android included). */
+
+.treatment-card,
+.package-card,
+.location-card_component,
+.contact-card,
+.benefits_card,
+.whats-new_card,
+.review_card {
+  min-width: 0;
+}
+
+.treatment-card,
+.package-card,
+.contact-card,
+.benefits_card,
+.whats-new_card,
+.review_card {
+  height: 100%;
+}
+
+.location-card_component {
+  height: 100%;
+}
+
+/* The grid item of a legacy Webflow list must not overflow its cell. */
+.w-dyn-item {
+  min-width: 0;
+}
+
+/* The body of a card grows, so the footer of the card can be pushed down. */
+.contact-card_body {
+  flex: 1;
+}
+
+/* The price row and the call-to-action sit at the bottom of the card, so
+   they line up across the whole row. */
+.treatment-card_body > .treatment-card_price-row:last-child,
+.package-card_body > .treatment-card_price-row:last-child,
+.treatment-card_body > .btn:last-child,
+.treatment-card_body > a.btn:last-child,
+.package-card_body > .btn:last-child,
+.package-card_body > a.btn:last-child,
+.package-card_body > .button:last-child,
+.benefits_card > .btn:last-child,
+.benefits_card > .button:last-child,
+.contact-card_body > .btn:last-child,
+.review_card > .btn:last-child {
+  margin-top: auto;
+}
+
+/* The cards of a row are centred inside their column. */
+.location-card_component .location-card_text-wrap {
+  width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  /* The legacy minimum widths (16rem) overflow a phone. */
+  .location-card_component,
+  .whats-new_card {
+    min-width: 0;
+  }
+}
+
+/* The map of the hero needs a positioning context for the marker chip. */
+.hero_locations_map_layout {
+  position: relative;
+}

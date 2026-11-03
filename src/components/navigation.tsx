@@ -4,8 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Logo } from "./logo";
-import { ChevronDown, Close, WhatsApp } from "./icons";
-import { nav, site, type NavMegaGroup } from "@/data/content";
+import { ChevronDown, Close, ExternalLink, WhatsApp } from "./icons";
+import { nav, type NavMegaGroup } from "@/data/content";
+import { RESERVE_MESSAGE, waLink } from "@/lib/whatsapp";
 
 /* Owner of the page scroll lock — only one navigation may hold it. */
 let bodyLockToken: object | null = null;
@@ -388,6 +389,24 @@ export function Navigation() {
             <ul className="m-0 flex list-none items-stretch gap-0.5 p-0">
               {nav.primary.map((item) => {
                 if (!item.mega) {
+                  /* External links open in a new tab — never `next/link`. */
+                  if (item.external) {
+                    return (
+                      <li key={item.label} className="m-0 flex flex-col justify-center">
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setOpenGroup(null)}
+                          className={`${linkBase} text-cocoa/85 hover:bg-cocoa/5 hover:text-ink`}
+                        >
+                          {item.label}
+                          <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                        </a>
+                      </li>
+                    );
+                  }
+
                   return (
                     <li key={item.label} className="m-0 flex flex-col justify-center">
                       <Link
@@ -487,6 +506,27 @@ export function Navigation() {
               <ul className="m-0 list-none p-0">
                 {nav.primary.map((item) => {
                   if (!item.mega) {
+                    /* External links open in a new tab — never `next/link`. */
+                    if (item.external) {
+                      return (
+                        <li key={item.label} className="m-0 border-b border-tan/40">
+                          <a
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={closeMobileMenu}
+                            className="flex items-center justify-between py-3.5 text-[1rem] text-cocoa/90 transition-colors hover:text-ink focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-cocoa"
+                          >
+                            {item.label}
+                            <ExternalLink
+                              className="h-3.5 w-3.5 shrink-0 opacity-60"
+                              aria-hidden="true"
+                            />
+                          </a>
+                        </li>
+                      );
+                    }
+
                     return (
                       <li key={item.label} className="m-0 border-b border-tan/40">
                         <Link
@@ -546,7 +586,7 @@ export function Navigation() {
                 {nav.bookNow}
               </Link>
               <a
-                href={site.whatsapp}
+                href={waLink(RESERVE_MESSAGE)}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Chat via WhatsApp"

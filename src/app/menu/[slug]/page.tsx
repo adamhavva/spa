@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { ArrowRight, Check } from "@/components/icons";
@@ -33,7 +34,42 @@ export async function generateMetadata({
   };
 }
 
-export default async function TreatmentPage({
+export default function TreatmentPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  /* The params are runtime data: reading them must happen inside a
+     Suspense boundary, otherwise Next.js complains about "URL data during
+     prerendering". Every slug of `generateStaticParams` is prerendered, so
+     the fallback is only a safety net. */
+  return (
+    <>
+      <Navigation />
+      <Suspense fallback={<TreatmentFallback />}>
+        <TreatmentContent params={params} />
+      </Suspense>
+      <Footer />
+    </>
+  );
+}
+
+function TreatmentFallback() {
+  return (
+    <main className="main-wrapper">
+      <section className="page-hero">
+        <div className="padding-global">
+          <div className="container-large">
+            <div className="eyebrow-s text-style-allcaps">KAMA Spa</div>
+            <h1 className="header-xxl">Memuat treatment…</h1>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+async function TreatmentContent({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -46,9 +82,7 @@ export default async function TreatmentPage({
   }
 
   return (
-    <>
-      <Navigation />
-      <main className="main-wrapper">
+    <main className="main-wrapper">
         <section className="page-hero">
           <div className="padding-global">
             <div className="container-large">
@@ -157,8 +191,6 @@ export default async function TreatmentPage({
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </>
+    </main>
   );
 }
