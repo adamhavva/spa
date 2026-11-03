@@ -55,3 +55,5 @@ opencode.json
 references/
 AGENTS.md
 docs
+.opencode-mem
+.agents
